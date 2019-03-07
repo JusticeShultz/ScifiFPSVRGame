@@ -59,6 +59,7 @@
      <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WaveformProvider.cs" />
      <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WaveformRenderer.cs" />
      <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WavTexture.cs" />
+     <Compile Include="Assets\Scripts\SpitterAI.cs" />
      <Compile Include="Assets\Unity\Scripts\SetCorrectCameraHeight.cs" />
      <Compile Include="Assets\Unity\TutorialInfo\Scripts\Readme.cs" />
      <None Include="Assets\Art Assets\AudioWaveShader\Assets\Argofox\Acknowledgement.txt" />
@@ -308,6 +309,9 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+ <Reference Include="Valve.Newtonsoft.Json">
+ <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+ </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
  </Reference>
@@ -335,6 +339,18 @@
  <Reference Include="Boo.Lang">
  <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SteamVR_Input_Editor.csproj">
+      <Project>{92F74B4E-DBF9-87C2-DFF3-676D14C7A4D0}</Project>      <Name>SteamVR_Input_Editor</Name>    </ProjectReference>
+    <ProjectReference Include="SteamVR_Editor.csproj">
+      <Project>{48A58A12-67D0-A0C6-F7D9-E245E0380408}</Project>      <Name>SteamVR_Editor</Name>    </ProjectReference>
+    <ProjectReference Include="SteamVR.csproj">
+      <Project>{1AE8F41C-F41B-8758-130D-262388C8A470}</Project>      <Name>SteamVR</Name>    </ProjectReference>
+    <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
+      <Project>{DBB388AB-4344-68B2-C896-659C1C35ECB3}</Project>      <Name>SteamVR_Windows_EditorHelper</Name>    </ProjectReference>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{8A2F6108-8C97-0187-A8C8-9C9EC2E07E85}</Project>      <Name>SteamVR_Actions</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
