@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/SteamVR/Simple Sample.unity
+=======
+- path: Assets/Scenes/AMTest1.unity
+>>>>>>> refs/remotes/origin/master
   isLoaded: 1
   isActive: 1
