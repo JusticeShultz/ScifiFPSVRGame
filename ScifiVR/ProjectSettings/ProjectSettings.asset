@@ -288,7 +288,10 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
+<<<<<<< HEAD
     - None
+=======
+>>>>>>> refs/remotes/origin/master
     - OpenVR
   - m_BuildTarget: iOS
     m_Enabled: 0
@@ -316,6 +319,12 @@ PlayerSettings:
     m_Enabled: 0
     m_Devices: []
   - m_BuildTarget: tvOS
+    m_Enabled: 0
+    m_Devices: []
+  - m_BuildTarget: 
+    m_Enabled: 0
+    m_Devices: []
+  - m_BuildTarget: Facebook
     m_Enabled: 0
     m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
@@ -686,7 +695,8 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 2e5eb783-c345-4695-8303-058eaf0208c4
