@@ -1,8 +1,4 @@
-// WavTexture - Audio waveform to texture converter
-// https://github.com/keijiro/WavTexture
-
 using UnityEngine;
-
 namespace WavTexture
 {
     /// Basic waveform graph renderer.

@@ -68,6 +68,7 @@
     <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WaveformRenderer.cs" />
     <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WavTexture.cs" />
     <Compile Include="Assets\Scripts\FPSTarget.cs" />
+    <Compile Include="Assets\Scripts\Shooting.cs" />
     <Compile Include="Assets\Scripts\SpitterAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
