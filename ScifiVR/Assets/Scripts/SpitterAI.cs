@@ -9,12 +9,13 @@ public class SpitterAI : MonoBehaviour {
 
     void Start()
     {
-        UnityEngine.AI.NavMeshAgent Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update ()
     {
+        
         Agent.destination = Player.GetComponent<Transform>().position;
     }
 }
