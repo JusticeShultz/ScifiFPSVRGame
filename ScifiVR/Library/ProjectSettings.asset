@@ -288,6 +288,10 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
+<<<<<<< HEAD
+    - None
+=======
+>>>>>>> refs/remotes/origin/master
     - OpenVR
   - m_BuildTarget: iOS
     m_Enabled: 0

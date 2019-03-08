@@ -67,6 +67,9 @@
     <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WaveformProvider.cs" />
     <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WaveformRenderer.cs" />
     <Compile Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\WavTexture.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Scripts\inputTest.cs" />
+=======
     <Compile Include="Assets\Scripts\FPSTarget.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />
     <Compile Include="Assets\Scripts\SpitterAI.cs" />
@@ -103,6 +106,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+>>>>>>> refs/remotes/origin/master
     <Compile Include="Assets\Unity\Scripts\SetCorrectCameraHeight.cs" />
     <Compile Include="Assets\Unity\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[001 - Interactions] ControllerEvents\Scripts\VRTKExample_ControllerEventsDelegateListeners.cs" />
@@ -447,19 +451,68 @@
     <Compile Include="Assets\VRTK\Source\SDK\Ximmerse\SDK_XimmerseDefines.cs" />
     <Compile Include="Assets\VRTK\Source\SDK\Ximmerse\SDK_XimmerseHeadset.cs" />
     <Compile Include="Assets\VRTK\Source\SDK\Ximmerse\SDK_XimmerseSystem.cs" />
+<<<<<<< HEAD
+    <None Include="Assets\Art Assets\AudioWaveShader\Assets\Argofox\Acknowledgement.txt" />
+=======
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Art Assets\AudioWaveShader\Assets\Argofox\Acknowledgement.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+>>>>>>> refs/remotes/origin/master
     <None Include="Assets\VRTK\Documentation.txt" />
     <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\WaveformLine.shader" />
     <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\Cropper.shader" />
     <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\UIOverlay.shader" />
+<<<<<<< HEAD
+=======
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+>>>>>>> refs/remotes/origin/master
     <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\VRTK_OutlineBasic.shader" />
     <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\AdaptiveQualityDebugVisualization.shader" />
     <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\LevelBar.shader" />
     <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\Common.cginc" />
+<<<<<<< HEAD
+    <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\LevelMonitor.shader" />
+    <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\VRTK_TunnelEffect.shader" />
+    <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\TransparentFresnelBehind.shader" />
+    <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\Unlit_TransparentColor.shader" />
+    <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\LissajousLine.shader" />
+    <Reference Include="com.unity.render-pipelines.core.Editor">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.render-pipelines.core.Runtime">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.StandardEvents">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.render-pipelines.lightweight.Runtime">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.render-pipelines.lightweight.Editor">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.postprocessing.Editor">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.postprocessing.Runtime">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.render-pipelines.core.IncludePaths">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
+=======
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Art Assets\AudioWaveShader\Assets\WavTexture\Shader\LevelMonitor.shader" />
@@ -517,6 +570,7 @@
     </Reference>
     <Reference Include="com.unity.render-pipelines.core.IncludePaths">
       <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
+>>>>>>> refs/remotes/origin/master
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -716,6 +770,16 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/s189076/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/s189076/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Valve.Newtonsoft.Json">
+      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+=======
     <Reference Include="Valve.Newtonsoft.Json">
       <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -724,6 +788,7 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+>>>>>>> refs/remotes/origin/master
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
@@ -754,10 +819,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
     <ProjectReference Include="SteamVR_Actions.csproj">
       <Project>{8A2F6108-8C97-0187-A8C8-9C9EC2E07E85}</Project>
       <Name>SteamVR_Actions</Name>
     </ProjectReference>
+>>>>>>> refs/remotes/origin/master
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
       <Project>{92F74B4E-DBF9-87C2-DFF3-676D14C7A4D0}</Project>
       <Name>SteamVR_Input_Editor</Name>
