@@ -81,77 +81,40 @@
     <Compile Include="Assets\VRTK\Source\Editor\VRTK_SupportInfoWindow.cs" />
     <Compile Include="Assets\VRTK\Source\Editor\VRTK_UpdatePrompt.cs" />
     <Reference Include="com.unity.render-pipelines.core.Editor">
-<<<<<<< HEAD
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.core.Runtime">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Runtime.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.lightweight.Runtime">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Runtime.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.lightweight.Editor">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Editor">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.core.IncludePaths">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
-=======
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.render-pipelines.core.Runtime">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.render-pipelines.lightweight.Runtime">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.render-pipelines.lightweight.Editor">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.postprocessing.Editor">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.postprocessing.Runtime">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.render-pipelines.core.IncludePaths">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
->>>>>>> refs/remotes/origin/master
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -405,7 +368,9 @@
     <Reference Include="UnityEditor.OSXStandalone.Extensions">
       <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
+    <Reference Include="Valve.Newtonsoft.Json">
+      <HintPath>C:/Users/s189076/source/repos/ScifiFPSVRGame/ScifiVR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/s189076/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -423,38 +388,10 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/s189076/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-=======
-    <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>C:/Users/s189081/Desktop/UnityProj/ScifiFPSVRGame/ScifiVR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Analytics">
-      <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.render-pipelines.core@2.0.6-preview/CoreRP/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/s189081/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
->>>>>>> refs/remotes/origin/master
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-    <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>C:/Users/s189076/source/repos/scififpsvrgame/ScifiVR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
-    </Reference>
-=======
->>>>>>> refs/remotes/origin/master
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity 2018.2.5f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -494,13 +431,10 @@
       <Project>{8EC1FDA3-629C-DABC-DD5D-D749FDBA8396}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-<<<<<<< HEAD
-=======
     <ProjectReference Include="SteamVR_Actions.csproj">
       <Project>{8A2F6108-8C97-0187-A8C8-9C9EC2E07E85}</Project>
       <Name>SteamVR_Actions</Name>
     </ProjectReference>
->>>>>>> refs/remotes/origin/master
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
       <Project>{92F74B4E-DBF9-87C2-DFF3-676D14C7A4D0}</Project>
       <Name>SteamVR_Input_Editor</Name>

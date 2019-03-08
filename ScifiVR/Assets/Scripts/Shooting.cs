@@ -19,6 +19,6 @@ public class Shooting : MonoBehaviour
         var lefthand = LeftHand.GetComponent<SteamVR_Behaviour_Pose>();
         var righthand = RightHand.GetComponent<SteamVR_Behaviour_Pose>();
 
-        lefthand.
+        // lefthand.
     }
 }
