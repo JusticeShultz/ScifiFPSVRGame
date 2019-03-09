@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: a4ea7858f594a0945b5eec811a4aadd9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Hologram01
+    100004: Hologram02
+    100006: Hologram03
+    100008: Hologram04
+    100010: Hologram05
+    100012: Hologram06
+    100014: Hologram07
+    100016: Hologram08
+    100018: Hologram09
+    100020: Hologram10
+    100022: Hologram11
+    100024: Hologram12
+    100026: Hologram13
+    100028: Hologram14
+    100030: Hologram15
+    100032: Hologram16
+    100034: Hologram17
+    100036: Hologram18
+    100038: Hologram19
+    100040: panel.001
+    100042: panel.002
+    100044: panel.003
+    100046: panel.004
+    100048: panel.005
+    100050: panel.006
+    100052: panel.007
+    100054: panel.008
+    100056: panel.009
+    100058: panel.010
+    100060: panel.011
+    100062: panel.012
+    100064: panel.013
+    100066: panel.014
+    100068: panel.015
+    100070: panel.016
+    100072: panel.017
+    100074: panel.018
+    100076: panel.019
+    100078: panel.020
+    100080: Planet
+    100082: Rays
+    100084: Root
+    100086: TechTable_002_low.000
+    100088: TechTable_002_low.001
+    100090: TechTable_002_low.002
+    100092: //RootNode
+    400000: Armature
+    400002: Hologram01
+    400004: Hologram02
+    400006: Hologram03
+    400008: Hologram04
+    400010: Hologram05
+    400012: Hologram06
+    400014: Hologram07
+    400016: Hologram08
+    400018: Hologram09
+    400020: Hologram10
+    400022: Hologram11
+    400024: Hologram12
+    400026: Hologram13
+    400028: Hologram14
+    400030: Hologram15
+    400032: Hologram16
+    400034: Hologram17
+    400036: Hologram18
+    400038: Hologram19
+    400040: panel.001
+    400042: panel.002
+    400044: panel.003
+    400046: panel.004
+    400048: panel.005
+    400050: panel.006
+    400052: panel.007
+    400054: panel.008
+    400056: panel.009
+    400058: panel.010
+    400060: panel.011
+    400062: panel.012
+    400064: panel.013
+    400066: panel.014
+    400068: panel.015
+    400070: panel.016
+    400072: panel.017
+    400074: panel.018
+    400076: panel.019
+    400078: panel.020
+    400080: Planet
+    400082: Rays
+    400084: Root
+    400086: TechTable_002_low.000
+    400088: TechTable_002_low.001
+    400090: TechTable_002_low.002
+    400092: //RootNode
+    2100000: MAT_Hologram_Planet
+    2100002: MAT_Hologram_Decals
+    2100004: MAT_TechTable_Body
+    2100006: MAT_TechTable_Detail
+    4300000: TechTable_002_low.002
+    4300002: TechTable_002_low.000
+    4300004: TechTable_002_low.001
+    7400000: Armature|ArmatureAction
+    7400002: Armature|Holograms
+    9500000: //RootNode
+    13700000: TechTable_002_low.000
+    13700002: TechTable_002_low.001
+    13700004: TechTable_002_low.002
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Hologram_Decals
+    second: {fileID: 2100000, guid: d61568316f7313645aa96a2b36c3f9d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Hologram_Planet
+    second: {fileID: 2100000, guid: 97d99ed1b874b834f9171d484c9a80d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_TechTable_Body
+    second: {fileID: 2100000, guid: bc15146c051f95140947e57161d25497, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_TechTable_Detail
+    second: {fileID: 2100000, guid: 3e38194b335f3154188ffcd1d478a097, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
