@@ -23,8 +23,9 @@ namespace Valve.VR.InteractionSystem
 
 		//Public variables
 		public TeleportPointType teleportType = TeleportPointType.MoveToLocation;
-		public string title;
-		public string switchToScene;
+        public string unlocked_title;
+        public string locked_title;
+        public string switchToScene;
 		public Color titleVisibleColor;
 		public Color titleHighlightedColor;
 		public Color titleLockedColor;
@@ -182,8 +183,9 @@ namespace Valve.VR.InteractionSystem
 				}
 			}
 
-			titleText.text = title;
-		}
+            if (locked) titleText.text = locked_title;
+            else titleText.text = unlocked_title;
+        }
 
 
 		//-------------------------------------------------
@@ -305,7 +307,8 @@ namespace Valve.VR.InteractionSystem
 				}
 			}
 
-			titleText.text = title;
+            if(locked) titleText.text = locked_title;
+            else titleText.text = unlocked_title;
 
 			ReleaseRelevantComponents();
 		}
