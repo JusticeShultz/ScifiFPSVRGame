@@ -9,7 +9,7 @@ public class BulletLogic : MonoBehaviour
         if(col.gameObject.name == "Spitter")
         {
             //Do damage to it
-            Destroy(col.gameObject);
+            col.gameObject.GetComponent<SpitterAI>().Health -= 25;
             Destroy(gameObject);
         }
         else
