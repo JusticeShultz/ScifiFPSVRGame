@@ -4,7 +4,9 @@
 //
 //=============================================================================
 
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -23,15 +25,16 @@ namespace Valve.VR.InteractionSystem
 
 		//Public variables
 		public TeleportPointType teleportType = TeleportPointType.MoveToLocation;
-		public string title;
-		public string switchToScene;
+        public string unlocked_title;
+        public string locked_title;
+        public string switchToScene;
 		public Color titleVisibleColor;
 		public Color titleHighlightedColor;
 		public Color titleLockedColor;
 		public bool playerSpawnPoint = false;
 
-		//Private data
-		private bool gotReleventComponents = false;
+        //Private data
+        private bool gotReleventComponents = false;
 		private MeshRenderer markerMesh;
 		private MeshRenderer switchSceneIcon;
 		private MeshRenderer moveLocationIcon;
@@ -182,8 +185,9 @@ namespace Valve.VR.InteractionSystem
 				}
 			}
 
-			titleText.text = title;
-		}
+            if (locked) titleText.text = locked_title;
+            else titleText.text = unlocked_title;
+        }
 
 
 		//-------------------------------------------------
@@ -221,17 +225,16 @@ namespace Valve.VR.InteractionSystem
 		{
 			if ( !string.IsNullOrEmpty( switchToScene ) )
 			{
-				Debug.Log("<b>[SteamVR Interaction]</b> TeleportPoint: Hook up your level loading logic to switch to new scene: " + switchToScene );
-			}
+                if (!locked) transform.parent.gameObject.GetComponent<LoadSceneAsync>().Do(switchToScene);
+            }
 			else
 			{
 				Debug.LogError("<b>[SteamVR Interaction]</b> TeleportPoint: Invalid scene name to switch to: " + switchToScene );
 			}
 		}
 
-
-		//-------------------------------------------------
-		public void GetRelevantComponents()
+        //-------------------------------------------------
+        public void GetRelevantComponents()
 		{
 			markerMesh = transform.Find( "teleport_marker_mesh" ).GetComponent<MeshRenderer>();
 			switchSceneIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/switch_scenes_icon" ).GetComponent<MeshRenderer>();
@@ -305,7 +308,8 @@ namespace Valve.VR.InteractionSystem
 				}
 			}
 
-			titleText.text = title;
+            if(locked) titleText.text = locked_title;
+            else titleText.text = unlocked_title;
 
 			ReleaseRelevantComponents();
 		}
