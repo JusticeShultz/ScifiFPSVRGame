@@ -1090,6 +1090,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4555180006295630, guid: 4e0780ed1d2309548a6eb5222eb689ef,
     type: 2}
   m_PrefabInternal: {fileID: 166951475}
+<<<<<<< HEAD
 --- !u!1 &178136245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1752622595167118, guid: a5dedabed3f015d43b44fbce9f20c473,
@@ -1385,6 +1386,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: -6.6070004, y: 202.90399, z: -97.464005}
+=======
+>>>>>>> 4c026f373100e88561118fafbe07d7700b5e7673
 --- !u!1001 &203650484
 Prefab:
   m_ObjectHideFlags: 0
@@ -1671,9 +1674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &203905511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,9 +3463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &369536918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,9 +4143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &471887807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,13 +4356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objective: 0
-  Kill:
-  - {fileID: 2112200269}
-  - {fileID: 1920171836}
-  - {fileID: 178136245}
-  - {fileID: 1679035185}
-  - {fileID: 1607859145}
-  NameType: Spitter
+  Kill: []
+  NameType: 
   TeleportPoint: {fileID: 2056600638}
 --- !u!4 &493501544
 Transform:
@@ -5501,9 +5499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0.58346605, g: 0, b: 1, a: 1}
-  ButtonUpColor: {r: 1, g: 0, b: 0, a: 1}
-  ButtonPressedColor: {r: 0, g: 0.020181894, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &599139074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4431039795707734, guid: 703785754e06a8940a4ebd09442adf2f,
@@ -5943,9 +5941,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &617286138
 Prefab:
   m_ObjectHideFlags: 0
@@ -6294,9 +6292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 0.7672267, b: 1, a: 1}
-  ButtonUpColor: {r: 0, g: 0.34083128, b: 1, a: 1}
-  ButtonPressedColor: {r: 0.564558, g: 0, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &635917509
 GameObject:
   m_ObjectHideFlags: 0
@@ -7433,9 +7431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 0.7672267, b: 1, a: 1}
-  ButtonUpColor: {r: 0, g: 0.34083128, b: 1, a: 1}
-  ButtonPressedColor: {r: 0.564558, g: 0, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &730782081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400014, guid: d48b77676e2a7f047bd5fff320f3ee20,
@@ -8436,20 +8434,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e79bc19dd64154abc3eb670e3f5755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HandType: 2
+  HandType: 0
   GrabPinchAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   GrabGripAction:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
-  FiringSpeed: 0.2
+  FiringSpeed: 0
   CurrentBulletCount: 24
   BulletsShotAtOnce: 1
-  Bullet: {fileID: 1234522652013596, guid: aad76b6eaae09014ca3bcf8782d44e06, type: 2}
+  Bullet: {fileID: 0}
   BulletFlySpeed: 20
   BulletClips: 5
-  DisplayText: {fileID: 237679471}
+  DisplayText: {fileID: 0}
 --- !u!1 &870819561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10102,9 +10100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1046871774
 GameObject:
   m_ObjectHideFlags: 0
@@ -11304,9 +11302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1157183048
 GameObject:
   m_ObjectHideFlags: 0
@@ -13433,9 +13431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 0.7672267, b: 1, a: 1}
-  ButtonUpColor: {r: 0, g: 0.34083128, b: 1, a: 1}
-  ButtonPressedColor: {r: 0.564558, g: 0, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1422200946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9,
@@ -13457,7 +13455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 334fbade178fb784098928240b5dcf6e, type: 2}
+  profile: {fileID: 0}
 --- !u!1 &1425395551
 GameObject:
   m_ObjectHideFlags: 0
@@ -14019,9 +14017,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0.58346605, g: 0, b: 1, a: 1}
-  ButtonUpColor: {r: 1, g: 0, b: 0, a: 1}
-  ButtonPressedColor: {r: 0, g: 0.020181894, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1453341213
 GameObject:
   m_ObjectHideFlags: 0
@@ -15499,9 +15497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0.58346605, g: 0, b: 1, a: 1}
-  ButtonUpColor: {r: 1, g: 0, b: 0, a: 1}
-  ButtonPressedColor: {r: 0, g: 0.020181894, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1538203421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4372043290180240, guid: 9037f27a71e9c2745a9fb3baddb1f44a,
@@ -15799,11 +15797,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4806012433968864, guid: fc1155e2ade447f4aa7ad86b93f0e8c0,
     type: 2}
   m_PrefabInternal: {fileID: 866198050}
---- !u!1 &1607859145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752622595167118, guid: a5dedabed3f015d43b44fbce9f20c473,
-    type: 2}
-  m_PrefabInternal: {fileID: 805440165}
 --- !u!1 &1614729414
 GameObject:
   m_ObjectHideFlags: 0
@@ -16153,11 +16146,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1679035185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752622595167118, guid: a5dedabed3f015d43b44fbce9f20c473,
-    type: 2}
-  m_PrefabInternal: {fileID: 897740991}
 --- !u!1 &1689791385
 GameObject:
   m_ObjectHideFlags: 0
@@ -16670,9 +16658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 0.7672267, b: 1, a: 1}
-  ButtonUpColor: {r: 0, g: 0.34083128, b: 1, a: 1}
-  ButtonPressedColor: {r: 0.564558, g: 0, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1736801610
 Prefab:
   m_ObjectHideFlags: 0
@@ -17712,9 +17700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 0.7672267, b: 1, a: 1}
-  ButtonUpColor: {r: 0, g: 0.34083128, b: 1, a: 1}
-  ButtonPressedColor: {r: 0.564558, g: 0, b: 1, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1872785626
 GameObject:
   m_ObjectHideFlags: 0
@@ -18036,14 +18024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
---- !u!1 &1920171836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752622595167118, guid: a5dedabed3f015d43b44fbce9f20c473,
-    type: 2}
-  m_PrefabInternal: {fileID: 1976033185}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1923408636
 GameObject:
   m_ObjectHideFlags: 0
@@ -18525,9 +18508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1947926022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 022fbf6f0ccb0164f8ad19ef3091793e,
@@ -18997,9 +18980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ecef66fb78ee74c8453f28dc99a9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownColor: {r: 0, g: 1, b: 0.13660717, a: 1}
-  ButtonUpColor: {r: 1, g: 1, b: 1, a: 1}
-  ButtonPressedColor: {r: 1, g: 0.07408504, b: 0, a: 1}
+  ButtonDownColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &2002544905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4536804285040902, guid: 314661d542eb7724c830ceb932ac9bee,
@@ -19706,11 +19689,6 @@ Transform:
   m_Father: {fileID: 324710295}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2112200269 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752622595167118, guid: a5dedabed3f015d43b44fbce9f20c473,
-    type: 2}
-  m_PrefabInternal: {fileID: 2058666935}
 --- !u!1 &2112564128
 GameObject:
   m_ObjectHideFlags: 0
