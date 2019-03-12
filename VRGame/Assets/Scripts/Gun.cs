@@ -62,4 +62,15 @@ public class Gun : MonoBehaviour
 
         DisplayText.GetComponent<TextMeshPro>().text = CurrentBulletCount + "/" + MaxBulletCount + " (" + BulletClips + ")";
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        string ClipName = "AmmoClip";
+        // if not grabbing a clip
+        if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")
+        {
+            CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
+            Destroy(collision.gameObject);
+        }
+    }
 }
