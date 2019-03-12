@@ -28,14 +28,23 @@ public class Gun : MonoBehaviour
         public float BulletClips = 5;
     [Tooltip("Display text that shows your bullets and clip count.")]
         public GameObject DisplayText;
+    [Tooltip("Time it takes to put new clip into gun and reload.")]
+        public float reloadTime;
     //For weapon changing add gun model, etc etc and just do object switches for pickups. (Push feature for later)
 
     //Shots per second that this weapon may fire.
     private float shotcooldown = 0.1f;
 
+    GameObject clip; // shows clip in gun
+    Vector3 clipPos;
+    Vector3 clipGoal;
+
     void Start ()
     {
-		
+        clip = transform.Find("ClipHolder").gameObject;
+        clip.SetActive(false);
+        clipPos = clip.transform.localPosition;
+        clipGoal = transform.Find("ClipGoal").localPosition;
 	}
 	
 	// Update is called once per frame
@@ -68,9 +77,30 @@ public class Gun : MonoBehaviour
         string ClipName = "AmmoClip";
         // if not grabbing a clip
         if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")
-        {
-            CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
+        {           
             Destroy(collision.gameObject);
+            StartCoroutine(LoadClip());
         }
+    }
+
+    // move clip into gun
+    IEnumerator LoadClip()
+    {
+        clip.SetActive(true); // show clip
+
+        // drop old clip
+        GameObject oldClip = Instantiate<GameObject>(clip, clip.transform.position, clip.transform.rotation);
+        oldClip.GetComponent<Rigidbody>().useGravity = true;
+        oldClip.GetComponent<BoxCollider>().isTrigger = true;
+        oldClip.AddComponent<DestroyOnCollision>();
+
+        for(float t = 0; t < 1; t += Time.deltaTime * reloadTime)
+        {
+            clip.transform.localPosition = Vector3.Lerp(clipPos, clipGoal, t);
+            yield return null;
+        }
+        clip.SetActive(false);
+        clip.transform.position = clipPos;
+        CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
     }
 }

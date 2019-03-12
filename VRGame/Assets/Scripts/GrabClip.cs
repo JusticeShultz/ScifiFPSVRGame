@@ -20,6 +20,8 @@ public class GrabClip : MonoBehaviour
 
     public BoxCollider pickUpPrecision;
 
+    public bool buttonDown;
+
     [System.NonSerialized]
     public GameObject grabbedClip;
 
@@ -46,6 +48,8 @@ public class GrabClip : MonoBehaviour
 
     private void OnClipActionChange(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
     {
+        buttonDown = newValue;
+
         if (newValue && gun.CurrentBulletCount < Gun.MaxBulletCount && gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
         {
             GenerateNewClip();
