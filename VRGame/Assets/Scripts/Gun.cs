@@ -74,6 +74,8 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if(CurrentBulletCount >= MaxBulletCount) return;
+
         string ClipName = "AmmoClip";
         // if not grabbing a clip
         if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")

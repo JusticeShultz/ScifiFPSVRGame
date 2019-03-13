@@ -50,7 +50,7 @@ public class GrabClip : MonoBehaviour
     {
         buttonDown = newValue;
 
-        if (newValue && gun.CurrentBulletCount < Gun.MaxBulletCount && gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
+        if (newValue && gun.CurrentBulletCount <= Gun.MaxBulletCount && gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
         {
             GenerateNewClip();
         }
