@@ -30,6 +30,9 @@ public class Gun : MonoBehaviour
         public GameObject DisplayText;
     [Tooltip("Time it takes to put new clip into gun and reload.")]
         public float reloadTime;
+
+    public SteamVR_Action_Vibration hapticFlash = SteamVR_Input.GetAction<SteamVR_Action_Vibration>("Haptic");
+
     //For weapon changing add gun model, etc etc and just do object switches for pickups. (Push feature for later)
 
     //Shots per second that this weapon may fire.
@@ -66,6 +69,7 @@ public class Gun : MonoBehaviour
 
                 GameObject bullet = Instantiate(Bullet, transform.position, transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = transform.forward * BulletFlySpeed;
+                hapticFlash.Execute(0, 0.1f, 10.0f, 25, HandType);
             }
         }
 

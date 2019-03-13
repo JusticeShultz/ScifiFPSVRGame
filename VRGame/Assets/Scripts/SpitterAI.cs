@@ -13,6 +13,8 @@ public class SpitterAI : MonoBehaviour {
 
     void Start()
     {
+        if(Player == null) Player = GameObject.Find("VRCamera");
+
         Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 

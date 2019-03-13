@@ -21482,6 +21482,9 @@ MonoBehaviour:
   BulletClips: 5
   DisplayText: {fileID: 315652592}
   reloadTime: 1
+  hapticFlash:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!23 &2129417643
 MeshRenderer:
   m_ObjectHideFlags: 0
