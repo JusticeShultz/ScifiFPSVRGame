@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 using TMPro;
 
 public class Gun : MonoBehaviour
@@ -30,6 +31,10 @@ public class Gun : MonoBehaviour
         public GameObject DisplayText;
     [Tooltip("Time it takes to put new clip into gun and reload.")]
         public float reloadTime;
+    [Tooltip("Offset from hand.")]
+        public Vector3 posOffset;
+        public Vector3 rotOffset;
+        public Vector3 scaleOffset;
 
     public SteamVR_Action_Vibration hapticFlash = SteamVR_Input.GetAction<SteamVR_Action_Vibration>("Haptic");
 
@@ -37,6 +42,12 @@ public class Gun : MonoBehaviour
 
     //Shots per second that this weapon may fire.
     private float shotcooldown = 0.1f;
+    // if this gun is currently held
+    public bool activeGun;
+    // script on right hand to pick up / drop weapons
+    SwitchGun switchGunScript;
+
+    Rigidbody rb;
 
     GameObject clip; // shows clip in gun
     Vector3 clipPos;
@@ -44,15 +55,42 @@ public class Gun : MonoBehaviour
 
     void Start ()
     {
+        rb = GetComponent<Rigidbody>();
         clip = transform.Find("ClipHolder").gameObject;
         clip.SetActive(false);
         clipPos = clip.transform.localPosition;
         clipGoal = transform.Find("ClipGoal").localPosition;
+        switchGunScript = GameObject.Find("RightHand").transform.GetComponentInChildren<SwitchGun>();
+
+        // if player is holding this
+        if (transform.parent != null && transform.parent.name == "HoverPoint")
+        {
+            activeGun = true;
+            rb.useGravity = false;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+        // gun not held
+        else
+        {
+            activeGun = false;
+            rb.useGravity = true;
+            // gameObject.AddComponent<Interactable>();
+            gameObject.AddComponent(typeof(Interactable));
+            gameObject.AddComponent<Throwable>();
+            gameObject.AddComponent<VelocityEstimator>();
+
+            // load material -> throwable
+
+            GetComponent<BoxCollider>().enabled = true;
+        }
+        
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (!activeGun) { return; }
+
         if (GrabPinchAction.GetStateDown(HandType))
             print("fire");
         if (GrabGripAction.GetStateDown(HandType))
@@ -78,15 +116,28 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(CurrentBulletCount >= MaxBulletCount) return;
+        if (activeGun)
+        {
+            if (CurrentBulletCount >= MaxBulletCount) return;
 
-        string ClipName = "AmmoClip";
-        // if not grabbing a clip
-        if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")
-        {           
-            Destroy(collision.gameObject);
-            StartCoroutine(LoadClip());
+            string ClipName = "AmmoClip";
+            // if not grabbing a clip
+            if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")
+            {
+                Destroy(collision.gameObject);
+                StartCoroutine(LoadClip());
+            }
         }
+        // check if new gun
+        else
+        {
+            print(collision.name);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        switchGunScript.overGun = false;
     }
 
     // move clip into gun
@@ -108,5 +159,27 @@ public class Gun : MonoBehaviour
         clip.SetActive(false);
         clip.transform.position = clipPos;
         CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
+    }
+
+    public void PickupGun()
+    {
+        Destroy(GetComponent<Interactable>());
+        rb.useGravity = false;
+        GetComponent<BoxCollider>().enabled = false;
+        activeGun = true;
+
+        // reset local transform
+    }
+
+    public void DropGun()
+    {
+        gameObject.AddComponent<Interactable>();
+        GetComponent<BoxCollider>().enabled = true;
+        rb.useGravity = true;
+        activeGun = false;
+
+        // reset hand model
+
+        transform.parent = null;         
     }
 }
