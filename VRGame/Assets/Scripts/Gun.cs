@@ -7,8 +7,8 @@ using TMPro;
 
 public class Gun : MonoBehaviour
 {
-    // [Tooltip("Which hand do we fire from?")]
-        // public SteamVR_Input_Sources HandType;
+    [Tooltip("Which hand do we fire from?")]
+        public SteamVR_Input_Sources HandType;
     [Tooltip("What event makes us shoot?")]
         public SteamVR_Action_Boolean GrabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
     [Tooltip("What event makes us reload?")]

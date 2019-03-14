@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 65053cd451494c24b86234331c820811
-=======
-guid: 028bcd4592bdf564dbab97df152a6679
->>>>>>> refs/remotes/origin/master
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -20,6 +16,7 @@ ModelImporter:
     3300002: Plane.109_Plane.042
     4300000: Plane.109_Plane.042
     4300002: Plane.100_Plane.032
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -72,7 +69,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -97,7 +94,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
