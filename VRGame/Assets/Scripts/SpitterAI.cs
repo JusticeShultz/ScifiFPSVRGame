@@ -7,9 +7,10 @@ public class SpitterAI : MonoBehaviour {
     public GameObject Player;
     public GameObject Directional;
     public GameObject ShotType;
-
+    public GameObject SpitPoint;
     public int Health;
     private UnityEngine.AI.NavMeshAgent Agent;
+    private int SpitCD = 0;
 
     void Start()
     {
@@ -65,6 +66,17 @@ public class SpitterAI : MonoBehaviour {
                 GetComponent<Rigidbody>().isKinematic = true;
                 Agent.isStopped = true;
                 GetComponent<Transform>().LookAt(position, Vector3.up);
+
+                ++SpitCD;
+
+                if (SpitCD > 45)
+                {
+                    SpitCD = 0;
+
+                    GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
+                    bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.forward * (6 + dist);
+                }
+                
                 //Do enemy shooting here.
             }
         }

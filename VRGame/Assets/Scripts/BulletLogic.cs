@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
-    bool IsEnemyShot = false;
+    public bool IsEnemyShot = false;
 
     void OnCollisionEnter(Collision col)
     {
@@ -26,7 +26,7 @@ public class BulletLogic : MonoBehaviour
             if (col.gameObject.name == "PlayerCollider")
             {
                 //Do damage to it
-                col.gameObject.GetComponent<PlayerHealth>().CurrentHealth -= Mathf.Clamp((25.0f - col.gameObject.GetComponent<PlayerHealth>().Armor), 1.0f, 10000.0f);
+                col.gameObject.GetComponent<PlayerHealth>().CurrentHealth -= Mathf.Clamp((15.0f - col.gameObject.GetComponent<PlayerHealth>().Armor), 1.0f, 10000.0f);
                 Destroy(gameObject);
             }
             else
