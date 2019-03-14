@@ -7,6 +7,12 @@ public class LoadSceneAsync : MonoBehaviour
 {
     public GameObject loadscreen;
 
+    private void Start()
+    {
+        if (loadscreen == null)
+            loadscreen = GameObject.Find("Fade");
+    }
+
     public void Do(string switchToScene)
     {
         StartCoroutine(LoadScene(switchToScene));
