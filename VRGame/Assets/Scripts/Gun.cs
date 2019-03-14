@@ -59,7 +59,7 @@ public class Gun : MonoBehaviour
 
     void Start ()
     {
-        hand = GetComponentInParent<Hand>().gameObject;
+        // hand = GetComponentInParent<Hand>().gameObject;
 
         rb = GetComponent<Rigidbody>();
         interA = GetComponent<Interactable>();
