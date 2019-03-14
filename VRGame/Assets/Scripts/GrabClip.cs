@@ -50,7 +50,7 @@ public class GrabClip : MonoBehaviour
     {
         buttonDown = newValue;
 
-        if (newValue && gun.CurrentBulletCount <= Gun.MaxBulletCount && gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
+        if (newValue && gun.CurrentBulletCount <= Gun.MaxBulletCount && Gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
         {
             GenerateNewClip();
         }
@@ -64,7 +64,7 @@ public class GrabClip : MonoBehaviour
         grabbedClip.transform.position = hand.transform.position;
         grabbedClip.transform.SetParent(hand.transform);
         grabbedClip.GetComponent<Rigidbody>().useGravity = false;
-        gun.BulletClips--;
+        Gun.BulletClips--;
         clip.canPutBack = false;
     }
 

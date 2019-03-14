@@ -29,7 +29,7 @@ public class ClipLogic : MonoBehaviour
         // if not grabbing a clip
         if (canPutBack && (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)"))
         {
-            ++gunScript.BulletClips;
+            ++Gun.BulletClips;
             Destroy(collision.gameObject);
         }
     }

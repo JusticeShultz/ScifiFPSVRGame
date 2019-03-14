@@ -20,9 +20,15 @@ TagManager:
   - PostProcessing
   - TeleportPoints
   - Enemy
+<<<<<<< HEAD
   - Door
   - EnemyShot
   - PlayerCollider
+=======
+  - Weapon
+  - 
+  - 
+>>>>>>> refs/remotes/origin/master
   - 
   - 
   - 
