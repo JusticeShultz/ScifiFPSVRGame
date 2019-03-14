@@ -47,7 +47,7 @@ public class Gun : MonoBehaviour
     // can drop gun, resets on grip up after grabbing gun
     private bool canDrop;
     // hand object this script is attached to
-    private GameObject hand;
+    // private GameObject hand;
 
     Transform parentObj;
     Rigidbody rb;
@@ -95,6 +95,13 @@ public class Gun : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
+        //{
+        //    PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
+        //    // PickupGun(hand.transform.Find("HoverPoint"));
+        //    return;
+        //}
+
         if (!activeGun) { return; }
 
         if (GrabPinchAction.GetStateDown(HandType))
@@ -102,14 +109,7 @@ public class Gun : MonoBehaviour
         if (GrabGripAction.GetStateDown(HandType))
             print("grip");
 
-        if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }
-
-        if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
-        {
-            // PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
-            PickupGun(hand.transform.Find("HoverPoint"));
-            return;
-        }
+        if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
 
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
         {
