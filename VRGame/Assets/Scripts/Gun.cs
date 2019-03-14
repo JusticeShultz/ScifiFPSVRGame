@@ -43,10 +43,11 @@ public class Gun : MonoBehaviour
     //Shots per second that this weapon may fire.
     private float shotcooldown = 0.1f;
     // if this gun is currently held
-    public bool activeGun;
-    // script on right hand to pick up / drop weapons
-    SwitchGun switchGunScript;
+    private bool activeGun;
+    // can drop gun
+    private bool canDrop;
 
+    Transform parentObj;
     Rigidbody rb;
 
     GameObject clip; // shows clip in gun
@@ -60,7 +61,6 @@ public class Gun : MonoBehaviour
         clip.SetActive(false);
         clipPos = clip.transform.localPosition;
         clipGoal = transform.Find("ClipGoal").localPosition;
-        switchGunScript = GameObject.Find("RightHand").transform.GetComponentInChildren<SwitchGun>();
 
         // if player is holding this
         if (transform.parent != null && transform.parent.name == "HoverPoint")
@@ -68,20 +68,17 @@ public class Gun : MonoBehaviour
             activeGun = true;
             rb.useGravity = false;
             GetComponent<BoxCollider>().enabled = false;
+            GetComponent<Interactable>().enabled = false;
+            canDrop = true;
         }
         // gun not held
         else
         {
             activeGun = false;
             rb.useGravity = true;
-            // gameObject.AddComponent<Interactable>();
-            gameObject.AddComponent(typeof(Interactable));
-            gameObject.AddComponent<Throwable>();
-            gameObject.AddComponent<VelocityEstimator>();
-
-            // load material -> throwable
-
+            GetComponent<Interactable>().enabled = true;
             GetComponent<BoxCollider>().enabled = true;
+            canDrop = false;
         }
         
 	}
@@ -94,11 +91,25 @@ public class Gun : MonoBehaviour
         if (GrabPinchAction.GetStateDown(HandType))
             print("fire");
         if (GrabGripAction.GetStateDown(HandType))
-            print("reload");
+            print("grip");
+
+        if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }
+
+        if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
+        {
+            PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
+            return;
+        }
+
+        if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
+        {
+            DropGun();
+            return;
+        }
 
         ++shotcooldown;
 
-        if (GrabPinchAction.GetState(HandType)) //print("firing");
+        if (GrabPinchAction.GetState(HandType))
         {
             if(shotcooldown > FiringSpeed * 60 && CurrentBulletCount > 0)
             {
@@ -112,8 +123,6 @@ public class Gun : MonoBehaviour
         }
 
         DisplayText.GetComponent<TextMeshPro>().text = CurrentBulletCount + "/" + MaxBulletCount + " (" + BulletClips + ")";
-
-        if(GetComponent<Interactable>() != null && GetComponent<Interactable>().attachedToHand) { switchGunScript.gunObj = this.gameObject; }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -130,16 +139,6 @@ public class Gun : MonoBehaviour
                 StartCoroutine(LoadClip());
             }
         }
-        // check if new gun
-        else
-        {
-            // switchGunScript.gunObj = this.gameObject;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        switchGunScript.overGun = false;
     }
 
     // move clip into gun
@@ -165,27 +164,43 @@ public class Gun : MonoBehaviour
 
     public void PickupGun(Transform parent)
     {
-        Destroy(GetComponent<Interactable>());
-        rb.useGravity = false;
+        print("picking up");
+        gameObject.GetComponent<Interactable>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
+        rb.useGravity = false;
+        rb.isKinematic = true;
         activeGun = true;
+        canDrop = false;     
 
-        // reset local transform
-        transform.SetParent(parent);
-        transform.localPosition = posOffset;
-        transform.localRotation = Quaternion.Euler(rotOffset);
-        transform.localScale = scaleOffset;
+        // parent object reference
+        parentObj = parent;
     }
 
     public void DropGun()
     {
-        gameObject.AddComponent<Interactable>();
+        gameObject.GetComponent<Interactable>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
         rb.useGravity = true;
+        rb.isKinematic = false;
         activeGun = false;
 
         // reset hand model
 
+        parentObj = null;
         transform.parent = null;         
+    }
+
+    public void OnGripDown()
+    {
+        if (activeGun) { DropGun(); }
+        else { PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint")); }
+    }
+
+    public void KeepParent()
+    {
+        transform.SetParent(parentObj);
+        rb.isKinematic = true;
+        transform.localPosition = posOffset;
+        transform.localRotation = Quaternion.Euler(rotOffset);
     }
 }
