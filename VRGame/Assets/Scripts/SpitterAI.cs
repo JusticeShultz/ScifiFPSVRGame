@@ -49,7 +49,7 @@ public class SpitterAI : MonoBehaviour {
         }
         else
         {
-            if (Agent.remainingDistance < 11)
+            if (Agent.remainingDistance < 6)
             {
                 RaycastHit hitInfo;
 
