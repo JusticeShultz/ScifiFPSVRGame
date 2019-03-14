@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 50066494}
   - component: {fileID: 50066493}
   - component: {fileID: 50066492}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 83979735}
   - component: {fileID: 83979737}
   - component: {fileID: 83979736}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2401,7 +2401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347637804}
   - component: {fileID: 347637805}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8305,6 +8305,26 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65288266469304022, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.011353504
+      objectReference: {fileID: 0}
+    - target: {fileID: 65288266469304022, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.000022827506
+      objectReference: {fileID: 0}
+    - target: {fileID: 65288266469304022, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.00011281792
+      objectReference: {fileID: 0}
+    - target: {fileID: 65288266469304022, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.0055398946
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
   m_IsPrefabAsset: 0
@@ -10420,7 +10440,7 @@ GameObject:
   - component: {fileID: 1774258239}
   - component: {fileID: 1774258238}
   - component: {fileID: 1774258237}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10893,7 +10913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968827989}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10932,7 +10952,7 @@ GameObject:
   - component: {fileID: 1999696668}
   - component: {fileID: 1999696667}
   - component: {fileID: 1999696666}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Rifle#2
   m_TagString: Weapon
   m_Icon: {fileID: 0}
