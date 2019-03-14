@@ -6,10 +6,10 @@ public class SpitterAI : MonoBehaviour {
 
     public GameObject Player;
     public GameObject Directional;
-    public int Health;
+    public GameObject ShotType;
 
+    public int Health;
     private UnityEngine.AI.NavMeshAgent Agent;
-    private bool Triggered = false;
 
     void Start()
     {
@@ -21,10 +21,20 @@ public class SpitterAI : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        Vector3 position;
-        position = Player.GetComponent<Transform>().position;
-
         Animator animator = GetComponent<Animator>();
+
+        float dist = 0.0f;
+
+        Vector3 position;
+        position = Player.transform.position;
+        Agent.destination = position;
+
+        Vector3[] corners = Agent.path.corners;
+
+        for (int c = 0; c < corners.Length - 1; ++c)
+        {
+            dist += Mathf.Abs((corners[c] - corners[c + 1]).magnitude);
+        }
 
         if (Health <= 0)
         {
@@ -36,38 +46,51 @@ public class SpitterAI : MonoBehaviour {
             return;
         }
 
-        if (!Triggered)
+        if (dist < 20)
         {
-            Agent.destination = position;
-            animator.SetBool("IsMoving", true);
-            Directional.GetComponent<Transform>().LookAt(position, Vector3.up);
-            RaycastHit hitInfo;
-            GetComponent<Rigidbody>().isKinematic = false;
-            if (Physics.Raycast(GetComponent<Transform>().position, Directional.GetComponent<Transform>().forward, out hitInfo, 100.0f))
-                if(hitInfo.collider.gameObject.name == "Player")
-                    Triggered = true;
-        }
-        else
-        {
-            if (Agent.remainingDistance < 6)
+            if (dist > 7)
             {
-                RaycastHit hitInfo;
-
-                if (Physics.Raycast(GetComponent<Transform>().position, Directional.GetComponent<Transform>().forward, out hitInfo, 100.0f))
-                    animator.SetBool("IsAttacking", true);
-                else animator.SetBool("IsMoving", false);
-
+                GetComponent<Rigidbody>().isKinematic = false;
+                animator.SetBool("IsAttacking", false);
+                animator.SetBool("IsMoving", true);
+                Agent.destination = position;
+                Agent.isStopped = false;
+            }
+            else
+            {
+                //RaycastHit hitInfo;
+                //if (Physics.Raycast(transform.position, Directional.transform.forward, out hitInfo, 100.0f))
+                animator.SetBool("IsAttacking", true);
+                animator.SetBool("IsMoving", false);
                 GetComponent<Rigidbody>().isKinematic = true;
                 Agent.isStopped = true;
                 GetComponent<Transform>().LookAt(position, Vector3.up);
                 //Do enemy shooting here.
             }
-            else
-            {
-                GetComponent<Rigidbody>().isKinematic = false;
-                animator.SetBool("IsMoving", true);
-                Agent.destination = position;
-            }
+        }
+        else
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+            Agent.isStopped = true;
+            animator.SetBool("IsAttacking", false);
+            animator.SetBool("IsMoving", false);
         }
     }
 }
+
+/*private bool Triggered = false;
+ * 
+ * if (!Triggered)
+{
+    Agent.destination = position;
+    animator.SetBool("IsMoving", true);
+    Directional.transform.LookAt(position, Vector3.up);
+    RaycastHit hitInfo;
+    GetComponent<Rigidbody>().isKinematic = false;
+
+    if (Physics.Raycast(transform.position, Directional.transform.forward, out hitInfo, 100.0f))
+        if (hitInfo.collider.gameObject.name == "Player")
+            Triggered = true;
+
+    Debug.DrawLine(transform.position, hitInfo.point);
+}*/
