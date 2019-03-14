@@ -10,11 +10,13 @@ public class SwitchGun : MonoBehaviour {
     public SteamVR_Action_Boolean switchGunAction;
 
     Hand hand;
-    GameObject gunObj;
+    
     Gun gunScript;
 
     [System.NonSerialized]
     public bool overGun;
+    [System.NonSerialized]
+    public GameObject gunObj;
 
     //public ClipLogic clip;
 
@@ -60,10 +62,9 @@ public class SwitchGun : MonoBehaviour {
         }
 
         // if over new gun
-        if(newValue && null == gunScript)
+        if (newValue && null == gunScript && null != gunObj)
         {
-            // run collision check
-
+            gunScript.PickupGun(hand.gameObject.transform);
         }
     }
 }

@@ -3146,9 +3146,9 @@ MonoBehaviour:
   BulletClips: 5
   DisplayText: {fileID: 886471157}
   reloadTime: 1
-  posOffset: {x: 0, y: 0, z: 0}
-  rotOffset: {x: 0, y: 0, z: 0}
-  scaleOffset: {x: 0, y: 0, z: 0}
+  posOffset: {x: 0.0518, y: -0.008, z: 0.171}
+  rotOffset: {x: 22.281, y: -5.721, z: -10.968}
+  scaleOffset: {x: 25.34482, y: 25.34482, z: 25.34482}
   hapticFlash:
     actionPath: /actions/default/out/Haptic
     needsReinit: 0

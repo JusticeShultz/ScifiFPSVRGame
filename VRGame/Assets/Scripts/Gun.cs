@@ -112,6 +112,8 @@ public class Gun : MonoBehaviour
         }
 
         DisplayText.GetComponent<TextMeshPro>().text = CurrentBulletCount + "/" + MaxBulletCount + " (" + BulletClips + ")";
+
+        if(GetComponent<Interactable>() != null && GetComponent<Interactable>().attachedToHand) { switchGunScript.gunObj = this.gameObject; }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -131,7 +133,7 @@ public class Gun : MonoBehaviour
         // check if new gun
         else
         {
-            print(collision.name);
+            // switchGunScript.gunObj = this.gameObject;
         }
     }
 
@@ -161,7 +163,7 @@ public class Gun : MonoBehaviour
         CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
     }
 
-    public void PickupGun()
+    public void PickupGun(Transform parent)
     {
         Destroy(GetComponent<Interactable>());
         rb.useGravity = false;
@@ -169,6 +171,10 @@ public class Gun : MonoBehaviour
         activeGun = true;
 
         // reset local transform
+        transform.SetParent(parent);
+        transform.localPosition = posOffset;
+        transform.localRotation = Quaternion.Euler(rotOffset);
+        transform.localScale = scaleOffset;
     }
 
     public void DropGun()
