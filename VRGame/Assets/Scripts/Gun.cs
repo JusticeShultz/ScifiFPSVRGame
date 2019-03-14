@@ -7,8 +7,8 @@ using TMPro;
 
 public class Gun : MonoBehaviour
 {
-    [Tooltip("Which hand do we fire from?")]
-        public SteamVR_Input_Sources HandType;
+    // [Tooltip("Which hand do we fire from?")]
+        // public SteamVR_Input_Sources HandType;
     [Tooltip("What event makes us shoot?")]
         public SteamVR_Action_Boolean GrabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
     [Tooltip("What event makes us reload?")]
@@ -46,6 +46,8 @@ public class Gun : MonoBehaviour
     private bool activeGun;
     // can drop gun, resets on grip up after grabbing gun
     private bool canDrop;
+    // hand object this script is attached to
+    private GameObject hand;
 
     Transform parentObj;
     Rigidbody rb;
@@ -57,6 +59,8 @@ public class Gun : MonoBehaviour
 
     void Start ()
     {
+        hand = GetComponentInParent<Hand>().gameObject;
+
         rb = GetComponent<Rigidbody>();
         interA = GetComponent<Interactable>();
         clip = transform.Find("ClipHolder").gameObject;
@@ -102,7 +106,8 @@ public class Gun : MonoBehaviour
 
         if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
         {
-            PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
+            // PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
+            PickupGun(hand.transform.Find("HoverPoint"));
             return;
         }
 

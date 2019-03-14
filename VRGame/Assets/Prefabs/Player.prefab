@@ -1517,8 +1517,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0026060892, y: 0.009154602, z: 0.010724426}
-  m_Center: {x: -0.000011155252, y: 0.00011284357, z: 0.0058544497}
+  m_Size: {x: 0.0056840517, y: 0.009154602, z: 0.010724427}
+  m_Center: {x: 0.00002282737, y: 0.00011282863, z: 0.005854433}
 --- !u!81 &81512583660307918
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2102,7 +2102,6 @@ MonoBehaviour:
   BulletsShotAtOnce: 1
   Bullet: {fileID: 1234522652013596, guid: aad76b6eaae09014ca3bcf8782d44e06, type: 2}
   BulletFlySpeed: 20
-  BulletClips: 5
   DisplayText: {fileID: 1926418518853076}
   reloadTime: 1
   posOffset: {x: 0.0518, y: -0.008, z: 0.171}
