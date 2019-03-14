@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     [Tooltip("How fast should our bullet fly?")]
         public float BulletFlySpeed = 20;
     [Tooltip("How many bullet clips have we picked up?")]
-        public float BulletClips = 5;
+        public static float BulletClips = 5;
     [Tooltip("Display text that shows your bullets and clip count.")]
         public GameObject DisplayText;
     [Tooltip("Time it takes to put new clip into gun and reload.")]
@@ -44,11 +44,12 @@ public class Gun : MonoBehaviour
     private float shotcooldown = 0.1f;
     // if this gun is currently held
     private bool activeGun;
-    // can drop gun
+    // can drop gun, resets on grip up after grabbing gun
     private bool canDrop;
 
     Transform parentObj;
     Rigidbody rb;
+    Interactable interA;
 
     GameObject clip; // shows clip in gun
     Vector3 clipPos;
@@ -57,6 +58,7 @@ public class Gun : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+        interA = GetComponent<Interactable>();
         clip = transform.Find("ClipHolder").gameObject;
         clip.SetActive(false);
         clipPos = clip.transform.localPosition;
@@ -67,8 +69,10 @@ public class Gun : MonoBehaviour
         {
             activeGun = true;
             rb.useGravity = false;
-            GetComponent<BoxCollider>().enabled = false;
-            GetComponent<Interactable>().enabled = false;
+            GetComponent<BoxCollider>().isTrigger = true;
+            interA.enabled = false;
+            interA.highlightOnHover = false;
+
             canDrop = true;
         }
         // gun not held
@@ -76,8 +80,9 @@ public class Gun : MonoBehaviour
         {
             activeGun = false;
             rb.useGravity = true;
-            GetComponent<Interactable>().enabled = true;
-            GetComponent<BoxCollider>().enabled = true;
+            interA.enabled = true;
+            interA.highlightOnHover = true;
+            GetComponent<BoxCollider>().isTrigger = false;
             canDrop = false;
         }
         
@@ -127,7 +132,7 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (activeGun)
+        if (activeGun && (collision.name == "AmmoClip" || collision.name == "AmmoClip(Clone)"))
         {
             if (CurrentBulletCount >= MaxBulletCount) return;
 
@@ -147,10 +152,10 @@ public class Gun : MonoBehaviour
         clip.SetActive(true); // show clip
 
         // drop old clip
-        GameObject oldClip = Instantiate<GameObject>(clip, clip.transform.position, clip.transform.rotation);
-        oldClip.GetComponent<Rigidbody>().useGravity = true;
-        oldClip.GetComponent<BoxCollider>().isTrigger = true;
-        oldClip.AddComponent<DestroyOnCollision>();
+        // GameObject oldClip = Instantiate<GameObject>(clip, clip.transform.position, clip.transform.rotation);
+        // oldClip.GetComponent<Rigidbody>().useGravity = true;
+        // oldClip.GetComponent<BoxCollider>().isTrigger = true;
+        // oldClip.AddComponent<DestroyOnCollision>();
 
         for(float t = 0; t < 1; t += Time.deltaTime * reloadTime)
         {
@@ -164,9 +169,9 @@ public class Gun : MonoBehaviour
 
     public void PickupGun(Transform parent)
     {
-        print("picking up");
-        gameObject.GetComponent<Interactable>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
+        interA.enabled = false;
+        interA.highlightOnHover = false;
+        GetComponent<BoxCollider>().isTrigger = true;
         rb.useGravity = false;
         rb.isKinematic = true;
         activeGun = true;
@@ -178,8 +183,9 @@ public class Gun : MonoBehaviour
 
     public void DropGun()
     {
-        gameObject.GetComponent<Interactable>().enabled = true;
-        GetComponent<BoxCollider>().enabled = true;
+        interA.enabled = true;
+        interA.highlightOnHover = true;
+        GetComponent<BoxCollider>().isTrigger = false;
         rb.useGravity = true;
         rb.isKinematic = false;
         activeGun = false;
