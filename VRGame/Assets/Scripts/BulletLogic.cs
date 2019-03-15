@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
+    public int Damage = 25;
     public bool IsEnemyShot = false;
 
     void OnCollisionEnter(Collision col)
@@ -13,12 +14,17 @@ public class BulletLogic : MonoBehaviour
             if (col.gameObject.name == "Spitter")
             {
                 //Do damage to it
-                col.gameObject.GetComponent<SpitterAI>().Health -= 25;
+                col.gameObject.GetComponent<SpitterAI>().Health -= Damage;
                 Destroy(gameObject);
             }
             else
             {
-                Destroy(gameObject);
+                if (col.gameObject.GetComponent<DestroyableEntity>() != null)
+                {
+                    col.gameObject.GetComponent<DestroyableEntity>().Health -= Damage;
+                    Destroy(gameObject);
+                }
+                else Destroy(gameObject);
             }
         }
         else
@@ -29,10 +35,7 @@ public class BulletLogic : MonoBehaviour
                 col.gameObject.GetComponent<PlayerHealth>().CurrentHealth -= Mathf.Clamp((15.0f - col.gameObject.GetComponent<PlayerHealth>().Armor), 1.0f, 10000.0f);
                 Destroy(gameObject);
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+            else Destroy(gameObject);
         }
     }
 }

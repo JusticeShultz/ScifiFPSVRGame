@@ -332,7 +332,17 @@ ModelImporter:
     4300124: Monitor.45_low
     4300126: Monitor.03_low
     4300128: Monitor.44_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Monitors01
+    second: {fileID: 2100000, guid: cd5d64b16b7ecf24682032a1eaf060c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Monitors02
+    second: {fileID: 2100000, guid: 22c64e6137321c24292d260dadc4ff64, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

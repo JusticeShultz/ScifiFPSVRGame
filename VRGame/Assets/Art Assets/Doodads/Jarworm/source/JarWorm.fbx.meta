@@ -134,7 +134,37 @@ ModelImporter:
     7400000: Take 001
     9500000: //RootNode
     13700000: Wormx
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JarWorm
+    second: {fileID: 2100000, guid: 7e8808b84c836c24b880f365b0611f96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #1062678'
+    second: {fileID: 2100000, guid: d615da7327981ad478a62d7520be2ce3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #1062680'
+    second: {fileID: 2100000, guid: eefd7641422e60b4ea2f865f2da59f43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #1062681'
+    second: {fileID: 2100000, guid: 0768cd26db82ab14095343a50b2edf36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blue light
+    second: {fileID: 2100000, guid: 681b0c3bf77a39040a3ace076624f0c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pfs2
+    second: {fileID: 2100000, guid: ecdfe6b043639dc4eb6765fb1bfe525f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
