@@ -7656,6 +7656,11 @@ Prefab:
       propertyPath: gunObject
       value: 
       objectReference: {fileID: 2074415392}
+    - target: {fileID: 114212825454538310, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 2074415400}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
   m_IsPrefabAsset: 0
@@ -11416,6 +11421,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1367236891543176, guid: d0fe3aa0698f037469e4b048e47e1926,
     type: 2}
   m_PrefabInternal: {fileID: 1236580433}
+--- !u!114 &2074415400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114384633836978194, guid: d0fe3aa0698f037469e4b048e47e1926,
+    type: 2}
+  m_PrefabInternal: {fileID: 1236580433}
+  m_Script: {fileID: 11500000, guid: 30e79bc19dd64154abc3eb670e3f5755, type: 3}
 --- !u!1 &2106602480
 GameObject:
   m_ObjectHideFlags: 0
