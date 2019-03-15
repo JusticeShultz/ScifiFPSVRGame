@@ -16201,6 +16201,7 @@ GameObject:
   - component: {fileID: 1837696525}
   - component: {fileID: 1837696527}
   - component: {fileID: 1837696526}
+  - component: {fileID: 1837696528}
   m_Layer: 26
   m_Name: RightHand
   m_TagString: Untagged
@@ -16319,6 +16320,26 @@ MonoBehaviour:
   showDebugText: 0
   spewDebugText: 0
   showDebugInteractables: 0
+--- !u!114 &1837696528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837696524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330fe8f6b1545640b693cbf2b46edfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabClipAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  hand: {fileID: 1837696527}
+  clip: {fileID: 1458659260}
+  newClipPrefab: {fileID: 1511708630293450, guid: e5503d8608fb9cf4b8ec308740f534f6,
+    type: 2}
+  pickUpPrecision: {fileID: 1458659254}
+  buttonDown: 0
 --- !u!1 &1838447149
 GameObject:
   m_ObjectHideFlags: 0
