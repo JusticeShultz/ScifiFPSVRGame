@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     [Tooltip("How fast should our bullet fly?")]
         public float BulletFlySpeed = 20;
     [Tooltip("How many bullet clips have we picked up?")]
-        public static float BulletClips = 5;
+        public static float BulletClips = 2;
     [Tooltip("Display text that shows your bullets and clip count.")]
         public GameObject DisplayText;
     [Tooltip("Time it takes to put new clip into gun and reload.")]
