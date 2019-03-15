@@ -10,9 +10,7 @@ public class GrabClip : MonoBehaviour
 {
     public SteamVR_Action_Boolean grabClipAction;
 
-    public Hand hand;
-
-    public Gun gun;
+    public Hand hand;  
 
     public ClipLogic clip;
 
@@ -22,11 +20,21 @@ public class GrabClip : MonoBehaviour
 
     public bool buttonDown;
 
+    public static bool holdingClip;
+
+
     [System.NonSerialized]
     public GameObject grabbedClip;
+    [System.NonSerialized]
+    public Gun gun;
+
+    WeaponHandler weaponHandler;
 
     private void OnEnable()
     {
+        holdingClip = false;
+        weaponHandler = GetComponentInParent<WeaponHandler>();
+
         if (hand == null)
             hand = this.GetComponent<Hand>();
 
@@ -48,9 +56,10 @@ public class GrabClip : MonoBehaviour
 
     private void OnClipActionChange(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
     {
-        buttonDown = newValue;
+        if (!weaponHandler.HandEmpty(hand)) { return; } // if hand holding gun
 
-        if (newValue && gun.CurrentBulletCount <= Gun.MaxBulletCount && Gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
+        buttonDown = newValue;
+        if (newValue && /*gun.CurrentBulletCount <= Gun.MaxBulletCount && */ Gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
         {
             GenerateNewClip();
         }
@@ -60,6 +69,7 @@ public class GrabClip : MonoBehaviour
 
     public void GenerateNewClip()
     {
+        holdingClip = true;
         grabbedClip = Instantiate<GameObject>(newClipPrefab);
         grabbedClip.transform.position = hand.transform.position;
         grabbedClip.transform.SetParent(hand.transform);
@@ -70,6 +80,7 @@ public class GrabClip : MonoBehaviour
 
     void DropClip()
     {
+        holdingClip = false;
         if (null != grabbedClip)
         {
             grabbedClip.GetComponent<Rigidbody>().useGravity = true;

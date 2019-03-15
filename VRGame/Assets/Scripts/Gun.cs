@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
     //Shots per second that this weapon may fire.
     private float shotcooldown = 0.1f;
     // if this gun is currently held
-    private bool activeGun;
+    public  bool activeGun;
     // can drop gun, resets on grip up after grabbing gun
     private bool canDrop;
     // hand object this script is attached to
@@ -57,9 +57,12 @@ public class Gun : MonoBehaviour
     Vector3 clipPos;
     Vector3 clipGoal;
 
+    WeaponHandler weaponHandler;
+
     void Start ()
     {
         // hand = GetComponentInParent<Hand>().gameObject;
+        weaponHandler = GameObject.Find("Player").GetComponent<WeaponHandler>();
 
         rb = GetComponent<Rigidbody>();
         interA = GetComponent<Interactable>();
@@ -109,11 +112,12 @@ public class Gun : MonoBehaviour
         if (GrabGripAction.GetStateDown(HandType))
             print("grip");
 
-        if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
+        // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
 
+        // drop weapon
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
         {
-            DropGun();
+            weaponHandler.OnPickup(this.gameObject);
             return;
         }
 
@@ -137,17 +141,12 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (activeGun && (collision.name == "AmmoClip" || collision.name == "AmmoClip(Clone)"))
+        if (activeGun && (collision.name == "AmmoClip" || collision.name == "AmmoClip(Clone)") && GrabClip.holdingClip)
         {
             if (CurrentBulletCount >= MaxBulletCount) return;
 
-            string ClipName = "AmmoClip";
-            // if not grabbing a clip
-            if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")
-            {
-                Destroy(collision.gameObject);
-                StartCoroutine(LoadClip());
-            }
+            Destroy(collision.gameObject);
+            StartCoroutine(LoadClip());
         }
     }
 
@@ -178,7 +177,7 @@ public class Gun : MonoBehaviour
         interA.highlightOnHover = false;
         GetComponent<BoxCollider>().isTrigger = true;
         rb.useGravity = false;
-        rb.isKinematic = true;
+        rb.isKinematic = true; // not this
         activeGun = true;
         canDrop = false;     
 
@@ -198,20 +197,39 @@ public class Gun : MonoBehaviour
         // reset hand model
 
         parentObj = null;
-        transform.parent = null;         
+        transform.SetParent(null);
     }
 
-    public void OnGripDown()
-    {
-        if (activeGun) { DropGun(); }
-        else { PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint")); }
-    }
+    //public void OnGripDown()
+    //{
+    //    //if (activeGun) { DropGun(); }
+    //    //else { PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint")); }
+    //    weaponHandler.OnPickup(this.gameObject);
+    //}
 
-    public void KeepParent()
+    //public void OnGripUp()
+    //{
+    //    weaponHandler.OnDetach();
+    //}
+
+    public void KeepParent(bool leftHanded)
     {
+        if (!activeGun) { return; }
+
+        canDrop = true;
+
         transform.SetParent(parentObj);
-        rb.isKinematic = true;
-        transform.localPosition = posOffset;
+        rb.isKinematic = true; // not this
+        
+        if (leftHanded)
+        {
+            Vector3 newOffset = posOffset;
+            newOffset.x *= -1;
+            // transform.localPosition = new Vector3(-posOffset.x, posOffset.y, posOffset.z);
+            transform.localPosition = newOffset;
+        }
+        else { transform.localPosition = posOffset; }
+        // transform.localPosition = posOffset;
         transform.localRotation = Quaternion.Euler(rotOffset);
     }
 }

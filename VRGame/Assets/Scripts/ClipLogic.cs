@@ -8,17 +8,20 @@ public class ClipLogic : MonoBehaviour
 {
     //public Collider targetCollider;
     public string ClipName;
-    public GameObject gunObject;
     public GrabClip grabClipAction;
 
-    Gun gunScript;
+    [System.NonSerialized]
+    public GameObject gunObject;
+    [System.NonSerialized]
+    public Gun gunScript;
+
     Interactable clipInteractable;
     public bool canPutBack;
 
     private void Start()
     {
         clipInteractable = GetComponent<Interactable>();
-        gunScript = gunObject.GetComponent<Gun>();
+        // gunScript = gunObject.GetComponent<Gun>();
         canPutBack = true;
     }
 
