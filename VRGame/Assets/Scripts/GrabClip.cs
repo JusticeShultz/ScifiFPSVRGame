@@ -9,19 +9,14 @@ using Valve.VR;
 public class GrabClip : MonoBehaviour
 {
     public SteamVR_Action_Boolean grabClipAction;
-
-    public Hand hand;  
-
-    public ClipLogic clip;
-
     public GameObject newClipPrefab;
-
-    public BoxCollider pickUpPrecision;
-
     public bool buttonDown;
 
     public static bool holdingClip;
 
+    Hand hand;  
+    ClipLogic clip;
+    BoxCollider pickUpPrecision;
 
     [System.NonSerialized]
     public GameObject grabbedClip;
@@ -34,6 +29,9 @@ public class GrabClip : MonoBehaviour
     {
         holdingClip = false;
         weaponHandler = GetComponentInParent<WeaponHandler>();
+        hand = GetComponentInParent<Hand>();
+        clip = GameObject.Find("ClipInventory").GetComponent<ClipLogic>();
+        pickUpPrecision = GameObject.Find("ClipInventory").GetComponent<BoxCollider>();
 
         if (hand == null)
             hand = this.GetComponent<Hand>();

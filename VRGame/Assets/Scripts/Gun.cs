@@ -156,7 +156,7 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip ) || collision.name == "AmmoClip"))
+        if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip ) || collision.name == "AmmoClip") && !clip.activeSelf)
         {
             if (CurrentBulletCount >= MaxBulletCount) return;
 
