@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: a3e55bda38b3dbb419a0e5dc39704f2f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box339
+    100002: //RootNode
+    100004: WormH2
+    100006: WormH3
+    100008: WormH4
+    100010: WormH5
+    100012: WormH6
+    100014: WormH7
+    100016: WormH8
+    100018: WormH9
+    100020: WormHead
+    100022: WormL1
+    100024: WormL2
+    100026: WormL3
+    100028: WormL4
+    100030: WormL5
+    100032: WormLb1
+    100034: WormLb2
+    100036: WormLb3
+    100038: WormLb4
+    100040: WormLb5
+    100042: WormLc1
+    100044: WormLc2
+    100046: WormLc3
+    100048: WormLc4
+    100050: WormLd1
+    100052: WormLd2
+    100054: WormLd3
+    100056: WormLd4
+    100058: WormLd5
+    100060: WormLe1
+    100062: WormLe2
+    100064: WormLe3
+    100066: WormLe4
+    100068: WormMain
+    100070: WormR1
+    100072: WormR2
+    100074: WormR3
+    100076: WormR4
+    100078: WormR5
+    100080: WormRb1
+    100082: WormRb2
+    100084: WormRb3
+    100086: WormRb4
+    100088: WormRb5
+    100090: WormRc1
+    100092: WormRc2
+    100094: WormRc3
+    100096: WormRc4
+    100098: WormRd1
+    100100: WormRd2
+    100102: WormRd3
+    100104: WormRd4
+    100106: WormRd5
+    100108: WormRe1
+    100110: WormRe2
+    100112: WormRe3
+    100114: WormRe4
+    100116: Wormx
+    400000: Box339
+    400002: //RootNode
+    400004: WormH2
+    400006: WormH3
+    400008: WormH4
+    400010: WormH5
+    400012: WormH6
+    400014: WormH7
+    400016: WormH8
+    400018: WormH9
+    400020: WormHead
+    400022: WormL1
+    400024: WormL2
+    400026: WormL3
+    400028: WormL4
+    400030: WormL5
+    400032: WormLb1
+    400034: WormLb2
+    400036: WormLb3
+    400038: WormLb4
+    400040: WormLb5
+    400042: WormLc1
+    400044: WormLc2
+    400046: WormLc3
+    400048: WormLc4
+    400050: WormLd1
+    400052: WormLd2
+    400054: WormLd3
+    400056: WormLd4
+    400058: WormLd5
+    400060: WormLe1
+    400062: WormLe2
+    400064: WormLe3
+    400066: WormLe4
+    400068: WormMain
+    400070: WormR1
+    400072: WormR2
+    400074: WormR3
+    400076: WormR4
+    400078: WormR5
+    400080: WormRb1
+    400082: WormRb2
+    400084: WormRb3
+    400086: WormRb4
+    400088: WormRb5
+    400090: WormRc1
+    400092: WormRc2
+    400094: WormRc3
+    400096: WormRc4
+    400098: WormRd1
+    400100: WormRd2
+    400102: WormRd3
+    400104: WormRd4
+    400106: WormRd5
+    400108: WormRe1
+    400110: WormRe2
+    400112: WormRe3
+    400114: WormRe4
+    400116: Wormx
+    2100000: JarWorm
+    2100002: pfs2
+    2100004: 'Material #1062681'
+    2100006: blue light
+    2100008: 'Material #1062678'
+    2100010: 'Material #1062680'
+    2300000: Box339
+    3300000: Box339
+    4300000: Wormx
+    4300002: Box339
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Wormx
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
