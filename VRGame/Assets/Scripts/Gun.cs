@@ -4,6 +4,8 @@ using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 using TMPro;
+using System;
+using UnityEngine.Events;
 
 public class Gun : MonoBehaviour
 {
@@ -35,6 +37,8 @@ public class Gun : MonoBehaviour
         public Vector3 posOffset;
         public Vector3 rotOffset;
         public Vector3 scaleOffset;
+
+
 
     public SteamVR_Action_Vibration hapticFlash = SteamVR_Input.GetAction<SteamVR_Action_Vibration>("Haptic");
 
@@ -92,11 +96,22 @@ public class Gun : MonoBehaviour
             GetComponent<BoxCollider>().isTrigger = false;
             canDrop = false;
         }
-        
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+        // add listener to rifle
+        WeaponHandler wh = GameObject.Find("Player").GetComponent<WeaponHandler>();
+        GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
+        GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
+    }
+
+    private void MyAction(GameObject tgo)
+    {
+        throw new NotImplementedException();
+    }
+
+
+
+    // Update is called once per frame
+    void Update ()
     {
         //if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
         //{
@@ -117,7 +132,7 @@ public class Gun : MonoBehaviour
         // drop weapon
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
         {
-            weaponHandler.OnPickup(this.gameObject);
+            weaponHandler.OnPickup(gameObject);
             return;
         }
 
@@ -141,7 +156,7 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (activeGun && (collision.name == "AmmoClip" || collision.name == "AmmoClip(Clone)") && GrabClip.holdingClip)
+        if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip ) || collision.name == "AmmoClip"))
         {
             if (CurrentBulletCount >= MaxBulletCount) return;
 
