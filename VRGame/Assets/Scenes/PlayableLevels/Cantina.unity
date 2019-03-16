@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1191611696}
-  m_IndirectSpecularColor: {r: 0.0294961, g: 0.042945962, b: 0.032044604, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -29292,7 +29292,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: unlocked_title
-      value: Go through door
+      value: Enter the Lab
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: locked_title
@@ -29317,7 +29317,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: switchToScene
-      value: Cantina
+      value: Lab
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: fade

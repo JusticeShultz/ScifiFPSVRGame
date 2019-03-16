@@ -12,7 +12,27 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: HydroUnit_02
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 600e58c2e28b9be498b01cce86fa668b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf
+    second: {fileID: 2100000, guid: a1ec8ecb212717f4990ac914cf7e9bbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pollen
+    second: {fileID: 2100000, guid: 3e01a46f7ecd4c841bd7ca3366dc7a75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 2f833e67b9118984e813ca2f8547daa3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
