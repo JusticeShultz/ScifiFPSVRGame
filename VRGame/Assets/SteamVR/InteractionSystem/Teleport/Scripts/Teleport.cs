@@ -329,8 +329,8 @@ namespace Valve.VR.InteractionSystem
 				pointerAtBadAngle = true;
 			}
 
-			//Trace to see if the pointer hit anything
-			RaycastHit hitInfo;
+            //Trace to see if the pointer hit anything
+            RaycastHit hitInfo;
 			teleportArc.SetArcData( pointerStart, arcVelocity, true, pointerAtBadAngle );
 			if ( teleportArc.DrawArc( out hitInfo ) )
 			{

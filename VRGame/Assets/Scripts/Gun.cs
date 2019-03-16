@@ -56,10 +56,18 @@ public class Gun : MonoBehaviour
     Transform parentObj;
     Rigidbody rb;
     Interactable interA;
+    BoxCollider bc;
 
     GameObject clip; // shows clip in gun
     Vector3 clipPos;
     Vector3 clipGoal;
+
+    // manually resize box collider
+    Vector3 activeBCPos;
+    Vector3 activeBCSize;
+    Vector3 inactiveBCPos;
+    Vector3 inactiveBCSize;
+
 
     WeaponHandler weaponHandler;
 
@@ -70,15 +78,23 @@ public class Gun : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         interA = GetComponent<Interactable>();
+        bc = GetComponent<BoxCollider>();
         clip = transform.Find("ClipHolder").gameObject;
         clip.SetActive(false);
         clipPos = clip.transform.localPosition;
         clipGoal = transform.Find("ClipGoal").localPosition;
 
+        // I know, I know, disgusting. I can't figure out Teleprt.cs
+        activeBCPos = new Vector3(2.282737e-05f, 0.0001128286f, 0.005854433f);
+        activeBCSize = new Vector3(0.005684052f, 0.009154602f, 0.01072443f);
+        inactiveBCPos = new Vector3(-0.0002120605f, 0.0001128157f, 0.001436021f);
+        inactiveBCSize = new Vector3(0.005175263f, 0.009154602f, 0.01956122f);
+
         // if player is holding this
         if (transform.parent != null && transform.parent.name == "HoverPoint")
         {
-            activeGun = true;
+            // activeGun = true;
+            Active();
             rb.useGravity = false;
             GetComponent<BoxCollider>().isTrigger = true;
             interA.enabled = false;
@@ -89,7 +105,8 @@ public class Gun : MonoBehaviour
         // gun not held
         else
         {
-            activeGun = false;
+            // activeGun = false;
+            Inactive();
             rb.useGravity = true;
             interA.enabled = true;
             interA.highlightOnHover = true;
@@ -103,12 +120,19 @@ public class Gun : MonoBehaviour
         GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
     }
 
-    private void MyAction(GameObject tgo)
+    void Active()
     {
-        throw new NotImplementedException();
+        activeGun = true;
+        bc.center = activeBCPos;
+        bc.size = activeBCSize;
     }
 
-
+    void Inactive()
+    {
+        activeGun = false;
+        bc.center = inactiveBCPos;
+        bc.size = inactiveBCSize;
+    }
 
     // Update is called once per frame
     void Update ()
@@ -190,10 +214,11 @@ public class Gun : MonoBehaviour
     {
         interA.enabled = false;
         interA.highlightOnHover = false;
-        GetComponent<BoxCollider>().isTrigger = true;
+        bc.isTrigger = true;
         rb.useGravity = false;
         rb.isKinematic = true; // not this
-        activeGun = true;
+        // activeGun = true;
+        Active();
         canDrop = false;     
 
         // parent object reference
@@ -204,10 +229,11 @@ public class Gun : MonoBehaviour
     {
         interA.enabled = true;
         interA.highlightOnHover = true;
-        GetComponent<BoxCollider>().isTrigger = false;
+        bc.isTrigger = false;
         rb.useGravity = true;
         rb.isKinematic = false;
-        activeGun = false;
+        // activeGun = false;
+        Inactive();
 
         // reset hand model
 
