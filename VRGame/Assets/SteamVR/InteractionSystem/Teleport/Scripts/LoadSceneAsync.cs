@@ -9,6 +9,8 @@ public class LoadSceneAsync : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         if (loadscreen == null)
             loadscreen = GameObject.Find("Fade");
     }
@@ -30,5 +32,6 @@ public class LoadSceneAsync : MonoBehaviour
         }
 
         loadscreen.SetActive(false);
+        Destroy(gameObject);
     }
 }
