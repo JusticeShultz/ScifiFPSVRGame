@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 using TMPro;
 using System;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Gun : MonoBehaviour
 {
@@ -239,6 +240,7 @@ public class Gun : MonoBehaviour
 
         parentObj = null;
         transform.SetParent(null);
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
     }
 
     //public void OnGripDown()

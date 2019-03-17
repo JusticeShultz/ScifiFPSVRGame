@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 114781728313838158}
   - component: {fileID: 114892250400059982}
   - component: {fileID: 114694746047547824}
+  - component: {fileID: 114194844020435908}
   m_Layer: 11
   m_Name: Rifle
   m_TagString: Weapon
@@ -128,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488656094687464}
   m_LocalRotation: {x: -0.08404959, y: 0.976371, z: -0.1967671, w: 0.030300643}
-  m_LocalPosition: {x: -0.008800015, y: 0.68630004, z: 1.6653008}
+  m_LocalPosition: {x: 1.4273217, y: 0.614, z: -4.3139067}
   m_LocalScale: {x: 25.34481, y: 25.344816, z: 25.344822}
   m_Children:
   - {fileID: 4278893072559492}
@@ -463,6 +464,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highLightMaterial: {fileID: 0}
   fireHapticsOnHightlight: 0
+--- !u!114 &114194844020435908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488656094687464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec14673e0d3c4ff428e4f6d16a70e133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114627358522424684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -485,7 +497,7 @@ MonoBehaviour:
   CurrentBulletCount: 24
   BulletsShotAtOnce: 1
   Bullet: {fileID: 1234522652013596, guid: aad76b6eaae09014ca3bcf8782d44e06, type: 2}
-  BulletFlySpeed: 20
+  BulletFlySpeed: 60
   DisplayText: {fileID: 1483252483275908}
   reloadTime: 1
   posOffset: {x: 0.0518, y: -0.008, z: 0.171}

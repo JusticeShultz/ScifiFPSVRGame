@@ -8,9 +8,10 @@ public class SpitterAI : MonoBehaviour {
     public GameObject Directional;
     public GameObject ShotType;
     public GameObject SpitPoint;
+    public float SpitRate = 0.80f;
     public int Health;
     private UnityEngine.AI.NavMeshAgent Agent;
-    private int SpitCD = 0;
+    private float SpitCD = 0;
 
     void Start()
     {
@@ -69,7 +70,7 @@ public class SpitterAI : MonoBehaviour {
 
                 ++SpitCD;
 
-                if (SpitCD > 45)
+                if (SpitCD > SpitRate * 60)
                 {
                     SpitCD = 0;
 

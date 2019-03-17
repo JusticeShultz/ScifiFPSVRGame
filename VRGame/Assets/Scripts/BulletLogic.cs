@@ -15,16 +15,16 @@ public class BulletLogic : MonoBehaviour
             {
                 //Do damage to it
                 col.gameObject.GetComponent<SpitterAI>().Health -= Damage;
-                Destroy(gameObject);
+                StartCoroutine(ScheduleNewDeath());
             }
             else
             {
                 if (col.gameObject.GetComponent<DestroyableEntity>() != null)
                 {
                     col.gameObject.GetComponent<DestroyableEntity>().Health -= Damage;
-                    Destroy(gameObject);
+                    StartCoroutine(ScheduleNewDeath());
                 }
-                else Destroy(gameObject);
+                else StartCoroutine(ScheduleNewDeath());
             }
         }
         else
@@ -37,5 +37,14 @@ public class BulletLogic : MonoBehaviour
             }
             else Destroy(gameObject);
         }
+    }
+
+    private IEnumerator ScheduleNewDeath()
+    {
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<LineRenderer>());
+        Destroy(GetComponent<SphereCollider>());
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }

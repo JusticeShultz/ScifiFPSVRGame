@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace Valve.VR.InteractionSystem
 {
@@ -314,6 +315,8 @@ namespace Valve.VR.InteractionSystem
             }
 
             attachedToHand = null;
+
+            SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
         }
 
         protected virtual void OnDestroy()
