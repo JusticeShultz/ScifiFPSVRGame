@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
 
     //For weapon changing add gun model, etc etc and just do object switches for pickups. (Push feature for later)
 
-    //Shots per second that this weapon may fire.
+    // Shots per second that this weapon may fire.
     private float shotcooldown = 0.1f;
     // if this gun is currently held
     public  bool activeGun;
@@ -65,21 +65,13 @@ public class Gun : MonoBehaviour
     BoxCollider bc;
 
     GameObject clip; // shows clip in gun
-    Vector3 clipPos;
-    Vector3 clipGoal;
+    Vector3 clipPos; // current clip position (for loading anim)
+    Vector3 clipGoal; // goal clip position (for loading anim)
 
-    // manually resize box collider
-    Vector3 activeBCPos;
-    Vector3 activeBCSize;
-    Vector3 inactiveBCPos;
-    Vector3 inactiveBCSize;
-
-
-    WeaponHandler weaponHandler;
+    WeaponHandler weaponHandler; // handles picking up weapons in specific hands
 
     void Start ()
     {
-        // hand = GetComponentInParent<Hand>().gameObject;
         weaponHandler = GameObject.Find("Player").GetComponent<WeaponHandler>();
 
         rb = GetComponent<Rigidbody>();
@@ -90,17 +82,11 @@ public class Gun : MonoBehaviour
         clipPos = clip.transform.localPosition;
         clipGoal = transform.Find("ClipGoal").localPosition;
 
-        // I know, I know, disgusting. I can't figure out Teleprt.cs
-        activeBCPos = new Vector3(2.282737e-05f, 0.0001128286f, 0.005854433f);
-        activeBCSize = new Vector3(0.005684052f, 0.009154602f, 0.01072443f);
-        inactiveBCPos = new Vector3(-0.0002120605f, 0.0001128157f, 0.001436021f);
-        inactiveBCSize = new Vector3(0.005175263f, 0.009154602f, 0.01956122f);
-
         // if player is holding this
         if (transform.parent != null && transform.parent.name == "HoverPoint")
         {
             // activeGun = true;
-            Active();
+            Activate();
             rb.useGravity = false;
             GetComponent<BoxCollider>().isTrigger = true;
             interA.enabled = false;
@@ -112,7 +98,7 @@ public class Gun : MonoBehaviour
         else
         {
             // activeGun = false;
-            Inactive();
+            Deactivate();
             rb.useGravity = true;
             interA.enabled = true;
             interA.highlightOnHover = true;
@@ -120,24 +106,22 @@ public class Gun : MonoBehaviour
             canDrop = false;
         }
 
-        // add listener to rifle
+        // add input listener to rifle
         WeaponHandler wh = GameObject.Find("Player").GetComponent<WeaponHandler>();
         GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
         GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
     }
 
-    void Active()
+    // set fields for gun being held
+    void Activate()
     {
         activeGun = true;
-        bc.center = activeBCPos;
-        bc.size = activeBCSize;
     }
 
-    void Inactive()
+    // set fields for gun not beign held
+    void Deactivate()
     {
         activeGun = false;
-        bc.center = inactiveBCPos;
-        bc.size = inactiveBCSize;
     }
 
     // Update is called once per frame
@@ -150,12 +134,13 @@ public class Gun : MonoBehaviour
         //    return;
         //}
 
-        if (!activeGun) { return; }
+        if (!activeGun) { return; } // if not being held
 
-        if (GrabPinchAction.GetStateDown(HandType))
-            print("fire");
-        if (GrabGripAction.GetStateDown(HandType))
-            print("grip");
+        // helpful debugging
+        //if (GrabPinchAction.GetStateDown(HandType))
+        //    print("fire");
+        //if (GrabGripAction.GetStateDown(HandType))
+        //    print("grip");
 
         // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
 
@@ -206,6 +191,7 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        // reload
         if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip ) || collision.name == "AmmoClip") && !clip.activeSelf)
         {
             if (CurrentBulletCount >= MaxBulletCount) return;
@@ -236,6 +222,8 @@ public class Gun : MonoBehaviour
         CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
     }
 
+    // pick up this gun
+    // param parent = the object to child this to
     public void PickupGun(Transform parent)
     {
         interA.enabled = false;
@@ -244,7 +232,7 @@ public class Gun : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true; // not this
         // activeGun = true;
-        Active();
+        Activate();
         canDrop = false;     
 
         // parent object reference
@@ -259,7 +247,7 @@ public class Gun : MonoBehaviour
         rb.useGravity = true;
         rb.isKinematic = false;
         // activeGun = false;
-        Inactive();
+        Deactivate();
 
         // reset hand model
 
@@ -280,6 +268,8 @@ public class Gun : MonoBehaviour
     //    weaponHandler.OnDetach();
     //}
 
+    // keeps the parent object the same, needed because on grip up, interactable script automatically unparents object
+    // param leftHanded = whether gun is going to left hand - used to negate offset
     public void KeepParent(bool leftHanded)
     {
         if (!activeGun) { return; }
@@ -293,11 +283,10 @@ public class Gun : MonoBehaviour
         {
             Vector3 newOffset = posOffset;
             newOffset.x *= -1;
-            // transform.localPosition = new Vector3(-posOffset.x, posOffset.y, posOffset.z);
             transform.localPosition = newOffset;
         }
         else { transform.localPosition = posOffset; }
-        // transform.localPosition = posOffset;
+
         transform.localRotation = Quaternion.Euler(rotOffset);
     }
 }

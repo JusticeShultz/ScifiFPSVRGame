@@ -5,7 +5,6 @@ using Valve.VR.InteractionSystem;
 
 public class ButtonFix : MonoBehaviour
 {
-	// Use this for initialization
 	void Start ()
     {
         var watch = GameObject.Find("Watch");

@@ -5,26 +5,28 @@ using Valve.VR.InteractionSystem;
 using Valve.VR;
 using UnityEngine.SceneManagement;
 
-// grab clip from belt 
-
+// handles grabbing clip from belt 
 public class GrabClip : MonoBehaviour
 {
+    [Tooltip("Action associated with grabbing clip")]
     public SteamVR_Action_Boolean grabClipAction;
+    [Tooltip("Object generateed when grabbign new clip from belt")]
     public GameObject newClipPrefab;
+    [Tooltip("Whether button from grabCLipAction is down")]
     public bool buttonDown;
 
-    public static bool holdingClip;
+    public static bool holdingClip; // player is holding a clip
 
     Hand hand;  
     ClipLogic clip;
-    BoxCollider pickUpPrecision;
+    BoxCollider pickUpPrecision; // box collider on belt
 
     [System.NonSerialized]
-    public GameObject grabbedClip;
+    public GameObject grabbedClip; // clip player has grabbed
     [System.NonSerialized]
-    public Gun gun;
+    public Gun gun; 
 
-    WeaponHandler weaponHandler;
+    WeaponHandler weaponHandler; // handles weapon pickups
 
     private void OnEnable()
     {
@@ -66,6 +68,7 @@ public class GrabClip : MonoBehaviour
         if (!newValue) { DropClip(); }
     }
 
+    // generate a new clip object from belt
     public void GenerateNewClip()
     {
         holdingClip = true;
@@ -77,6 +80,7 @@ public class GrabClip : MonoBehaviour
         clip.canPutBack = false;
     }
 
+    // drop clip from hand
     void DropClip()
     {
         holdingClip = false;

@@ -6,30 +6,33 @@ using Valve.VR;
 using UnityEngine.VR;
 using Valve.VR.InteractionSystem;
 
-
+// controls holding of weapons
 // 3 weapons - right, left, holster
 
 public class WeaponHandler : MonoBehaviour {
 
+    [Tooltip("Weapon in left hand")]
     public GameObject leftWeapon;
+    [Tooltip("Weapon in right hand")]
     public GameObject rightWeapon;
+    [Tooltip("Weapon holstered at hip")] // not yet implemented
     GameObject holsterWeapon;
 
     GameObject leftHand;
     GameObject rightHand;
 
-    ClipLogic clipLogic;
+    ClipLogic clipLogic; // controls whether player is holding clip
 
-	// Use this for initialization
 	void Start ()
     {
         leftHand = GameObject.Find("LeftHand");
         rightHand = GameObject.Find("RightHand");
-        // rightWeapon = rightHand.GetComponentInChildren<Gun>().gameObject;
-        // leftWeapon = leftHand.GetComponentInChildren<Gun>().gameObject;
         clipLogic = GetComponentInChildren<ClipLogic>();
     }
 
+    // pick up a weapon
+    // param hand = hand that is picking up
+    // param weapon = weapon to be picked up
     void PickupWeapon(GameObject hand, GameObject weapon)
     {
         weapon.GetComponent<Gun>().PickupGun(hand.transform.Find("HoverPoint"));
@@ -38,6 +41,8 @@ public class WeaponHandler : MonoBehaviour {
         if (hand == rightHand) { rightWeapon = weapon; }
     }
 
+    // drop weapon
+    // param hand = hand to be dropped from
     void DropWeapon(GameObject hand)
     {
         hand.GetComponentInChildren<Gun>().DropGun();
@@ -46,6 +51,7 @@ public class WeaponHandler : MonoBehaviour {
     }
 
     // called by interactable on grip down
+    // param weapon = the interactable this is called on
     public void OnPickup(GameObject weapon)
     {
         GameObject currentHandObj = weapon.GetComponentInParent<Hand>().gameObject;
@@ -77,6 +83,8 @@ public class WeaponHandler : MonoBehaviour {
         if (null != rightWeapon) { rightWeapon.GetComponent<Gun>().KeepParent(false); }
     }
 
+    // returns whether hand is holding weapon
+    // param hand = the hand to check
     public bool HandEmpty(Hand hand)
     {
         if (hand.gameObject == leftHand) { return null == leftWeapon; }
@@ -84,7 +92,7 @@ public class WeaponHandler : MonoBehaviour {
         return true;
     }
 
-    // set clip logic
+    // set clip logic so that gun hand cannot pick up ammo
     void SetClipGun()
     {
         if(null != leftWeapon && null != rightWeapon) { clipLogic.gunObject = null; }
