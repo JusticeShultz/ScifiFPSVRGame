@@ -17,6 +17,12 @@ public class BulletLogic : MonoBehaviour
                 col.gameObject.GetComponent<SpitterAI>().Health -= Damage;
                 StartCoroutine(ScheduleNewDeath());
             }
+            else if (col.gameObject.name == "Leech")
+            {
+                //Do damage to it
+                col.gameObject.GetComponent<LeechAI>().Health -= Damage;
+                StartCoroutine(ScheduleNewDeath());
+            }
             else
             {
                 if (col.gameObject.GetComponent<DestroyableEntity>() != null)
