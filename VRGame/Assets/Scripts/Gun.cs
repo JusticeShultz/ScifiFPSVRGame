@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     [Tooltip("How many bullets do we have remaining?")]
         public int CurrentBulletCount = 24;
     [Tooltip("How many bullets can we store at maximum?")]
-        public const int MaxBulletCount = 24;
+        public int MaxBulletCount = 24;
     [Tooltip("How many bullets do we shoot at a time?")]
         public int BulletsShotAtOnce = 1;
     [Tooltip("Which bullet prefab should we use?")]
@@ -34,12 +34,16 @@ public class Gun : MonoBehaviour
         public GameObject DisplayText;
     [Tooltip("Time it takes to put new clip into gun and reload.")]
         public float reloadTime;
-    [Tooltip("Offset from hand.")]
+    [Tooltip("Offset from hand. Position")]
         public Vector3 posOffset;
+    [Tooltip("Offset from hand. Rotation")]
         public Vector3 rotOffset;
+    [Tooltip("Offset from hand. Scale")]
         public Vector3 scaleOffset;
-
-
+    [Tooltip("Is this gun a hair trigger pull? (If we hold the trigger will it keep firing?)")]
+        public bool IsAutomatic = true;
+    [Tooltip("Where does our shot fire from?")]
+        public GameObject GunBarrel;
 
     public SteamVR_Action_Vibration hapticFlash = SteamVR_Input.GetAction<SteamVR_Action_Vibration>("Haptic");
 
@@ -53,6 +57,7 @@ public class Gun : MonoBehaviour
     private bool canDrop;
     // hand object this script is attached to
     // private GameObject hand;
+    private bool shotdelta = false;
 
     Transform parentObj;
     Rigidbody rb;
@@ -163,17 +168,37 @@ public class Gun : MonoBehaviour
 
         ++shotcooldown;
 
-        if (GrabPinchAction.GetState(HandType))
+        if (IsAutomatic)
         {
-            if(shotcooldown > FiringSpeed * 60 && CurrentBulletCount > 0)
+            if (GrabPinchAction.GetState(HandType))
             {
-                shotcooldown = 0;
-                CurrentBulletCount -= BulletsShotAtOnce;
+                if (shotcooldown > FiringSpeed * 60 && CurrentBulletCount > 0)
+                {
+                    shotcooldown = 0;
+                    CurrentBulletCount -= BulletsShotAtOnce;
 
-                GameObject bullet = Instantiate(Bullet, transform.position, transform.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = transform.forward * BulletFlySpeed;
-                hapticFlash.Execute(0, 0.1f, 10.0f, 25, HandType);
+                    GameObject bullet = Instantiate(Bullet, GunBarrel.transform.position, transform.rotation);
+                    bullet.GetComponent<Rigidbody>().velocity = GunBarrel.transform.forward * BulletFlySpeed;
+                    hapticFlash.Execute(0, 0.1f, 10.0f, 25, HandType);
+                }
             }
+        }
+        else
+        {
+            if (GrabPinchAction.GetState(HandType))
+            {
+                if (shotcooldown > FiringSpeed * 60 && CurrentBulletCount > 0 && !shotdelta)
+                {
+                    shotdelta = true;
+                    shotcooldown = 0;
+                    CurrentBulletCount -= BulletsShotAtOnce;
+
+                    GameObject bullet = Instantiate(Bullet, GunBarrel.transform.position, transform.rotation);
+                    bullet.GetComponent<Rigidbody>().velocity = GunBarrel.transform.forward * BulletFlySpeed;
+                    hapticFlash.Execute(0, 0.1f, 10.0f, 25, HandType);
+                }
+            }
+            else shotdelta = false;
         }
 
         DisplayText.GetComponent<TextMeshPro>().text = CurrentBulletCount + "/" + MaxBulletCount + " (" + BulletClips + ")";

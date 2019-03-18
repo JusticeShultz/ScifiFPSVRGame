@@ -128,8 +128,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488656094687464}
-  m_LocalRotation: {x: -0.08404959, y: 0.976371, z: -0.1967671, w: 0.030300643}
-  m_LocalPosition: {x: 1.4273217, y: 0.614, z: -4.3139067}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.3896633, y: 1.0806092, z: -4.668033}
   m_LocalScale: {x: 25.34481, y: 25.344816, z: 25.344822}
   m_Children:
   - {fileID: 4278893072559492}
@@ -139,7 +139,7 @@ Transform:
   - {fileID: 4896316056430192}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22.281, y: -5.721, z: -10.968}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &4278893072559492
 Transform:
   m_ObjectHideFlags: 1
@@ -173,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727366950184068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00142, z: 0.01128}
+  m_LocalPosition: {x: 0, y: 0.00157, z: 0.01138}
   m_LocalScale: {x: 0.0004309087, y: 0.0004309087, z: 0.0004309087}
   m_Children: []
   m_Father: {fileID: 4236700038861344}
@@ -495,6 +495,7 @@ MonoBehaviour:
     needsReinit: 0
   FiringSpeed: 0.2
   CurrentBulletCount: 24
+  MaxBulletCount: 24
   BulletsShotAtOnce: 1
   Bullet: {fileID: 1234522652013596, guid: aad76b6eaae09014ca3bcf8782d44e06, type: 2}
   BulletFlySpeed: 60
@@ -503,6 +504,8 @@ MonoBehaviour:
   posOffset: {x: 0.0518, y: -0.008, z: 0.171}
   rotOffset: {x: 22.281, y: -5.721, z: -10.968}
   scaleOffset: {x: 25.34482, y: 25.34482, z: 25.34482}
+  IsAutomatic: 1
+  GunBarrel: {fileID: 1727366950184068}
   hapticFlash:
     actionPath: /actions/default/out/Haptic
     needsReinit: 0
