@@ -49,10 +49,8 @@ public class LeechAI : MonoBehaviour
             return;
         }
 
-        if (dist < 30)
+        if (dist < 22)
         {
-            GetComponent<Transform>().LookAt(position, Vector3.up);
-
             if (dist > 2)
             {
                 GetComponent<Rigidbody>().isKinematic = false;
@@ -67,10 +65,11 @@ public class LeechAI : MonoBehaviour
                 animator.SetBool("IsMoving", false);
                 GetComponent<Rigidbody>().isKinematic = true;
                 Agent.isStopped = true;
+                GetComponent<Transform>().LookAt(position, Vector3.up);
 
                 //Attack
-               
-                if(Vector3.Distance(Player.transform.position, transform.position) < 5 && AttackCD <= 0)
+
+                if (Vector3.Distance(Player.transform.position, transform.position) < 5 && AttackCD <= 0)
                 {
                     PlayerHealth.CurrentHealth -= Mathf.Clamp(Damage - PlayerHealth.Armor, 1, float.MaxValue);
                     AttackCD = AttackRate * 60;

@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vrgame.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Justice\\Desktop\\VRGame\\ScifiFPSVRGame\\VRGame\\actions.json",
+      "action_manifest_path": "C:\\Users\\thomas.foster\\Documents\\VRGame\\ScifiFPSVRGame\\VRGame\\actions.json",
       "strings": {
         "en_us": {
           "name": "VRGame [Testing]"
