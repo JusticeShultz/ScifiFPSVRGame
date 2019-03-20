@@ -53,6 +53,8 @@ public class BossAI : MonoBehaviour
             {
                 IsSpitting = true;
                 IsTurning = false;
+
+
             }
             else
             {

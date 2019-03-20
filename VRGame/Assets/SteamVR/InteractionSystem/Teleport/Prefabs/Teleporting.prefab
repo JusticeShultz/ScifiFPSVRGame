@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411784}
   - component: {fileID: 12050142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorDebugLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498340}
   - component: {fileID: 8269332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sound_LoopingAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 433792}
   - component: {fileID: 3343506}
   - component: {fileID: 2327308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TeleportDestination_Invalid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469890}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OnDeactivate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405924}
   - component: {fileID: 8252162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sound_PointerAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442968}
   - component: {fileID: 8261204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sound_HeadAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayAreaPreviewEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 3390288}
   - component: {fileID: 13573822}
   - component: {fileID: 2336214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorDebugSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429610}
   - component: {fileID: 8265126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sound_ReticleAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 450016}
   - component: {fileID: 3308562}
   - component: {fileID: 2307398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DestinationReticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 460596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InvalidReticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 475244}
   - component: {fileID: 11445746}
   - component: {fileID: 11445956}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Teleporting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416618}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OnActivate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayAreaPreviewCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 457198}
   - component: {fileID: 3312636}
   - component: {fileID: 2384972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FeetOffsetReticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 424012}
   - component: {fileID: 12071126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TeleportPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Debug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1120,7 @@ MonoBehaviour:
     needsReinit: 0
   traceLayerMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 513
   floorFixupTraceLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1433,7 +1433,7 @@ GameObject:
   - component: {fileID: 4000010987318946}
   - component: {fileID: 33000013948641102}
   - component: {fileID: 23000012122883432}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayAreaEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 4000014002718978}
   - component: {fileID: 33000010155385218}
   - component: {fileID: 23000010500400360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayAreaCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

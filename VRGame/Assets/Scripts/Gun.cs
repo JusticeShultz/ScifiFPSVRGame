@@ -164,7 +164,7 @@ public class Gun : MonoBehaviour
 
                     GameObject bullet = Instantiate(Bullet, GunBarrel.transform.position, transform.rotation);
                     bullet.GetComponent<Rigidbody>().velocity = GunBarrel.transform.forward * BulletFlySpeed;
-                    hapticFlash.Execute(0, 0.1f, 10.0f, 25, HandType);
+                    hapticFlash.Execute(0, 0.1f, 100.0f, 25, HandType);
                 }
             }
         }
