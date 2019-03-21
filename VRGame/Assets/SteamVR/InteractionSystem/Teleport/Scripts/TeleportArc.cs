@@ -25,7 +25,7 @@ namespace Valve.VR.InteractionSystem
 
         public Material material;
 
-        [HideInInspector]
+        //[HideInInspector]
         public int traceLayerMask = 0;
 
         //Private data
@@ -41,13 +41,11 @@ namespace Valve.VR.InteractionSystem
         private bool arcInvalid = false;
         private float scale = 1;
 
-
         //-------------------------------------------------
         void Start()
         {
             arcTimeOffset = Time.time;
         }
-
 
         //-------------------------------------------------
         void Update()
@@ -61,8 +59,6 @@ namespace Valve.VR.InteractionSystem
                 prevSegmentCount = segmentCount;
             }
         }
-
-
 
         //-------------------------------------------------
         private void CreateLineRendererObjects()
@@ -101,7 +97,6 @@ namespace Valve.VR.InteractionSystem
             }
         }
 
-
         //-------------------------------------------------
         public void SetArcData(Vector3 position, Vector3 velocity, bool gravity, bool pointerAtBadAngle)
         {
@@ -115,8 +110,7 @@ namespace Valve.VR.InteractionSystem
             }
             arcInvalid = pointerAtBadAngle;
         }
-
-
+        
         //-------------------------------------------------
         public void Show()
         {
@@ -126,7 +120,6 @@ namespace Valve.VR.InteractionSystem
                 CreateLineRendererObjects();
             }
         }
-
 
         //-------------------------------------------------
         public void Hide()
@@ -138,7 +131,6 @@ namespace Valve.VR.InteractionSystem
             }
             showArc = false;
         }
-
 
         //-------------------------------------------------
         // Draws each segment of the arc individually
@@ -228,7 +220,6 @@ namespace Valve.VR.InteractionSystem
             return arcHitTime != float.MaxValue;
         }
 
-
         //-------------------------------------------------
         private void DrawArcSegment(int index, float startTime, float endTime)
         {
@@ -236,7 +227,6 @@ namespace Valve.VR.InteractionSystem
             lineRenderers[index].SetPosition(0, GetArcPositionAtTime(startTime));
             lineRenderers[index].SetPosition(1, GetArcPositionAtTime(endTime));
         }
-
 
         //-------------------------------------------------
         public void SetColor(Color color)

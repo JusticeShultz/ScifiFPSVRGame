@@ -1120,10 +1120,10 @@ MonoBehaviour:
     needsReinit: 0
   traceLayerMask:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 130867
   floorFixupTraceLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 130867
   floorFixupMaximumTraceDistance: 1
   areaVisibleMaterial: {fileID: 2100000, guid: 417e639b66cd3a24e9c5312be99ce3bd, type: 2}
   areaLockedMaterial: {fileID: 2100000, guid: f6802bd638faedf4dbe4a57c1f222991, type: 2}

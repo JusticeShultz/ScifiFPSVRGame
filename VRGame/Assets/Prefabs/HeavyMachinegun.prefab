@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114004341290806094}
   - component: {fileID: 114111323753849724}
   - component: {fileID: 114549513977002094}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: HeavyMachinegun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4659299228353982}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4961078183076714}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4207437974921424}
   - component: {fileID: 33733330564131992}
   - component: {fileID: 23011483411122990}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 23564752601565024}
   - component: {fileID: 54232880575067504}
   - component: {fileID: 65285868239408912}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4313138796250506}
   - component: {fileID: 108759570685370486}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 4541372994489510}
   - component: {fileID: 33236204276880530}
   - component: {fileID: 23134861147887330}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: model (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 23096442923869210}
   - component: {fileID: 222160306970995444}
   - component: {fileID: 114725880731149808}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}

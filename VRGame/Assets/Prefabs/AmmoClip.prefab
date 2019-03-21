@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 33084677786271336}
   - component: {fileID: 23768567693990766}
   - component: {fileID: 114709780869925430}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AmmoClip
   m_TagString: Untagged
   m_Icon: {fileID: 0}

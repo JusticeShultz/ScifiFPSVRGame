@@ -153,7 +153,7 @@ namespace Valve.VR.InteractionSystem
 			fullTintAlpha = pointVisibleMaterial.GetColor( tintColorID ).a;
 
 			teleportArc = GetComponent<TeleportArc>();
-			teleportArc.traceLayerMask = traceLayerMask;
+			teleportArc.traceLayerMask = traceLayerMask.value;
 
 			loopingAudioMaxVolume = loopingAudioSource.volume;
 
@@ -629,11 +629,11 @@ namespace Valve.VR.InteractionSystem
 					//Restore the original hovering interactable on the hand
 					if ( originalHoverLockState == true )
 					{
-						pointerHand.HoverLock( originalHoveringInteractable );
+						//pointerHand.HoverLock( originalHoveringInteractable );
 					}
 					else
 					{
-						pointerHand.HoverUnlock( null );
+						//pointerHand.HoverUnlock( null );
 					}
 				}
 
@@ -717,11 +717,11 @@ namespace Valve.VR.InteractionSystem
 					//Restore the original hovering interactable on the hand
 					if ( originalHoverLockState == true )
 					{
-						oldPointerHand.HoverLock( originalHoveringInteractable );
+						//oldPointerHand.HoverLock( originalHoveringInteractable );
 					}
 					else
 					{
-						oldPointerHand.HoverUnlock( null );
+						//oldPointerHand.HoverUnlock( null );
 					}
 				}
 			}
@@ -748,7 +748,7 @@ namespace Valve.VR.InteractionSystem
 
 				if ( ShouldOverrideHoverLock() )
 				{
-					pointerHand.HoverLock( null );
+					//pointerHand.HoverLock( null );
 				}
 
 				pointerAudioSource.transform.SetParent( pointerStartTransform );
@@ -1036,7 +1036,7 @@ namespace Valve.VR.InteractionSystem
 
 			if ( hand.hoveringInteractable != null )
 			{
-				return false;
+				return true;
 			}
 
 			if ( hand.noSteamVRFallbackCamera == null )
@@ -1057,7 +1057,7 @@ namespace Valve.VR.InteractionSystem
 					}
 					else
 					{
-						return false;
+						return true;
 					}
 				}
 			}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4601326959383158}
   - component: {fileID: 33378424998768876}
   - component: {fileID: 23046881345833652}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23452861642060072}
   - component: {fileID: 54765719829997222}
   - component: {fileID: 65825893952523856}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278893072559492}
   - component: {fileID: 108805928030419772}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 23188627561713820}
   - component: {fileID: 222369645963358026}
   - component: {fileID: 114724592050713166}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 114892250400059982}
   - component: {fileID: 114694746047547824}
   - component: {fileID: 114194844020435908}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: Rifle
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798254623904682}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,8 +129,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488656094687464}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.6876695, y: -0.057646737, z: -1.3694644}
-  m_LocalScale: {x: 25.34481, y: 25.344816, z: 25.344822}
+  m_LocalPosition: {x: -0.6876695, y: 0.45035324, z: -0.8314643}
+  m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4278893072559492}
   - {fileID: 4798254623904682}
@@ -400,8 +400,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0056840517, y: 0.009154602, z: 0.010724427}
-  m_Center: {x: 0.00002282737, y: 0.00011282863, z: 0.005854433}
+  m_Size: {x: 0.005684052, y: 0.009154602, z: 0.018227141}
+  m_Center: {x: 0.000022827258, y: 0.00011282867, z: 0.002103074}
 --- !u!65 &65825893952523856
 BoxCollider:
   m_ObjectHideFlags: 1
