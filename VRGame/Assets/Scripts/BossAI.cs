@@ -18,6 +18,10 @@ public class BossAI : MonoBehaviour
     GameObject Player;
 
     int StunTime = 0;
+    int ArtillaryCD = 0;
+    int JumpCD = 0;
+    int SpitCD = 0;
+    int StompCD = 0;
 
     void Start ()
     {
@@ -32,7 +36,12 @@ public class BossAI : MonoBehaviour
         animator.SetBool("IsUsingArtillary", IsUsingArtillary);
         animator.SetBool("IsStomping", IsStomping);
 
-        if(StunTime > 0)
+        --JumpCD;
+        --ArtillaryCD;
+        --SpitCD;
+        --StompCD;
+
+        if (StunTime > 0)
         {
             --StunTime;
 
@@ -42,45 +51,47 @@ public class BossAI : MonoBehaviour
             IsUsingArtillary = false;
             IsStomping = false;
         }
-        else if(PlayerInView && Vector3.Distance(Player.transform.position, transform.position) < 7)
+        else if(Vector3.Distance(Player.transform.position, transform.position) < 7 && StompCD <= 0)
         {
             IsStomping = true;
             IsTurning = false;
+            StompCD = 370;
         }
         else
         {
-            if (PlayerInView && Vector3.Distance(Player.transform.position, transform.position) > 7)
+            if (PlayerInView && Vector3.Distance(Player.transform.position, transform.position) > 7 && SpitCD <= 0)
             {
                 IsSpitting = true;
                 IsTurning = false;
-
-
+                SpitCD = 40;
             }
             else
             {
-                if (!PlayerInView && Vector3.Distance(Player.transform.position, transform.position) > 15)
+                if (!PlayerInView && Vector3.Distance(Player.transform.position, transform.position) > 15 && ArtillaryCD <= 0)
                 {
                     IsUsingArtillary = true;
                     IsTurning = false;
-                    StunTime = 350;
+                    StunTime = 125;
+                    ArtillaryCD = 880;
                 }
                 else
                 {
-                    if (!PlayerInView && Vector3.Distance(Player.transform.position, transform.position) < 15)
+                    if (!PlayerInView && Vector3.Distance(Player.transform.position, transform.position) < 15 && JumpCD <= 0)
                     {
                         IsJumping = true;
                         IsTurning = false;
                         StunTime = 900;
+                        JumpCD = 3500;
                     }
                     else
                     {
                         if (!PlayerInView)
                         {
-                            if (Vector3.Distance(Player.transform.position, transform.position) > 5)
+                            if (Vector3.Distance(Player.transform.position, transform.position) > 8)
                             {
                                 IsTurning = true;
                                 SmoothLook.transform.LookAt(Player.transform.position);
-                                transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.1f);
+                                transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
                             }
                             else
                             {
