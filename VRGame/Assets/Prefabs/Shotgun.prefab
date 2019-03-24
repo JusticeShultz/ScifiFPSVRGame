@@ -61,6 +61,8 @@ GameObject:
   - component: {fileID: 114239580926949642}
   - component: {fileID: 114532837971014470}
   - component: {fileID: 114148865482242042}
+  - component: {fileID: 114964510562082432}
+  - component: {fileID: 114174305394904862}
   m_Layer: 2
   m_Name: Shotgun
   m_TagString: Weapon
@@ -1507,8 +1509,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0056840517, y: 0.009154602, z: 0.010724427}
-  m_Center: {x: 0.00002282737, y: 0.00011282863, z: 0.005854433}
+  m_Size: {x: 0.0056840517, y: 0.0053020725, z: 0.0143133905}
+  m_Center: {x: 0.000022827257, y: -0.0018134312, z: 0.0022542719}
 --- !u!95 &95137417788553134
 Animator:
   serializedVersion: 3
@@ -1736,6 +1738,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec14673e0d3c4ff428e4f6d16a70e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114174305394904862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099567494445666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114239580926949642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1801,6 +1814,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactable: {fileID: 0}
+--- !u!114 &114964510562082432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099567494445666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be03aa316de15f448329a95511fab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsClip: 0
 --- !u!114 &114986319765336744
 MonoBehaviour:
   m_ObjectHideFlags: 1

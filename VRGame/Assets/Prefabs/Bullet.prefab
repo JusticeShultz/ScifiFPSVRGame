@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114354333419819428}
   - component: {fileID: 96525946495818388}
   - component: {fileID: 82294327352717266}
+  - component: {fileID: 114499517031023738}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -321,6 +322,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 25
   IsEnemyShot: 0
+--- !u!114 &114499517031023738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234522652013596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135192186926723616
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -21,6 +21,8 @@ public class WeaponHandler : MonoBehaviour {
     GameObject leftHand;
     GameObject rightHand;
 
+    public bool GrabDelta = false;
+
     ClipLogic clipLogic; // controls whether player is holding clip
 
 	void Start ()
@@ -58,7 +60,14 @@ public class WeaponHandler : MonoBehaviour {
         Hand currentHandScript = currentHandObj.GetComponent<Hand>();
 
         // if not grip
-        if (!SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip").GetStateDown(currentHandScript.handType)) { return; }
+        if (!SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip").GetStateDown(currentHandScript.handType))
+        {
+            GrabDelta = false;
+            return;
+        }
+
+        if (GrabDelta) return;
+        else GrabDelta = true;
 
         // if right
         if (currentHandObj == rightHand)
@@ -79,6 +88,8 @@ public class WeaponHandler : MonoBehaviour {
     // called by interactable on grip up
     public void OnDetach()
     {
+        if (GrabDelta) return;
+
         if (null != leftWeapon) { leftWeapon.GetComponent<Gun>().KeepParent(true); }
         if (null != rightWeapon) { rightWeapon.GetComponent<Gun>().KeepParent(false); }
     }

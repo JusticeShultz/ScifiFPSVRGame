@@ -6,6 +6,8 @@ public class BossAI : MonoBehaviour
 {
     public Animator animator;
     public GameObject SmoothLook;
+    public GameObject ShotType;
+    public GameObject SpitPoint;
 
     bool IsTurning = false;
     bool IsJumping = false;
@@ -64,6 +66,8 @@ public class BossAI : MonoBehaviour
                 IsSpitting = true;
                 IsTurning = false;
                 SpitCD = 40;
+                GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
+                bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.forward * 5;
             }
             else
             {
@@ -72,7 +76,7 @@ public class BossAI : MonoBehaviour
                     IsUsingArtillary = true;
                     IsTurning = false;
                     StunTime = 125;
-                    ArtillaryCD = 880;
+                    ArtillaryCD = 1250;
                 }
                 else
                 {

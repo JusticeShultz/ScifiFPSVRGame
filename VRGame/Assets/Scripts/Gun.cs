@@ -151,6 +151,9 @@ public class Gun : MonoBehaviour
             return;
         }
 
+        if (!GrabGripAction.GetStateDown(HandType))
+            weaponHandler.GrabDelta = false;
+
         ++shotcooldown;
 
         if (IsAutomatic)

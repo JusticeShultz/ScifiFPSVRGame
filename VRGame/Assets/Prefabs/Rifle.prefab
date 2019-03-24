@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 114892250400059982}
   - component: {fileID: 114694746047547824}
   - component: {fileID: 114194844020435908}
+  - component: {fileID: 114788580649800610}
+  - component: {fileID: 114244656752620702}
   m_Layer: 2
   m_Name: Rifle
   m_TagString: Weapon
@@ -128,8 +130,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488656094687464}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.6876695, y: 0.45035324, z: -0.8314643}
+  m_LocalRotation: {x: 0.72993875, y: -0.6835126, z: -0, w: 0}
+  m_LocalPosition: {x: -22.417, y: 1.796, z: -8.647}
   m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4278893072559492}
@@ -475,6 +477,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec14673e0d3c4ff428e4f6d16a70e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114244656752620702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488656094687464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114627358522424684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,6 +737,18 @@ MonoBehaviour:
   handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+--- !u!114 &114788580649800610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488656094687464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be03aa316de15f448329a95511fab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsClip: 0
 --- !u!114 &114892250400059982
 MonoBehaviour:
   m_ObjectHideFlags: 1

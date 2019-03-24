@@ -300,6 +300,8 @@ GameObject:
   - component: {fileID: 114437539598577154}
   - component: {fileID: 114253504890974424}
   - component: {fileID: 114504263085453734}
+  - component: {fileID: 114422067874037718}
+  - component: {fileID: 114442804147760980}
   m_Layer: 2
   m_Name: Pistol
   m_TagString: Weapon
@@ -1171,8 +1173,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0056840517, y: 0.009154602, z: 0.010724427}
-  m_Center: {x: 0.00002282737, y: 0.00011282863, z: 0.005854433}
+  m_Size: {x: 0.0056840517, y: 0.009456352, z: 0.011277512}
+  m_Center: {x: 0.000022827258, y: -0.0018349473, z: -0.0022833347}
 --- !u!108 &108783405928144128
 Light:
   m_ObjectHideFlags: 1
@@ -1459,6 +1461,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &114422067874037718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906849123741488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be03aa316de15f448329a95511fab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsClip: 0
 --- !u!114 &114437539598577154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1473,6 +1487,17 @@ MonoBehaviour:
   velocityAverageFrames: 5
   angularVelocityAverageFrames: 11
   estimateOnAwake: 0
+--- !u!114 &114442804147760980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906849123741488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114504263085453734
 MonoBehaviour:
   m_ObjectHideFlags: 1

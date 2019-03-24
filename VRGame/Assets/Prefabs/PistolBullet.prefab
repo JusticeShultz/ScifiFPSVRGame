@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114937042419304026}
   - component: {fileID: 96584723937345352}
   - component: {fileID: 82561731480062494}
+  - component: {fileID: 114541004775424612}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -308,6 +309,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114541004775424612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681397940681512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114937042419304026
 MonoBehaviour:
   m_ObjectHideFlags: 1

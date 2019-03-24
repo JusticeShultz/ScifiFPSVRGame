@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 114004341290806094}
   - component: {fileID: 114111323753849724}
   - component: {fileID: 114549513977002094}
+  - component: {fileID: 114912657436593644}
+  - component: {fileID: 114470825160424340}
   m_Layer: 2
   m_Name: HeavyMachinegun
   m_TagString: Weapon
@@ -187,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1232863622388326}
   m_LocalRotation: {x: -0.4980872, y: -0.4980872, z: -0.5019055, w: -0.5019055}
-  m_LocalPosition: {x: 0.555, y: 1.088, z: -3.278}
+  m_LocalPosition: {x: -22.186966, y: 2.4130518, z: -5.013467}
   m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4961078183076714}
@@ -514,8 +516,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0056840517, y: 0.009154602, z: 0.010724427}
-  m_Center: {x: 0.00002282737, y: 0.00011282863, z: 0.005854433}
+  m_Size: {x: 0.005684052, y: 0.007092735, z: 0.020594997}
+  m_Center: {x: 0.000022827258, y: -0.0017172482, z: 0.0019164989}
 --- !u!108 &108759570685370486
 Light:
   m_ObjectHideFlags: 1
@@ -618,6 +620,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactable: {fileID: 0}
+--- !u!114 &114470825160424340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232863622388326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be03aa316de15f448329a95511fab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsClip: 0
 --- !u!114 &114549513977002094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -840,6 +854,17 @@ MonoBehaviour:
   handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+--- !u!114 &114912657436593644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232863622388326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222160306970995444
 CanvasRenderer:
   m_ObjectHideFlags: 1
