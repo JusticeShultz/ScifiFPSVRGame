@@ -10,6 +10,7 @@ public class BossAI_Detector : MonoBehaviour
     {
         if (collision.name == "PlayerCollider")
         {
+            print("I see youuuuu");
             Handler.EnterView();
         }
     }
@@ -18,7 +19,18 @@ public class BossAI_Detector : MonoBehaviour
     {
         if (collision.name == "PlayerCollider")
         {
+            print("I can't see you : (");
             Handler.ExitView();
         }
+    }
+
+    public void ForceEnter()
+    {
+        Handler.EnterView();
+    }
+
+    public void ForceExit()
+    {
+        Handler.ExitView();
     }
 }

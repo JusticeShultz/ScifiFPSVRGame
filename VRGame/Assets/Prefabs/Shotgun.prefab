@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4728732543606594}
   - component: {fileID: 33799377084058438}
   - component: {fileID: 23723701976826480}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4638017990677958}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 114148865482242042}
   - component: {fileID: 114964510562082432}
   - component: {fileID: 114174305394904862}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Shotgun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4564667440549028}
   - component: {fileID: 33028490915055404}
   - component: {fileID: 23373510541342646}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4904939861102430}
   - component: {fileID: 33484536049679560}
   - component: {fileID: 23322864634524846}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4524941809080388}
   - component: {fileID: 33894733060488848}
   - component: {fileID: 23560408458138756}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 4313421335307842}
   - component: {fileID: 33678008385278098}
   - component: {fileID: 23051394880836824}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535260653394032}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4670190248975728}
   - component: {fileID: 33650299257092804}
   - component: {fileID: 23860578293864720}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4622556868824872}
   - component: {fileID: 33723744188963066}
   - component: {fileID: 23555290095382130}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4952539029753220}
   - component: {fileID: 108264976474862714}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 23049345989209194}
   - component: {fileID: 54361722991779308}
   - component: {fileID: 65307380876090934}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 4419310564372962}
   - component: {fileID: 33784490153536242}
   - component: {fileID: 23148330390525954}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4123718184163686}
   - component: {fileID: 95137417788553134}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: ShotgunModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 23981723138106580}
   - component: {fileID: 222310587618507632}
   - component: {fileID: 114072672044667300}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 4253204743835028}
   - component: {fileID: 33687973327664888}
   - component: {fileID: 23686594593333134}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 4930039081664228}
   - component: {fileID: 33919838081282424}
   - component: {fileID: 23935434523572146}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 4710562572915192}
   - component: {fileID: 33236742523555632}
   - component: {fileID: 23802422373320984}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 4265227684411852}
   - component: {fileID: 33071270047131712}
   - component: {fileID: 23088304694089708}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 4239195360179898}
   - component: {fileID: 33002403833787350}
   - component: {fileID: 23401442634794490}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 4516562395110998}
   - component: {fileID: 33799383015588426}
   - component: {fileID: 23781580784887840}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 4235053130900176}
   - component: {fileID: 33655654013328338}
   - component: {fileID: 23002994219289256}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Reeee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,8 +623,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605328065897246}
   m_LocalRotation: {x: -0.01700428, y: 0.9823878, z: 0.18527862, w: -0.01723407}
-  m_LocalPosition: {x: 0.00028, y: -0.00514, z: 0.00431}
-  m_LocalScale: {x: 0.0017214775, y: 0.0010708796, z: 0.0017214777}
+  m_LocalPosition: {x: 0.00028, y: -0.00565, z: 0.00384}
+  m_LocalScale: {x: 0.0017214775, y: 0.0014470797, z: 0.0017214777}
   m_Children: []
   m_Father: {fileID: 4911004801488828}
   m_RootOrder: 3
@@ -660,7 +660,7 @@ Transform:
   - {fileID: 4638017990677958}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -187.36198, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: -144.177, z: 90.00001}
 --- !u!4 &4930039081664228
 Transform:
   m_ObjectHideFlags: 1
@@ -1485,8 +1485,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!65 &65307380876090934
 BoxCollider:
   m_ObjectHideFlags: 1

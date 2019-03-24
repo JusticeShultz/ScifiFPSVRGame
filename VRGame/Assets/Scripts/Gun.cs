@@ -194,6 +194,7 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        print("Object attempted to go in clip: " + collision.gameObject.name);
         // reload
         if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip ) || collision.name == "AmmoClip") && !clip.activeSelf)
         {

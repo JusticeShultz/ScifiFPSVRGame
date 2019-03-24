@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 23365659016716186}
   - component: {fileID: 114831981940959210}
   - component: {fileID: 114061152062148496}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: ThrowableCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010777624494}
   m_LocalRotation: {x: -0.63770914, y: -0.65690535, z: 0.2886171, w: 0.28018323}
-  m_LocalPosition: {x: -12.234, y: 1.2490001, z: 13.85}
+  m_LocalPosition: {x: -10.351, y: 1.2490001, z: 17.662}
   m_LocalScale: {x: 0.07246391, y: 0.07246391, z: 0.07246391}
   m_Children: []
   m_Father: {fileID: 0}

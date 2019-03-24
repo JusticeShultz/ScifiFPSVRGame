@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 114238278680904190}
   - component: {fileID: 114024625434525110}
   - component: {fileID: 54285529935608342}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: ClipInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3345,6 +3345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWeapon: {fileID: 0}
   rightWeapon: {fileID: 0}
+  GrabDelta: 0
 --- !u!114 &114526772898936366
 MonoBehaviour:
   m_ObjectHideFlags: 1

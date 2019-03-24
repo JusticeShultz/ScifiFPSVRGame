@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4004873389501094}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 23498058047268200}
   - component: {fileID: 54731206634547486}
   - component: {fileID: 65013350091008782}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4569361625791126}
   - component: {fileID: 33012161729258572}
   - component: {fileID: 23553696377397066}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body70_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4398968506025802}
   - component: {fileID: 108783405928144128}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4307889352264010}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4561577423974924}
   - component: {fileID: 33994630449315356}
   - component: {fileID: 23937413133886478}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body93_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4943472751519002}
   - component: {fileID: 33615855722700344}
   - component: {fileID: 23911334861754752}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body100_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 4964474313182688}
   - component: {fileID: 33133242252594230}
   - component: {fileID: 23192038893968690}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body101_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4645685071964928}
   - component: {fileID: 33126010994699566}
   - component: {fileID: 23191400371501260}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body72_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 4036079869225296}
   - component: {fileID: 33236789563323568}
   - component: {fileID: 23473809189593034}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body66_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4005487620262398}
   - component: {fileID: 33998584607217338}
   - component: {fileID: 23826053054216294}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body69_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4492045076295994}
   - component: {fileID: 33949897908472484}
   - component: {fileID: 23623540473687548}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body73_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 4170239705830262}
   - component: {fileID: 33101385274287520}
   - component: {fileID: 23342328916853788}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 4354216580959446}
   - component: {fileID: 33425028382203148}
   - component: {fileID: 23911352210655300}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body74_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 4776079946319436}
   - component: {fileID: 33094739320775156}
   - component: {fileID: 23737871881404876}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Body91_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 23458444033025180}
   - component: {fileID: 222943662974984706}
   - component: {fileID: 114388136761730928}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 114504263085453734}
   - component: {fileID: 114422067874037718}
   - component: {fileID: 114442804147760980}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Pistol
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906849123741488}
   m_LocalRotation: {x: -0.70564795, y: -0.705648, z: -0.04539818, w: -0.04539807}
-  m_LocalPosition: {x: 19.037, y: 1.785, z: -5.769}
+  m_LocalPosition: {x: -17.725, y: 1.743, z: -13.162}
   m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4398968506025802}
@@ -1149,8 +1149,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!65 &65013350091008782
 BoxCollider:
   m_ObjectHideFlags: 1

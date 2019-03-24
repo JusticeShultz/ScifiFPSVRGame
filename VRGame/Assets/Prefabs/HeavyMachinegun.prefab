@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 114549513977002094}
   - component: {fileID: 114912657436593644}
   - component: {fileID: 114470825160424340}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: HeavyMachinegun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4659299228353982}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4961078183076714}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4207437974921424}
   - component: {fileID: 33733330564131992}
   - component: {fileID: 23011483411122990}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 23564752601565024}
   - component: {fileID: 54232880575067504}
   - component: {fileID: 65285868239408912}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4313138796250506}
   - component: {fileID: 108759570685370486}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4541372994489510}
   - component: {fileID: 33236204276880530}
   - component: {fileID: 23134861147887330}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: model (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 23096442923869210}
   - component: {fileID: 222160306970995444}
   - component: {fileID: 114725880731149808}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1232863622388326}
   m_LocalRotation: {x: -0.4980872, y: -0.4980872, z: -0.5019055, w: -0.5019055}
-  m_LocalPosition: {x: -22.186966, y: 2.4130518, z: -5.013467}
+  m_LocalPosition: {x: -10.788377, y: 1.313, z: 17.556}
   m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4961078183076714}
@@ -477,8 +477,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!54 &54303076566773544
 Rigidbody:
   m_ObjectHideFlags: 1

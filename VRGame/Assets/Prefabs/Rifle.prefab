@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4601326959383158}
   - component: {fileID: 33378424998768876}
   - component: {fileID: 23046881345833652}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23452861642060072}
   - component: {fileID: 54765719829997222}
   - component: {fileID: 65825893952523856}
-  m_Layer: 2
+  m_Layer: 19
   m_Name: ClipHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278893072559492}
   - component: {fileID: 108805928030419772}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 23188627561713820}
   - component: {fileID: 222369645963358026}
   - component: {fileID: 114724592050713166}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: AmmoDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 114194844020435908}
   - component: {fileID: 114788580649800610}
   - component: {fileID: 114244656752620702}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: Rifle
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798254623904682}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,8 +375,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!54 &54770322746765686
 Rigidbody:
   m_ObjectHideFlags: 1

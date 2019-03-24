@@ -65,9 +65,9 @@ public class BossAI : MonoBehaviour
             {
                 IsSpitting = true;
                 IsTurning = false;
-                SpitCD = 40;
+                SpitCD = 125;
                 GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.forward * 5;
+                bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.right * 10 + (Vector3.up * 2);
             }
             else
             {
@@ -91,11 +91,11 @@ public class BossAI : MonoBehaviour
                     {
                         if (!PlayerInView)
                         {
-                            if (Vector3.Distance(Player.transform.position, transform.position) > 8)
+                            if (Vector3.Distance(Player.transform.position, transform.position) > 6)
                             {
                                 IsTurning = true;
                                 SmoothLook.transform.LookAt(Player.transform.position);
-                                transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
+                                transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.005f);
                             }
                             else
                             {
