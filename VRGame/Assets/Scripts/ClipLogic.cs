@@ -29,8 +29,8 @@ public class ClipLogic : MonoBehaviour
     {
         print(collision.gameObject.name);
 
-        if (collision.gameObject.name == "BossViewRange")
-            collision.gameObject.GetComponent<BossAI_Detector>().ForceEnter();
+        //if (collision.gameObject.name == "BossViewRange")
+            //collision.gameObject.GetComponent<BossAI_Detector>().ForceEnter();
 
         // if not grabbing a clip
         if (canPutBack && (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)"))
@@ -42,8 +42,8 @@ public class ClipLogic : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.name == "BossViewRange")
-            collision.gameObject.GetComponent<BossAI_Detector>().ForceExit();
+        //if (collision.gameObject.name == "BossViewRange")
+            //collision.gameObject.GetComponent<BossAI_Detector>().ForceExit();
 
         if (collision.gameObject.name == ClipName || collision.gameObject.name == ClipName + "(Clone)")
         {

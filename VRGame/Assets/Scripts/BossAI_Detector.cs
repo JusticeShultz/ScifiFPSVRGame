@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BossAI_Detector : MonoBehaviour
 {
-    public BossAI Handler;
+    /*  [DEPRECATED SCRIPT]
+     *  Saved for future reference.
+     * public BossAI Handler;
 
     void OnTriggerEnter(Collider collision)
     {
@@ -32,5 +34,5 @@ public class BossAI_Detector : MonoBehaviour
     public void ForceExit()
     {
         Handler.ExitView();
-    }
+    }*/
 }

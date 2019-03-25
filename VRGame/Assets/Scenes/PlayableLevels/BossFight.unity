@@ -1505,12 +1505,12 @@ Prefab:
     - target: {fileID: 114072672044667300, guid: b4a86944bac872b41950bec2dde69cba,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114072672044667300, guid: b4a86944bac872b41950bec2dde69cba,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4a86944bac872b41950bec2dde69cba, type: 2}
@@ -8388,6 +8388,14 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4ae4a4ff484bc814fb6bc945185f2abf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4ae4a4ff484bc814fb6bc945185f2abf, type: 3}
+      propertyPath: m_Name
+      value: '[DEPRECATED]BossViewRange'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ae4a4ff484bc814fb6bc945185f2abf, type: 3}
   m_IsPrefabAsset: 0
@@ -8436,7 +8444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77080e3614a50924598f7e736dc18953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Handler: {fileID: 2056674442}
 --- !u!114 &1442772169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9424,6 +9431,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec, type: 3}
   m_IsPrefabAsset: 0
@@ -10146,6 +10157,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
   m_IsPrefabAsset: 0
+--- !u!137 &1878864102 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec,
+    type: 3}
+  m_PrefabInternal: {fileID: 1551825963}
 --- !u!1 &1886230299
 GameObject:
   m_ObjectHideFlags: 0
@@ -10327,12 +10343,12 @@ Prefab:
     - target: {fileID: 114724592050713166, guid: 7b10079d92393c94d9169de7e20985f8,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114724592050713166, guid: 7b10079d92393c94d9169de7e20985f8,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
@@ -10613,7 +10629,25 @@ MonoBehaviour:
   animator: {fileID: 1551825964}
   SmoothLook: {fileID: 269283223}
   ShotType: {fileID: 1872308276002688, guid: 3f669116e4ceaad4b8c0ca33e12cf02b, type: 2}
+  ArtillaryType: {fileID: 1576409737308482, guid: 410719989a340bb4b860bae4a794af2d,
+    type: 2}
   SpitPoint: {fileID: 686780504}
+  Renderer: {fileID: 1878864102}
+  Normal: {fileID: 2100000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec, type: 3}
+  Ghosted: {fileID: 2100000, guid: 8a7955e4366112546b5b241c68eb7a7c, type: 2}
+  IsGhosted: 0
+--- !u!65 &2056674443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056674441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05080046, y: 0.038102813, z: 0.064545974}
+  m_Center: {x: -0.026614241, y: 0.045635484, z: 0.021392766}
 --- !u!4 &2074919142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849,
