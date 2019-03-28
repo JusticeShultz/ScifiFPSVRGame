@@ -22,6 +22,19 @@ public class BossAI : MonoBehaviour
     public Material Ghosted;
     [Tooltip("Are we cloaked?")]
     public bool IsGhosted = false;
+    [Tooltip("Maximum health")]
+    [Range(10,100)]
+    public int MaxHealth;
+    //[Tooltip("Current health - public for testing only")]
+    //public int Health;
+    // public int MaxHealth { get { return _maxHealth; } set { if (value < 0) Debug.LogError("OH NO"); else _maxHealth = value; } }
+    [Tooltip("Health value where {globules} unlock")]
+    [Range(10,50)]
+    public int FinalStageUnlockValue;
+    [Tooltip("{globules} are unlocked")]
+    public bool FinalStage;
+
+    int Health;
 
     //Are we turning?
     bool IsTurning = false;
@@ -33,6 +46,9 @@ public class BossAI : MonoBehaviour
     bool IsUsingArtillary = false;
     //Are we stomping?
     bool IsStomping = false;
+
+    // final stage has been unlocked
+    bool ReachedFinalStage;
 
     //Who is the player?
     GameObject Player;
@@ -52,10 +68,28 @@ public class BossAI : MonoBehaviour
     //How long does our cloak ability have left?
     int CloakTime = 0;
 
+    // how many globules need are on
+    int GlobuleCount;
+    // globules on boss
+    Globule[] Globules;
+    // teleport points on back
+    Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
+
     void Start ()
     {
+        Health = MaxHealth;
+        
         myCollider = GetComponent<Collider>();
         Player = GameObject.Find("PlayerCollider");
+        FinalStage = false;
+        ReachedFinalStage = false;
+        Globules = GetComponentsInChildren<Globule>();
+        // TeleportPoints = GetComponentsInChildren<Valve.VR.InteractionSystem.TeleportPoint>();
+        Reference[] refs = GetComponentsInChildren<Reference>();
+        TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
+        for (int i = 0; i < refs.Length; i++)
+            TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>();
+        // GlobuleCount = Find
     }
 	
 	void Update ()
@@ -89,7 +123,7 @@ public class BossAI : MonoBehaviour
         --JumpCD;
         --ArtillaryCD;
         --SpitCD;
-        --StompCD;
+        --StompCD;       
 
         if (StunTime > 0)
         {
@@ -169,5 +203,45 @@ public class BossAI : MonoBehaviour
                 }
             }
         }
+
+        // take damage
+
+        // bullet damage handled by bullet script
+
+        // if boss dies
+        if (Health <= 0)
+            BeginWin();
+
+        // enable {globules} if at health val and they have not yet been enabled
+        if (Health <= FinalStageUnlockValue && !ReachedFinalStage)
+            EnableFinalStage();
+    }
+
+    // change boss values for final fight stage
+    void EnableFinalStage()
+    {
+        ReachedFinalStage = true;
+        FinalStage = true;
+
+        // enable rip-off globules
+        foreach (var i in Globules)
+            i.enabled = true;
+        // open teleport points
+        foreach (var i in TeleportPoints)
+            i.locked = false;
+    }
+
+    // attempt to damage boss
+    public void TryTakeBulletDamage(int Damage)
+    {
+        if (ReachedFinalStage) return; // no bullet damage in final stage
+        Health -= Damage;
+        print(Health + " / " + MaxHealth);
+    }
+
+    // start win things
+    void BeginWin()
+    {
+
     }
 }
