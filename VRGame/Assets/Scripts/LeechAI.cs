@@ -49,7 +49,7 @@ public class LeechAI : MonoBehaviour
             return;
         }
 
-        if (dist < 22)
+        if (dist < 16)
         {
             if (dist > 2)
             {

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PlayableLevels/BossFight.unity
+    guid: cb08e574382799845b40203793fb0b1b
+  - enabled: 1
     path: Assets/Scenes/PlayableLevels/Tutorial/Tutorial.unity
     guid: 44d48f01b34662c498b3416493b7136e
   - enabled: 1
@@ -16,5 +19,5 @@ EditorBuildSettings:
     guid: 44393a585c0fc3f4c92e0e484b203ad4
   - enabled: 1
     path: Assets/Scenes/PlayableLevels/Lab.unity
-    guid: 250dda9837d2350418086d985e2b4263
+    guid: b8d4f9776b49fb1469d9493208d22472
   m_configObjects: {}
