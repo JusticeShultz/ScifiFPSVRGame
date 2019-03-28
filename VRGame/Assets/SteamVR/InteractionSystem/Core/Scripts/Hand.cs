@@ -440,6 +440,7 @@ namespace Valve.VR.InteractionSystem
                 else
                 {
                     attachedObject.attachedRigidbodyWasKinematic = attachedObject.attachedRigidbody.isKinematic;
+                    // Debug.Log("Newly Attached Object was Kinimatic=" + attachedObject.attachedRigidbodyWasKinematic);
                     attachedObject.attachedRigidbodyUsedGravity = attachedObject.attachedRigidbody.useGravity;
                 }
             }
@@ -585,6 +586,7 @@ namespace Valve.VR.InteractionSystem
         {
             int index = attachedObjects.FindIndex(l => l.attachedObject == objectToDetach);
             if (index != -1)
+
             {
                 if (spewDebugText)
                     HandDebugLog("DetachObject " + objectToDetach);
@@ -628,7 +630,7 @@ namespace Valve.VR.InteractionSystem
                 {
                     if (attachedObjects[index].attachedRigidbody != null)
                     {
-                        attachedObjects[index].attachedRigidbody.isKinematic = attachedObjects[index].attachedRigidbodyWasKinematic;
+                        attachedObjects[index].attachedRigidbody.isKinematic = false; // attachedObjects[index].attachedRigidbodyWasKinematic;
                         attachedObjects[index].attachedRigidbody.collisionDetectionMode = attachedObjects[index].collisionDetectionMode;
                     }
                 }
@@ -1075,6 +1077,9 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         protected virtual void Update()
         {
+            if(AttachedObjects.Count>0)
+            
+
             UpdateNoSteamVRFallback();
 
             GameObject attachedObject = currentAttachedObject;

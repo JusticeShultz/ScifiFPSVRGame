@@ -110,6 +110,7 @@ namespace Valve.VR.InteractionSystem
             }
         }
 
+
         protected void OnEnable()
         {
             renderModelLoadedAction.enabled = true;

@@ -17,11 +17,11 @@ public class WeaponHandler : MonoBehaviour {
     public GameObject rightWeapon;
     [Tooltip("Weapon holstered at hip")] // not yet implemented
     GameObject holsterWeapon;
+    [Tooltip("Grip button state has changed")]
+    public bool GrabDelta = false;
 
     GameObject leftHand;
-    GameObject rightHand;
-
-    public bool GrabDelta = false;
+    GameObject rightHand;   
 
     ClipLogic clipLogic; // controls whether player is holding clip
 
@@ -41,6 +41,9 @@ public class WeaponHandler : MonoBehaviour {
         weapon.GetComponent<Gun>().HandType = hand.GetComponent<Hand>().handType;
         if (hand == leftHand) { leftWeapon = weapon; }
         if (hand == rightHand) { rightWeapon = weapon; }
+
+        Hand.AttachedObject ao = ((Hand.AttachedObject)hand.GetComponent<Hand>().currentAttachedObjectInfo);
+        ao.attachedRigidbodyWasKinematic = false;
     }
 
     // drop weapon
@@ -62,7 +65,7 @@ public class WeaponHandler : MonoBehaviour {
         // if not grip
         if (!SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip").GetStateDown(currentHandScript.handType))
         {
-            GrabDelta = false;
+            // GrabDelta = false;
             return;
         }
 
@@ -88,10 +91,10 @@ public class WeaponHandler : MonoBehaviour {
     // called by interactable on grip up
     public void OnDetach()
     {
-        if (GrabDelta) return;
-
         if (null != leftWeapon) { leftWeapon.GetComponent<Gun>().KeepParent(true); }
         if (null != rightWeapon) { rightWeapon.GetComponent<Gun>().KeepParent(false); }
+
+        GrabDelta = false;
     }
 
     // returns whether hand is holding weapon
