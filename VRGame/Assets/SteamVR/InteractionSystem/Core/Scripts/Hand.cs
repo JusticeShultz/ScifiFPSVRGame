@@ -630,7 +630,7 @@ namespace Valve.VR.InteractionSystem
                 {
                     if (attachedObjects[index].attachedRigidbody != null)
                     {
-                        attachedObjects[index].attachedRigidbody.isKinematic = false; // attachedObjects[index].attachedRigidbodyWasKinematic;
+                        attachedObjects[index].attachedRigidbody.isKinematic = attachedObjects[index].attachedRigidbodyWasKinematic;
                         attachedObjects[index].attachedRigidbody.collisionDetectionMode = attachedObjects[index].collisionDetectionMode;
                     }
                 }
@@ -640,7 +640,7 @@ namespace Valve.VR.InteractionSystem
                     if (attachedObjects[index].attachedObject != null)
                     {
                         if (attachedObjects[index].attachedRigidbody != null)
-                            attachedObjects[index].attachedRigidbody.useGravity = attachedObjects[index].attachedRigidbodyUsedGravity;
+                            attachedObjects[index].attachedRigidbody.useGravity = attachedObjects[index].attachedRigidbodyUsedGravity; // possible gun fix
                     }
                 }
 
