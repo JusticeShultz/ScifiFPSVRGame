@@ -23,7 +23,7 @@ public class BulletLogic : MonoBehaviour
                 col.gameObject.GetComponent<LeechAI>().Health -= Damage;
                 StartCoroutine(ScheduleNewDeath());
             }
-            else if(col.gameObject.name == "ThresherRigged")
+            else if(col.gameObject.name == "RiggedThresher")
             {
                 //Do damage to it
                 col.gameObject.GetComponent<BossAI>().TryTakeBulletDamage(Damage);

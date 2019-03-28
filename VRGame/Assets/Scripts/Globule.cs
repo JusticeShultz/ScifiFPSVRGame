@@ -10,7 +10,8 @@ public class Globule : MonoBehaviour {
     public float lerpSpeed;
     [Tooltip("How hard it needs to be thrown to go away")]
     public float throwVelocity;
-    // [Tooltip("How far away ")]
+    [Tooltip("How far away it needs to be to explode")]
+    public float ExplodeDistance;
 
     Rigidbody rb;
     Throwable thr;
@@ -28,14 +29,18 @@ public class Globule : MonoBehaviour {
         thr.onPickUp.AddListener(OnGlobulePickup);
         thr.onDetachFromHand.AddListener(OnGlobuleRelease);
 
-        origPos = transform.position;
-        enabled = false; // start disabled     
-	}
+        origPos = transform.position;    
+
+        ExplodeDistance += Vector3.Distance(transform.position, parent.position);
+
+        // gameObject.SetActive(false); // start disabled 
+    }
 
     void Update()
     {
         // if far enough from boss
-        // if(Vector3.Distance(transform.position, parent.position) >= ExplodeDistance)
+        if(Vector3.Distance(transform.position, parent.position) > ExplodeDistance)
+            StartCoroutine("Explode");
 
     }
 
@@ -84,6 +89,14 @@ public class Globule : MonoBehaviour {
             transform.position = Vector3.Lerp(startPos, origPos, i);
             yield return null;
         }
+    }
+
+    // exploding animation
+    IEnumerator Explode()
+    {
+        BossAI.GlobuleCount--;
+        Destroy(this.gameObject);
+        yield return null;
     }
 
 }

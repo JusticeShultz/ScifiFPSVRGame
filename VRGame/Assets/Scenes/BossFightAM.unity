@@ -13079,6 +13079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 1
   throwVelocity: 0
+  ExplodeDistance: 5
 --- !u!114 &1513868085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22159,7 +22160,7 @@ MonoBehaviour:
   Ghosted: {fileID: 2100000, guid: 8a7955e4366112546b5b241c68eb7a7c, type: 2}
   IsGhosted: 1
   MaxHealth: 50
-  FinalStageUnlockValue: 50
+  FinalStageUnlockValue: 30
   FinalStage: 0
 --- !u!65 &2056674443
 BoxCollider:
