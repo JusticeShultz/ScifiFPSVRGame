@@ -97,8 +97,7 @@ public class BossAI : MonoBehaviour
 	
 	void Update ()
     {
-        if (GlobuleCount <= 0)
-            print("you win"); // die
+        if (GlobuleCount <= 0) { WinActions(); }            
 
         ++CloakCD;
 
@@ -252,8 +251,13 @@ public class BossAI : MonoBehaviour
     }
 
     // start win things
-    void BeginWin()
+    void WinActions()
     {
+        DoorObjectives.killedBoss = true; // open door
 
+        // ultimately at this point the boss would roar and do some
+        // kind of dying animation
+
+        // trigger DeathAnim bool
     }
 }
