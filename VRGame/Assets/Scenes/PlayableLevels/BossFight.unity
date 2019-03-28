@@ -4071,7 +4071,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2368746, guid: d198960c824712f47910b26db9da2156, type: 2}
       propertyPath: m_SelectedEditorRenderState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 191584, guid: d198960c824712f47910b26db9da2156, type: 2}
       propertyPath: m_StaticEditorFlags
