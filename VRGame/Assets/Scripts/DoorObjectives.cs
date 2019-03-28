@@ -12,7 +12,7 @@ public class DoorObjectives : MonoBehaviour
     public GameObject TeleportPoint;
     private bool complete = false;
 
-    public static bool killedBoss = false; 
+    public static bool killedBoss = false;
     
 	void Update ()
     {

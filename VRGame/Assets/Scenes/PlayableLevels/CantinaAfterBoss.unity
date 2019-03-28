@@ -29506,7 +29506,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: teleportType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 142912, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: m_IsActive
@@ -29535,6 +29535,10 @@ Prefab:
     - target: {fileID: 11474080, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: m_Color.b
       value: 0.1388565
+      objectReference: {fileID: 0}
+    - target: {fileID: 125956, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
@@ -34600,11 +34604,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849,
     type: 2}
   m_PrefabInternal: {fileID: 1497604922}
---- !u!1 &1497604924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 125956, guid: 73ac470d3d909d645a6c89a4664b6849,
-    type: 2}
-  m_PrefabInternal: {fileID: 1497604922}
 --- !u!1001 &1503651225
 Prefab:
   m_ObjectHideFlags: 0
@@ -34714,7 +34713,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: playerSpawnPoint
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: title
@@ -41163,7 +41162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec32d6465df86b489b96f604b5f6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadscreen: {fileID: 0}
+  loadscreen: {fileID: 1962494589930092, guid: af829fc50041e4d4abd52c2574459695, type: 2}
 --- !u!114 &1827322585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41179,7 +41178,7 @@ MonoBehaviour:
   Kill:
   - {fileID: 862249756}
   NameType: Spitter
-  TeleportPoint: {fileID: 1497604924}
+  TeleportPoint: {fileID: 2038326932}
 --- !u!4 &1827322586
 Transform:
   m_ObjectHideFlags: 0
@@ -48528,6 +48527,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2038326932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 125956, guid: 73ac470d3d909d645a6c89a4664b6849,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240777992}
 --- !u!1 &2053969023
 GameObject:
   m_ObjectHideFlags: 0

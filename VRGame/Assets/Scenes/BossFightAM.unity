@@ -20683,7 +20683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec32d6465df86b489b96f604b5f6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadscreen: {fileID: 0}
+  loadscreen: {fileID: 1962494589930092, guid: af829fc50041e4d4abd52c2574459695, type: 2}
 --- !u!114 &1827322585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20696,15 +20696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objective: 5
-  Kill:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  NameType: Spitter
+  Kill: []
+  NameType: none
   TeleportPoint: {fileID: 1240777993}
 --- !u!4 &1827322586
 Transform:

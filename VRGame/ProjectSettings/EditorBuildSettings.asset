@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayableLevels/Lab.unity
     guid: b8d4f9776b49fb1469d9493208d22472
+  - enabled: 1
+    path: Assets/Scenes/PlayableLevels/CantinaAfterBoss.unity
+    guid: 6660a34fd292a2c4dad1c8d30619e041
   m_configObjects: {}
