@@ -109,6 +109,7 @@ public class Gun : MonoBehaviour
         // add input listener to rifle
         WeaponHandler wh = GameObject.Find("Player").GetComponent<WeaponHandler>();
         GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
+
         GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
     }
 
@@ -230,6 +231,8 @@ public class Gun : MonoBehaviour
     // param parent = the object to child this to
     public void PickupGun(Transform parent)
     {
+        print("pick up");
+
         interA.enabled = false;
         interA.highlightOnHover = false;
         bc.isTrigger = true;
@@ -241,15 +244,20 @@ public class Gun : MonoBehaviour
 
         // parent object reference
         parentObj = parent;
+
+        // GetComponent<Throwable>().enabled = false;
     }
 
     public void DropGun()
     {
+        print("drop");
+
         interA.enabled = true;
         interA.highlightOnHover = true;
         bc.isTrigger = false;
         rb.useGravity = true;
         rb.isKinematic = false;
+        print("ik = f");
         // activeGun = false;
         Deactivate();
 
@@ -258,6 +266,8 @@ public class Gun : MonoBehaviour
         parentObj = null;
         transform.SetParent(null);
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+
+        // GetComponent<Throwable>().enabled = true;
     }
 
     //public void OnGripDown()
