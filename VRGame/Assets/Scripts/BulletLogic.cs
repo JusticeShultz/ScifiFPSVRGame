@@ -68,8 +68,9 @@ public class BulletLogic : MonoBehaviour
         Destroy(GetComponent<LineRenderer>());
         Destroy(GetComponent<SphereCollider>());
 
-        if (hittingEnemy) { Instantiate(enemyHitExplosion); }
-        else { Instantiate(otherHitExplosion); }
+        if (hittingEnemy) { Instantiate(enemyHitExplosion, transform.position, Quaternion.Euler(Vector3.zero)); }
+        else { Instantiate(otherHitExplosion, transform.position, Quaternion.Euler(Vector3.zero)); }
+        print("explosion");
 
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
