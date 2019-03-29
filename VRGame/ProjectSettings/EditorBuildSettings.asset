@@ -5,8 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/PlayableLevels/BossFight.unity
+  - enabled: 0
+    path: Assets/Scenes/BossFightOriginal.unity
     guid: cb08e574382799845b40203793fb0b1b
   - enabled: 1
     path: Assets/Scenes/PlayableLevels/Tutorial/Tutorial.unity
@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayableLevels/Lab.unity
     guid: b8d4f9776b49fb1469d9493208d22472
   - enabled: 1
+    path: Assets/Scenes/PlayableLevels/BossFight.unity
+    guid: eeddbc833b3007d47a2bccbdbcb8e083
+  - enabled: 1
     path: Assets/Scenes/PlayableLevels/CantinaAfterBoss.unity
     guid: 6660a34fd292a2c4dad1c8d30619e041
+  - enabled: 1
+    path: Assets/Scenes/PlayableLevels/Lose.unity
+    guid: 7fc03f869217c8a4ab3697c872a11475
   m_configObjects: {}

@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     [Tooltip("The health bar image")]
     public /*UnityEngine.UI.*/Image healthBar;
+
+    public static string sceneBeforeDeath;
 	
 	// Update is called once per frame
 	void Update ()
@@ -21,9 +23,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            print("I'm dead :O");
-            //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-            gameObject.transform.parent.transform.position = Vector3.zero;
+            // print("I'm dead :O");
+            // SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            // gameObject.transform.parent.transform.position = Vector3.zero;
+            CurrentHealth = MaxHealth;
+            SceneManager.LoadSceneAsync("Lose");
         }
     }
 }

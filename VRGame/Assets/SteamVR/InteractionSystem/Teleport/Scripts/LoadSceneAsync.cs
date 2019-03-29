@@ -17,7 +17,13 @@ public class LoadSceneAsync : MonoBehaviour
 
     public void Do(string switchToScene)
     {
+        SuccessfulLoadin.prevScene = SceneManager.GetActiveScene().name;
         StartCoroutine(LoadScene(switchToScene));
+    }
+
+    public void GoToLastScene()
+    {
+        StartCoroutine(LoadScene(SuccessfulLoadin.prevScene));
     }
 
     IEnumerator LoadScene(string scene)
