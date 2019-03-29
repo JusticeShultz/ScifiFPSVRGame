@@ -295,6 +295,8 @@ namespace Valve.VR.InteractionSystem
                     Debug.Log("<b>SteamVR Interaction System</b> Headset removed");
                 }
             }
+
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9999999, 9999999), -0.3f, Mathf.Clamp(transform.position.z, -9999999, 9999999));
         }
 
 		//-------------------------------------------------

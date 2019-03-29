@@ -29,11 +29,11 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 2
+        preset: 0
       taaSettings:
         jitterSpread: 0.75
         sharpen: 0.3
@@ -50,7 +50,7 @@ MonoBehaviour:
       ambientOnly: 0
       highPrecision: 1
   screenSpaceReflection:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       reflection:
         blendType: 0
@@ -71,9 +71,9 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 10
-      aperture: 5.6
-      focalLength: 50
+      focusDistance: 3.98
+      aperture: 12.6
+      focalLength: 1
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
@@ -112,7 +112,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       tonemapping:
-        tonemapper: 2
+        tonemapper: 1
         neutralBlackIn: 0.02
         neutralWhiteIn: 10
         neutralBlackOut: 0
@@ -138,9 +138,9 @@ MonoBehaviour:
           power: {r: 1, g: 1, b: 1, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 0.9588808, g: 0.9177631, b: 1, a: 0}
-          gamma: {r: 0.90131503, g: 1, b: 0.8026316, a: 0}
-          gain: {r: 1, g: 0.7146789, b: 0.25986898, a: 0}
+          lift: {r: 0.9059641, g: 1, b: 0.91522646, a: 0}
+          gamma: {r: 1, g: 0.9582158, b: 0.8328618, a: 0}
+          gain: {r: 1, g: 0.86182076, b: 0.76612437, a: 0.08528785}
       curves:
         master:
           curve:

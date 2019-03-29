@@ -8,33 +8,40 @@ using UnityEngine.SceneManagement;
 // handles grabbing clip from belt 
 public class GrabClip : MonoBehaviour
 {
-    [Tooltip("Action associated with grabbing clip")]
-    public SteamVR_Action_Boolean grabClipAction;
-    [Tooltip("Object generateed when grabbign new clip from belt")]
-    public GameObject newClipPrefab;
-    [Tooltip("Whether button from grabCLipAction is down")]
-    public bool buttonDown;
+    [Tooltip("Action associated with grabbing clip")] public SteamVR_Action_Boolean grabClipAction;
+    [Tooltip("Object generateed when grabbign new clip from belt")] public GameObject newClipPrefab;
+    [Tooltip("Whether button from grabCLipAction is down")] public bool buttonDown;
 
-    public static bool holdingClip; // player is holding a clip
+    // player is holding a clip
+    public static bool holdingClip; 
 
-    Hand hand;  
-    ClipLogic clip;
-    BoxCollider pickUpPrecision; // box collider on belt
+    Hand hand;
 
-    [System.NonSerialized]
-    public GameObject grabbedClip; // clip player has grabbed
-    [System.NonSerialized]
-    public Gun gun; 
+    //Left and right clip
+    ClipLogic clip_left;
+    ClipLogic clip_right;
 
-    WeaponHandler weaponHandler; // handles weapon pickups
+    // box collider on belt
+    BoxCollider pickUpPrecision_Left;
+    BoxCollider pickUpPrecision_Right;
+
+    // clip player has grabbed
+    [System.NonSerialized] public GameObject grabbedClip; 
+    [System.NonSerialized] public Gun gun; 
+
+    // handles weapon pickups
+    WeaponHandler weaponHandler; 
 
     private void OnEnable()
     {
         holdingClip = false;
         weaponHandler = GetComponentInParent<WeaponHandler>();
         hand = GetComponentInParent<Hand>();
-        clip = GameObject.Find("ClipInventory").GetComponent<ClipLogic>();
-        pickUpPrecision = GameObject.Find("ClipInventory").GetComponent<BoxCollider>();
+
+        clip_left = GameObject.Find("ClipInventory_Left").GetComponent<ClipLogic>();
+        clip_right = GameObject.Find("ClipInventory_Right").GetComponent<ClipLogic>();
+        pickUpPrecision_Left = GameObject.Find("ClipInventory_Left").GetComponent<BoxCollider>();
+        pickUpPrecision_Right = GameObject.Find("ClipInventory_Right").GetComponent<BoxCollider>();
 
         if (hand == null)
             hand = this.GetComponent<Hand>();
@@ -60,7 +67,11 @@ public class GrabClip : MonoBehaviour
         if (!weaponHandler.HandEmpty(hand)) { return; } // if hand holding gun
 
         buttonDown = newValue;
-        if (newValue && /*gun.CurrentBulletCount <= Gun.MaxBulletCount && */ Gun.BulletClips > 0 && pickUpPrecision.bounds.Contains(hand.transform.position))
+        if (newValue && /*gun.CurrentBulletCount <= Gun.MaxBulletCount && */ Gun.BulletClips > 0 && pickUpPrecision_Left.bounds.Contains(hand.transform.position))
+        {
+            GenerateNewClip();
+        }
+        else if (newValue && /*gun.CurrentBulletCount <= Gun.MaxBulletCount && */ Gun.BulletClips > 0 && pickUpPrecision_Right.bounds.Contains(hand.transform.position))
         {
             GenerateNewClip();
         }
@@ -77,7 +88,8 @@ public class GrabClip : MonoBehaviour
         grabbedClip.transform.SetParent(hand.transform);
         grabbedClip.GetComponent<Rigidbody>().useGravity = false;
         Gun.BulletClips--;
-        clip.canPutBack = false;
+        clip_left.canPutBack = false;
+        clip_right.canPutBack = false;
     }
 
     // drop clip from hand
