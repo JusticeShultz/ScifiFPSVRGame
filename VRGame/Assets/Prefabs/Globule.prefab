@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 1
   throwVelocity: 0
-  ExplodeDistance: 5
+  ExplodeDistance: 3
 --- !u!114 &114447110979479220
 MonoBehaviour:
   m_ObjectHideFlags: 1
