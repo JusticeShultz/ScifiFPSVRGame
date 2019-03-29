@@ -5,12 +5,14 @@ using Valve.VR;
 
 public class DoorObjectives : MonoBehaviour
 {
-    public enum Types { KillAll, Kill, Find, Pickup, Destroy, etc }
+    public enum Types { KillAll, Kill, Find, Pickup, Destroy, Boss, etc }
     public Types Objective;
     public GameObject[] Kill;
     public string NameType;
     public GameObject TeleportPoint;
     private bool complete = false;
+
+    public static bool killedBoss = false;
     
 	void Update ()
     {
@@ -25,6 +27,8 @@ public class DoorObjectives : MonoBehaviour
 
             if (kills == Kill.Length) complete = true;
         }
+
+        if(killedBoss && Objective == Types.Boss) { complete = true; }
 
         TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().locked = !complete;
         TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().UpdateVisuals();

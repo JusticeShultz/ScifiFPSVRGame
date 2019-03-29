@@ -68,8 +68,9 @@ public class BossAI : MonoBehaviour
     //How long does our cloak ability have left?
     int CloakTime = 0;
 
-    // how many globules need are on
-    int GlobuleCount;
+    // how many globules are on
+    [System.NonSerialized]
+    public static int GlobuleCount;
     // globules on boss
     Globule[] Globules;
     // teleport points on back
@@ -84,16 +85,17 @@ public class BossAI : MonoBehaviour
         FinalStage = false;
         ReachedFinalStage = false;
         Globules = GetComponentsInChildren<Globule>();
-        // TeleportPoints = GetComponentsInChildren<Valve.VR.InteractionSystem.TeleportPoint>();
+        foreach (var i in Globules) { i.gameObject.SetActive(false); }          
         Reference[] refs = GetComponentsInChildren<Reference>();
         TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
-        for (int i = 0; i < refs.Length; i++)
-            TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>();
-        // GlobuleCount = Find
+        for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
+        GlobuleCount = Globules.Length;
     }
 	
 	void Update ()
     {
+        if (GlobuleCount <= 0) { WinActions(); }            
+
         ++CloakCD;
 
         if(CloakCD > 3500)
@@ -209,12 +211,14 @@ public class BossAI : MonoBehaviour
         // bullet damage handled by bullet script
 
         // if boss dies
-        if (Health <= 0)
-            BeginWin();
+        //if (Health <= 0)
+        //    BeginWin();
+        //if (GlobuleCount <= 0)
+        //    Debug.Break(); // die
 
         // enable {globules} if at health val and they have not yet been enabled
         if (Health <= FinalStageUnlockValue && !ReachedFinalStage)
-            EnableFinalStage();
+        EnableFinalStage();
     }
 
     // change boss values for final fight stage
@@ -225,7 +229,11 @@ public class BossAI : MonoBehaviour
 
         // enable rip-off globules
         foreach (var i in Globules)
-            i.enabled = true;
+        {
+            // i.enabled = true;
+            i.gameObject.SetActive(true);
+        }
+
         // open teleport points
         foreach (var i in TeleportPoints)
             i.locked = false;
@@ -240,8 +248,13 @@ public class BossAI : MonoBehaviour
     }
 
     // start win things
-    void BeginWin()
+    void WinActions()
     {
+        DoorObjectives.killedBoss = true; // open door
 
+        // ultimately at this point the boss would roar and do some
+        // kind of dying animation
+
+        // trigger DeathAnim bool
     }
 }
