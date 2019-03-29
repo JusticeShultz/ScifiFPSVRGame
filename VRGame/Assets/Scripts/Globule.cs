@@ -12,6 +12,8 @@ public class Globule : MonoBehaviour {
     public float throwVelocity;
     [Tooltip("How far away it needs to be to explode")]
     public float ExplodeDistance;
+    [Tooltip("Explosion effect")]
+    public GameObject explosion;
 
     Rigidbody rb;
     Throwable thr;
@@ -95,6 +97,7 @@ public class Globule : MonoBehaviour {
     IEnumerator Explode()
     {
         BossAI.GlobuleCount--;
+        Instantiate(explosion, transform.position, Quaternion.Euler(Vector3.zero));
         Destroy(this.gameObject);
         yield return null;
     }

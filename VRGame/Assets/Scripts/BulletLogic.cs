@@ -34,7 +34,9 @@ public class BulletLogic : MonoBehaviour
             else if(col.gameObject.name == "RiggedThresher")
             {
                 //Do damage to it
-                col.gameObject.GetComponent<BossAI>().TryTakeBulletDamage(Damage);
+                BossAI bossScript = col.gameObject.GetComponent<BossAI>();
+                bossScript.TryTakeBulletDamage(Damage);
+                enemyHitExplosion = bossScript.CurrentBulletExplosion();
                 hittingEnemy = true;
                 StartCoroutine(ScheduleNewDeath());
             }
@@ -68,9 +70,9 @@ public class BulletLogic : MonoBehaviour
         Destroy(GetComponent<LineRenderer>());
         Destroy(GetComponent<SphereCollider>());
 
+        // play sound
         if (hittingEnemy) { Instantiate(enemyHitExplosion, transform.position, Quaternion.Euler(Vector3.zero)); }
         else { Instantiate(otherHitExplosion, transform.position, Quaternion.Euler(Vector3.zero)); }
-        print("explosion");
 
         yield return new WaitForSeconds(2);
         Destroy(gameObject);

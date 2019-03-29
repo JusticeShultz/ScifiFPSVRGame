@@ -42,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 1084944766971432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.02372, y: 0.098799996, z: 0.025733339}
-  m_LocalScale: {x: 0.013333339, y: 0.013333333, z: 0.013333339}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 0.007}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   lerpSpeed: 1
   throwVelocity: 0
   ExplodeDistance: 3
+  explosion: {fileID: 1395502363055700, guid: ae3e092c4b7e8dc42884ec234a2456e8, type: 2}
 --- !u!114 &114447110979479220
 MonoBehaviour:
   m_ObjectHideFlags: 1
