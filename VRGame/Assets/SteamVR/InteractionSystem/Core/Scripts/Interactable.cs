@@ -163,7 +163,7 @@ namespace Valve.VR.InteractionSystem
                 if (existingFilter == null || existingRenderer == null || ShouldIgnoreHighlight(existingFilter))
                     continue;
 
-                GameObject newFilterHolder = new GameObject("FilterHolder");
+                GameObject newFilterHolder = new GameObject(existingRenderer.name);
                 newFilterHolder.transform.parent = highlightHolder.transform;
                 MeshFilter newFilter = newFilterHolder.AddComponent<MeshFilter>();
                 newFilter.sharedMesh = existingFilter.sharedMesh;

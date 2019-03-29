@@ -1077,7 +1077,7 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         protected virtual void Update()
         {
-            if(AttachedObjects.Count>0)
+            //if(AttachedObjects.Count>0)
             
 
             UpdateNoSteamVRFallback();

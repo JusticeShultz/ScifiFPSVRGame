@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488656094687464}
   m_LocalRotation: {x: 0.72993875, y: -0.6835126, z: -0, w: 0}
-  m_LocalPosition: {x: -22.417, y: 1.796, z: -8.647}
+  m_LocalPosition: {x: 2.02, y: 0.227, z: -4.353}
   m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4278893072559492}
@@ -506,12 +506,12 @@ MonoBehaviour:
   GrabGripAction:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
-  FiringSpeed: 0.2
+  FiringSpeed: 0.1
   CurrentBulletCount: 24
   MaxBulletCount: 24
   BulletsShotAtOnce: 1
   Bullet: {fileID: 1234522652013596, guid: aad76b6eaae09014ca3bcf8782d44e06, type: 2}
-  BulletFlySpeed: 60
+  BulletFlySpeed: 80
   DisplayText: {fileID: 1483252483275908}
   reloadTime: 1
   posOffset: {x: 0.0518, y: -0.008, z: 0.171}

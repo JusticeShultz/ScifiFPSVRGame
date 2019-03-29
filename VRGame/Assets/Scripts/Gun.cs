@@ -58,6 +58,7 @@ public class Gun : MonoBehaviour
     // hand object this script is attached to
     // private GameObject hand;
     private bool shotdelta = false;
+    private Rigidbody rigidbodyComponent;
 
     Transform parentObj;
     Rigidbody rb;
@@ -72,6 +73,7 @@ public class Gun : MonoBehaviour
 
     void Start ()
     {
+        rigidbodyComponent = GetComponent<Rigidbody>();
         weaponHandler = GameObject.Find("Player").GetComponent<WeaponHandler>();
 
         rb = GetComponent<Rigidbody>();
@@ -135,7 +137,12 @@ public class Gun : MonoBehaviour
         //    return;
         //}
 
-        if (!activeGun) { return; } // if not being held
+        if (!activeGun)
+        {
+            rigidbodyComponent.isKinematic = false;
+            rigidbodyComponent.useGravity = true;
+            return;
+        } // if not being held
 
         // helpful debugging
         //if (GrabPinchAction.GetStateDown(HandType))

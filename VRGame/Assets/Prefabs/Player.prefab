@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4700432162227958}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4633731293321042}
   - component: {fileID: 114832831282045744}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Waveform (R)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4327012203337360}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4727073702348406}
   - component: {fileID: 33197259056410004}
   - component: {fileID: 23536197108503468}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 114021859738612616}
   - component: {fileID: 114666190406711526}
   - component: {fileID: 114132648285241224}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 33161574749971940}
   - component: {fileID: 65895805581660690}
   - component: {fileID: 23802352686791624}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4596774548989260}
   - component: {fileID: 135734209028745428}
   - component: {fileID: 54250351958948726}
+  - component: {fileID: 114528529517328610}
   m_Layer: 26
   m_Name: HeadCollider
   m_TagString: Untagged
@@ -224,7 +225,7 @@ GameObject:
   - component: {fileID: 222800656157008840}
   - component: {fileID: 114760375844860146}
   - component: {fileID: 95388712332860914}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: AIArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +242,7 @@ GameObject:
   - component: {fileID: 4365244126483552}
   - component: {fileID: 33863459054707684}
   - component: {fileID: 23679121357752974}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +259,7 @@ GameObject:
   - component: {fileID: 4555629100656392}
   - component: {fileID: 33320159256295244}
   - component: {fileID: 23036170474378230}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: pTorus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4294086947679840}
   - component: {fileID: 114526772898936366}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4459978761601296}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: HoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4262677548854836}
   - component: {fileID: 114394833250813174}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4231902587924364}
   - component: {fileID: 114094338390489762}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +467,8 @@ GameObject:
   - component: {fileID: 33002876577910538}
   - component: {fileID: 65962894756794116}
   - component: {fileID: 23750111459495046}
-  m_Layer: 13
+  - component: {fileID: 114325146265317028}
+  m_Layer: 15
   m_Name: MovingPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4027061731599296}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,6 +564,7 @@ GameObject:
   - component: {fileID: 136158674083930110}
   - component: {fileID: 114932705675987302}
   - component: {fileID: 54836131223484264}
+  - component: {fileID: 114572569208906454}
   m_Layer: 27
   m_Name: BodyCollider
   m_TagString: Untagged
@@ -653,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4862460367130122}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Hover Button (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117598541526404}
   - component: {fileID: 82650329947362294}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Watch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,6 +707,7 @@ GameObject:
   - component: {fileID: 114268878988940196}
   - component: {fileID: 114492779567434860}
   - component: {fileID: 114685183024595450}
+  - component: {fileID: 114926006002742412}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -719,7 +723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4450279981207538}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: HoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4846702606759558}
   - component: {fileID: 114544163946681044}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +758,7 @@ GameObject:
   - component: {fileID: 23168694934886070}
   - component: {fileID: 222916964239433104}
   - component: {fileID: 114381873995600042}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: AIArmWink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,6 +779,7 @@ GameObject:
   - component: {fileID: 114762667299495252}
   - component: {fileID: 54910994971447574}
   - component: {fileID: 114786230541315866}
+  - component: {fileID: 114732597894965496}
   m_Layer: 13
   m_Name: PlayerCollider
   m_TagString: Untagged
@@ -811,7 +816,7 @@ GameObject:
   - component: {fileID: 114035019390646564}
   - component: {fileID: 114408622110553634}
   - component: {fileID: 114212825454538310}
-  m_Layer: 26
+  m_Layer: 15
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +836,8 @@ GameObject:
   - component: {fileID: 114408110808031054}
   - component: {fileID: 114801597816027216}
   - component: {fileID: 114857690402385554}
-  m_Layer: 13
+  - component: {fileID: 114852007663242778}
+  m_Layer: 15
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,8 +1225,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888009913295986}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.62, y: 0, z: 37.95}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 1.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4610210218620730}
   - {fileID: 4856800914068230}
@@ -1451,7 +1457,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 300
+  far clip plane: 500000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1665,7 +1671,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2990,6 +2996,17 @@ MonoBehaviour:
     actionPath: /actions/default/in/HeadsetOnHead
     needsReinit: 0
   allowToggleTo2D: 1
+--- !u!114 &114325146265317028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1615572899884336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114381873995600042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3359,6 +3376,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highLightMaterial: {fileID: 2100000, guid: 7b939e5e799d98a469f594828ebab52e, type: 2}
   fireHapticsOnHightlight: 1
+--- !u!114 &114528529517328610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219096960271972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114544163946681044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3377,6 +3405,17 @@ MonoBehaviour:
     actionPath: /actions/default/out/Haptic
     needsReinit: 0
   debugHints: 0
+--- !u!114 &114572569208906454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683303954458996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114579293605260852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3597,6 +3636,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9e05292e0d62b542ac5bba92674a86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114732597894965496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956923641311746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114760375844860146
@@ -3964,6 +4014,17 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 0
   m_DragThreshold: 0
+--- !u!114 &114852007663242778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980999262002456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3be917a80086a48b97933694257f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114857690402385554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4025,6 +4086,18 @@ MonoBehaviour:
   showDebugText: 0
   spewDebugText: 0
   showDebugInteractables: 0
+--- !u!114 &114926006002742412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888009913295986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a097c7f7e32ac7428838921dc6654ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceType: {fileID: 1258723982875856}
 --- !u!114 &114932705675987302
 MonoBehaviour:
   m_ObjectHideFlags: 1
