@@ -85,13 +85,10 @@ public class BossAI : MonoBehaviour
         FinalStage = false;
         ReachedFinalStage = false;
         Globules = GetComponentsInChildren<Globule>();
-        foreach (var i in Globules)
-            i.gameObject.SetActive(false);
-        // TeleportPoints = GetComponentsInChildren<Valve.VR.InteractionSystem.TeleportPoint>();
+        foreach (var i in Globules) { i.gameObject.SetActive(false); }          
         Reference[] refs = GetComponentsInChildren<Reference>();
         TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
-        for (int i = 0; i < refs.Length; i++)
-            TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>();
+        for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         GlobuleCount = Globules.Length;
     }
 	
