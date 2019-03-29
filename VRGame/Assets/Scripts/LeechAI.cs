@@ -6,13 +6,14 @@ public class LeechAI : MonoBehaviour
 {
     private GameObject Player;
     private PlayerHealth PlayerHealth;
-    public int Health;
     public float AttackRate = 0.5f;
     public float Damage = 10.0f;
+    public int Health;
     public Animator Animator;
     private UnityEngine.AI.NavMeshAgent Agent;
     private float AttackCD = 0;
-
+    private DestroyableEntity entityComponent;
+    
     void Start()
     {
         Player = GameObject.Find("VRCamera");
@@ -22,10 +23,12 @@ public class LeechAI : MonoBehaviour
             Animator = GetComponent<Animator>();
 
         Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        entityComponent = GetComponent<DestroyableEntity>();
     }
 
     void Update ()
     {
+        Health = entityComponent.Health;
         float dist = 0.0f;
 
         Vector3 position;

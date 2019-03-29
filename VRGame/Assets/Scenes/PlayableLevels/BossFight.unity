@@ -3472,7 +3472,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1511708630293450, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_Name
-      value: AmmoClip (2)
+      value: AmmoClip
       objectReference: {fileID: 0}
     - target: {fileID: 4365772500287378, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_LocalScale.x
@@ -4856,7 +4856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1511708630293450, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_Name
-      value: AmmoClip (1)
+      value: AmmoClip
       objectReference: {fileID: 0}
     - target: {fileID: 4365772500287378, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_LocalScale.x
@@ -7480,7 +7480,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1511708630293450, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_Name
-      value: AmmoClip (3)
+      value: AmmoClip
       objectReference: {fileID: 0}
     - target: {fileID: 4365772500287378, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_LocalScale.x
@@ -23615,7 +23615,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1511708630293450, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_Name
-      value: AmmoClip (4)
+      value: AmmoClip
       objectReference: {fileID: 0}
     - target: {fileID: 4365772500287378, guid: e5503d8608fb9cf4b8ec308740f534f6, type: 2}
       propertyPath: m_LocalScale.x

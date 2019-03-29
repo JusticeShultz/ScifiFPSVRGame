@@ -1,3 +1,12 @@
 [user]
-	name = Justice Shultz
-	email = shultzjc1@gmail.com
+  name = Justice Shultz
+  email = shultzjc1@gmail.com
+
+[merge]
+  tool = p4merge
+
+[mergetool]
+  keepBackup = false
+
+[mergetool "p4merge"]
+  trustedExitCode = false
