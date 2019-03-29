@@ -18,6 +18,8 @@ public class BossAI : MonoBehaviour
     public SkinnedMeshRenderer Renderer;
     [Tooltip("What's our normal material?")]
     public Material Normal;
+    [Tooltip("What's our stunned material?")]
+    public Material Stunned;
     [Tooltip("What's our cloaked material?")]
     public Material Ghosted;
     [Tooltip("Are we cloaked?")]
@@ -33,6 +35,10 @@ public class BossAI : MonoBehaviour
     public int FinalStageUnlockValue;
     [Tooltip("{globules} are unlocked")]
     public bool FinalStage;
+    [Tooltip("Explosion for when bullet does damage")]
+    public GameObject damageExplosion;
+    [Tooltip("Explosion for when bullet does not do damage")]
+    public GameObject noDamageExplosion;
 
     int Health;
 
@@ -51,7 +57,7 @@ public class BossAI : MonoBehaviour
     bool ReachedFinalStage;
 
     //Who is the player?
-    GameObject Player;
+    GameObject Player;    
     //What is my collider?
     Collider myCollider;
 
@@ -94,6 +100,10 @@ public class BossAI : MonoBehaviour
 	
 	void Update ()
     {
+        // print(Vector3.Distance(Player.transform.position, transform.position));
+
+        if (Input.GetMouseButtonDown(0)) { ThrowPlayer(); }
+
         if (GlobuleCount <= 0) { WinActions(); }            
 
         ++CloakCD;
@@ -102,6 +112,7 @@ public class BossAI : MonoBehaviour
         {
             CloakCD = 0;
             CloakTime = 450;
+            ThrowPlayer();
         }
 
         if(CloakTime > 0)
@@ -127,6 +138,7 @@ public class BossAI : MonoBehaviour
         --SpitCD;
         --StompCD;       
 
+        // after jump or artillery atack
         if (StunTime > 0)
         {
             --StunTime;
@@ -136,16 +148,24 @@ public class BossAI : MonoBehaviour
             IsSpitting = false;
             IsUsingArtillary = false;
             IsStomping = false;
+
+            Renderer.material = Stunned;
         }
+        // stomp
         else if(Vector3.Distance(Player.transform.position, transform.position) < 7 && StompCD <= 0)
         {
             IsStomping = true;
             IsTurning = false;
             IsSpitting = false;
             StompCD = 370;
+
+            Renderer.material = Normal;
         }
         else
         {
+            Renderer.material = Normal;
+
+            // spit
             if (Vector3.Distance(Player.transform.position, transform.position) > 7 && SpitCD <= 0)
             {
                 IsSpitting = true;
@@ -156,6 +176,7 @@ public class BossAI : MonoBehaviour
                 GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.right * -10 + (Vector3.up * 2);
             }
+            // artillery
             else
             {
                 if (Vector3.Distance(Player.transform.position, transform.position) > 15 && ArtillaryCD <= 0)
@@ -174,6 +195,7 @@ public class BossAI : MonoBehaviour
                 }
                 else
                 {
+                    // jump
                     if (Vector3.Distance(Player.transform.position, transform.position) < 15 && JumpCD <= 0)
                     {
                         IsJumping = true;
@@ -182,10 +204,12 @@ public class BossAI : MonoBehaviour
                         IsSpitting = false;
                         StunTime = 900;
                         JumpCD = 3500;
+                        ThrowPlayer();
                     }
                     else
                     {
-                        if (Vector3.Distance(Player.transform.position, transform.position) > 6)
+                        // turn
+                        if (Vector3.Distance(Player.transform.position, transform.position) > 3) // orig 6
                         {
                             IsTurning = true;
                             IsStomping = false;
@@ -206,19 +230,8 @@ public class BossAI : MonoBehaviour
             }
         }
 
-        // take damage
-
-        // bullet damage handled by bullet script
-
-        // if boss dies
-        //if (Health <= 0)
-        //    BeginWin();
-        //if (GlobuleCount <= 0)
-        //    Debug.Break(); // die
-
         // enable {globules} if at health val and they have not yet been enabled
-        if (Health <= FinalStageUnlockValue && !ReachedFinalStage)
-        EnableFinalStage();
+        if (Health <= FinalStageUnlockValue && !ReachedFinalStage) { EnableFinalStage(); }       
     }
 
     // change boss values for final fight stage
@@ -228,15 +241,10 @@ public class BossAI : MonoBehaviour
         FinalStage = true;
 
         // enable rip-off globules
-        foreach (var i in Globules)
-        {
-            // i.enabled = true;
-            i.gameObject.SetActive(true);
-        }
+        foreach (var i in Globules) { i.gameObject.SetActive(true); }
 
         // open teleport points
-        foreach (var i in TeleportPoints)
-            i.locked = false;
+        foreach (var i in TeleportPoints) { i.locked = false; }        
     }
 
     // attempt to damage boss
@@ -256,5 +264,18 @@ public class BossAI : MonoBehaviour
         // kind of dying animation
 
         // trigger DeathAnim bool
+    }
+
+    // returns correct bullet explosion
+    public GameObject CurrentBulletExplosion()
+    {
+        if (FinalStage || IsGhosted) { return noDamageExplosion; }
+        else { return damageExplosion; }
+    }
+
+    // throws player off back and to last position
+    void ThrowPlayer()
+    {
+        Player.transform.parent.position = SavePrevPos.playerPrevPos;
     }
 }
