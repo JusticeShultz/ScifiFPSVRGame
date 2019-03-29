@@ -10,6 +10,7 @@ public class NoBodyCollisions : MonoBehaviour
     {
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GameObject.Find("PlayerCollider").GetComponent<Collider>());
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GameObject.Find("BodyCollider").GetComponent<Collider>());
-        if(!IsClip) Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GameObject.Find("ClipInventory").GetComponent<Collider>());
+        if(!IsClip) Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GameObject.Find("ClipInventory_Left").GetComponent<Collider>());
+        if(!IsClip) Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GameObject.Find("ClipInventory_Right").GetComponent<Collider>());
     }
 }
