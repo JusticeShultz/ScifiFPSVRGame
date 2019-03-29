@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using UnityEngine.UI;
+
 public class PlayerHealth : MonoBehaviour
 {
     public float MaxHealth = 100;
     public float CurrentHealth = 100;
     public float Armor = 0;
 
-    // ref to UI health bar
-    UnityEngine.UI.Image healthBar;
+    [Tooltip("The health bar image")]
+    public /*UnityEngine.UI.*/Image healthBar;
 	
 	// Update is called once per frame
 	void Update ()
