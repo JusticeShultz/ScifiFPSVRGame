@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0294961, g: 0.042945962, b: 0.032044604, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12583,6 +12583,18 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.1388565
       objectReference: {fileID: 0}
+    - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
   m_IsPrefabAsset: 0
@@ -24135,6 +24147,7 @@ MonoBehaviour:
   SpitPoint: {fileID: 686780504}
   Renderer: {fileID: 1878864102}
   Normal: {fileID: 2100000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec, type: 3}
+  Stunned: {fileID: 0}
   Ghosted: {fileID: 2100000, guid: 8a7955e4366112546b5b241c68eb7a7c, type: 2}
   IsGhosted: 1
   MaxHealth: 50

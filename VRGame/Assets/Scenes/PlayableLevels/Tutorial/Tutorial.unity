@@ -869,8 +869,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 166120707}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58166957, y: 0.29035327, z: -1.0084643}
-  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7708}
+  m_LocalPosition: {x: -0.58166957, y: 0.29035327, z: -1.0161}
+  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7194388}
   m_Children: []
   m_Father: {fileID: 654867433}
   m_RootOrder: 1
@@ -1181,8 +1181,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 224046999}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58166957, y: -0.23664674, z: -1.0084643}
-  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7708}
+  m_LocalPosition: {x: -0.58166957, y: -0.23664674, z: -1.0161}
+  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7194388}
   m_Children: []
   m_Father: {fileID: 654867433}
   m_RootOrder: 0
@@ -2495,6 +2495,11 @@ Prefab:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 23458444033025180, guid: de5b36ab165c8524fb7d16a2dc083c32,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de5b36ab165c8524fb7d16a2dc083c32, type: 2}
   m_IsPrefabAsset: 0
@@ -2624,6 +2629,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 61
       objectReference: {fileID: 0}
+    - target: {fileID: 33279692003304278, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114724592050713166, guid: 7b10079d92393c94d9169de7e20985f8,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -2633,32 +2643,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 33279692003304278, guid: 7b10079d92393c94d9169de7e20985f8,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236700038861344, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236700038861344, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236700038861344, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54770322746765686, guid: 7b10079d92393c94d9169de7e20985f8,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1488656094687464, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_Name
-      value: Rifle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
@@ -3463,6 +3447,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 33159586620979756, guid: de5b36ab165c8524fb7d16a2dc083c32,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114388136761730928, guid: de5b36ab165c8524fb7d16a2dc083c32,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -3472,11 +3461,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 33159586620979756, guid: de5b36ab165c8524fb7d16a2dc083c32,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de5b36ab165c8524fb7d16a2dc083c32, type: 2}
@@ -3999,8 +3983,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757432269}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58166957, y: 0.67235327, z: -1.0084643}
-  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7708}
+  m_LocalPosition: {x: -0.58166957, y: 0.67235327, z: -1.0161}
+  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7194388}
   m_Children: []
   m_Father: {fileID: 654867433}
   m_RootOrder: 2
@@ -4316,8 +4300,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 983535641}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58166957, y: 0.67235327, z: -1.0084643}
-  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7708}
+  m_LocalPosition: {x: -0.5817, y: 0.6724, z: -1.0095}
+  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.760014}
   m_Children: []
   m_Father: {fileID: 1938729580}
   m_RootOrder: 2
@@ -4952,6 +4936,11 @@ Prefab:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 23188627561713820, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
   m_IsPrefabAsset: 0
@@ -5552,6 +5541,11 @@ Prefab:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 23458444033025180, guid: de5b36ab165c8524fb7d16a2dc083c32,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de5b36ab165c8524fb7d16a2dc083c32, type: 2}
   m_IsPrefabAsset: 0
@@ -5613,6 +5607,11 @@ Prefab:
       propertyPath: m_Name
       value: Pistol (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 23458444033025180, guid: de5b36ab165c8524fb7d16a2dc083c32,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de5b36ab165c8524fb7d16a2dc083c32, type: 2}
   m_IsPrefabAsset: 0
@@ -5691,6 +5690,11 @@ Prefab:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 23188627561713820, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
   m_IsPrefabAsset: 0
@@ -5736,12 +5740,12 @@ Prefab:
     - target: {fileID: 114388136761730928, guid: de5b36ab165c8524fb7d16a2dc083c32,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114388136761730928, guid: de5b36ab165c8524fb7d16a2dc083c32,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33159586620979756, guid: de5b36ab165c8524fb7d16a2dc083c32,
         type: 2}
@@ -5752,6 +5756,11 @@ Prefab:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 23458444033025180, guid: de5b36ab165c8524fb7d16a2dc083c32,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de5b36ab165c8524fb7d16a2dc083c32, type: 2}
   m_IsPrefabAsset: 0
@@ -5813,6 +5822,11 @@ Prefab:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 23188627561713820, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
   m_IsPrefabAsset: 0
@@ -7246,8 +7260,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882847543}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58166957, y: -0.23664674, z: -1.0084643}
-  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7708}
+  m_LocalPosition: {x: -0.5817, y: -0.2366, z: -1.0095}
+  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.760014}
   m_Children: []
   m_Father: {fileID: 1938729580}
   m_RootOrder: 0
@@ -7544,8 +7558,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986189410}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58166957, y: 0.29035327, z: -1.0084643}
-  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.7708}
+  m_LocalPosition: {x: -0.5817, y: 0.2904, z: -1.0095}
+  m_LocalScale: {x: 0.049391575, y: 0.43793806, z: 1.760014}
   m_Children: []
   m_Father: {fileID: 1938729580}
   m_RootOrder: 1
@@ -7662,6 +7676,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23188627561713820, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
   m_IsPrefabAsset: 0
@@ -7837,6 +7856,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23188627561713820, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
   m_IsPrefabAsset: 0
@@ -8140,6 +8164,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 63
       objectReference: {fileID: 0}
+    - target: {fileID: 33279692003304278, guid: 7b10079d92393c94d9169de7e20985f8,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114724592050713166, guid: 7b10079d92393c94d9169de7e20985f8,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -8149,32 +8178,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 33279692003304278, guid: 7b10079d92393c94d9169de7e20985f8,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236700038861344, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236700038861344, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236700038861344, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54770322746765686, guid: 7b10079d92393c94d9169de7e20985f8,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1488656094687464, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}
-      propertyPath: m_Name
-      value: Rifle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b10079d92393c94d9169de7e20985f8, type: 2}

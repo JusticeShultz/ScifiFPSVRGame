@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class LeechAI : MonoBehaviour
 {
-    public GameObject Player;
-    public PlayerHealth PlayerHealth;
+    private GameObject Player;
+    private PlayerHealth PlayerHealth;
     public int Health;
     public float AttackRate = 0.5f;
     public float Damage = 10.0f;
+    public Animator Animator;
     private UnityEngine.AI.NavMeshAgent Agent;
     private float AttackCD = 0;
 
     void Start()
     {
-        if(Player == null) Player = GameObject.Find("VRCamera");
-
+        Player = GameObject.Find("VRCamera");
         PlayerHealth = GameObject.Find("PlayerCollider").GetComponent<PlayerHealth>();
+
+        if(Animator == null)
+            Animator = GetComponent<Animator>();
+
         Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void Update ()
     {
-        Animator animator = GetComponent<Animator>();
-
         float dist = 0.0f;
 
         Vector3 position;
@@ -41,7 +43,7 @@ public class LeechAI : MonoBehaviour
 
         if (Health <= 0)
         {
-            animator.SetBool("IsDead", true);
+            Animator.SetBool("IsDead", true);
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<BoxCollider>().enabled = false;
             Agent.isStopped = true;
@@ -51,25 +53,25 @@ public class LeechAI : MonoBehaviour
 
         if (dist < 16)
         {
-            if (dist > 2)
+            if (dist > 2 && Vector3.Distance(Player.transform.position, transform.position) > 2)
             {
                 GetComponent<Rigidbody>().isKinematic = false;
-                animator.SetBool("IsAttacking", false);
-                animator.SetBool("IsMoving", true);
+                Animator.SetBool("IsAttacking", false);
+                Animator.SetBool("IsMoving", true);
                 Agent.destination = position;
                 Agent.isStopped = false;
             }
             else
             {
-                animator.SetBool("IsAttacking", true);
-                animator.SetBool("IsMoving", false);
+                Animator.SetBool("IsAttacking", true);
+                Animator.SetBool("IsMoving", false);
                 GetComponent<Rigidbody>().isKinematic = true;
                 Agent.isStopped = true;
-                GetComponent<Transform>().LookAt(position, Vector3.up);
-
+                transform.LookAt(position, Vector3.up);
+               
                 //Attack
 
-                if (Vector3.Distance(Player.transform.position, transform.position) < 5 && AttackCD <= 0)
+                if (Vector3.Distance(Player.transform.position, transform.position) < 2 && AttackCD <= 0)
                 {
                     PlayerHealth.CurrentHealth -= Mathf.Clamp(Damage - PlayerHealth.Armor, 1, float.MaxValue);
                     AttackCD = AttackRate * 60;
@@ -80,8 +82,8 @@ public class LeechAI : MonoBehaviour
         {
             GetComponent<Rigidbody>().isKinematic = true;
             Agent.isStopped = true;
-            animator.SetBool("IsAttacking", false);
-            animator.SetBool("IsMoving", false);
+            Animator.SetBool("IsAttacking", false);
+            Animator.SetBool("IsMoving", false);
         }
     }
 }

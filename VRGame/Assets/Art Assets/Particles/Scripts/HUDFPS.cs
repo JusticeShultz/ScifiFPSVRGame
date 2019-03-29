@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using System.Collections;
  
 public class HUDFPS : MonoBehaviour 
@@ -59,4 +59,4 @@ void Update()
         frames = 0;
     }
 }
-}
+}*/

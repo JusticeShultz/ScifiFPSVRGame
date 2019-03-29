@@ -15,12 +15,12 @@ public class ClipLogic : MonoBehaviour
     [System.NonSerialized]
     public Gun gunScript;
 
-    Interactable clipInteractable;
+    //Interactable clipInteractable;
     public bool canPutBack;
 
     private void Start()
     {
-        clipInteractable = GetComponent<Interactable>();
+        //clipInteractable = GetComponent<Interactable>();
         // gunScript = gunObject.GetComponent<Gun>();
         canPutBack = true;
     }

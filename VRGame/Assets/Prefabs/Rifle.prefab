@@ -130,8 +130,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488656094687464}
-  m_LocalRotation: {x: 0.72993875, y: -0.6835126, z: -0, w: 0}
-  m_LocalPosition: {x: 2.02, y: 0.227, z: -4.353}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.612, y: 0.306, z: -3.266}
   m_LocalScale: {x: 25.344809, y: 25.34482, z: 25.34482}
   m_Children:
   - {fileID: 4278893072559492}
@@ -141,7 +141,7 @@ Transform:
   - {fileID: 4896316056430192}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4278893072559492
 Transform:
   m_ObjectHideFlags: 1
@@ -244,7 +244,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -596,14 +596,14 @@ MonoBehaviour:
   m_text: 24/24 (5)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 0bd241b07858cc542acd3a9c118d8672, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278216191
-  m_fontColor: {r: 1, g: 0.39937496, b: 0, a: 1}
+    rgba: 4278199551
+  m_fontColor: {r: 1, g: 0.14117648, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -776,13 +776,13 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483252483275908}
-  m_LocalRotation: {x: -0.43809846, y: -0.50534487, z: 0.44996786, w: -0.59179837}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: -0.0015}
   m_LocalScale: {x: 0.00021249593, y: 0.00021249593, z: 0.00021249593}
   m_Children: []
   m_Father: {fileID: 4236700038861344}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 76.733, y: -297.338, z: -23.035002}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00053, y: 0.00371}
