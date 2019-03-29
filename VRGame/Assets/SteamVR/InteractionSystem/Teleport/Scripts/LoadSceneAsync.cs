@@ -17,19 +17,19 @@ public class LoadSceneAsync : MonoBehaviour
 
     public void Do(string switchToScene)
     {
-        SuccessfulLoadin.prevScene = SceneManager.GetActiveScene().name;
         StartCoroutine(LoadScene(switchToScene));
     }
 
     public void GoToLastScene()
     {
-        StartCoroutine(LoadScene(SuccessfulLoadin.prevScene));
+        print("trying");
+        StartCoroutine(LoadScene(GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath));
     }
 
     IEnumerator LoadScene(string scene)
     {
         loadscreen.SetActive(true);
-
+        GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath = SceneManager.GetActiveScene().name;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
         while (!asyncLoad.isDone)

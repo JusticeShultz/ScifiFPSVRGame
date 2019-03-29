@@ -14,10 +14,8 @@ public class PlayerHealth : MonoBehaviour
     [Tooltip("The health bar image")]
     public /*UnityEngine.UI.*/Image healthBar;
 
-    public static string sceneBeforeDeath;
-	
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth / MaxHealth, 0.1f);
 
