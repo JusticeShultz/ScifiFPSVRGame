@@ -322,6 +322,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 25
   IsEnemyShot: 0
+  enemyHitExplosion: {fileID: 1732805326386856, guid: 8300f90b4d935b9478035c015b2d4d65,
+    type: 2}
+  otherHitExplosion: {fileID: 1732805326386856, guid: 8300f90b4d935b9478035c015b2d4d65,
+    type: 2}
 --- !u!114 &114499517031023738
 MonoBehaviour:
   m_ObjectHideFlags: 1
