@@ -10,6 +10,7 @@ public class LeechAI : MonoBehaviour
     public float Damage = 10.0f;
     public int Health;
     public Animator Animator;
+    public AudioSource audioSource;
     private UnityEngine.AI.NavMeshAgent Agent;
     private float AttackCD = 0;
     private DestroyableEntity entityComponent;
@@ -78,6 +79,8 @@ public class LeechAI : MonoBehaviour
                 {
                     PlayerHealth.CurrentHealth -= Mathf.Clamp(Damage - PlayerHealth.Armor, 1, float.MaxValue);
                     AttackCD = AttackRate * 60;
+
+                    if (audioSource != null) audioSource.Play();
                 }
             }
         }

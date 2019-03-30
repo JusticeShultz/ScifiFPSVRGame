@@ -41,7 +41,8 @@ GameObject:
   - component: {fileID: 195272761961422288}
   - component: {fileID: 114685193332595126}
   - component: {fileID: 114237109388222294}
-  - component: {fileID: 114318058168321132}
+  - component: {fileID: 82097644600668214}
+  - component: {fileID: 114169271546211826}
   m_Layer: 0
   m_Name: Wasp
   m_TagString: Untagged
@@ -150,7 +151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163022253425536}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -22.081, y: 1, z: 76.122}
+  m_LocalPosition: {x: -7.19, y: 1, z: 76.34}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4829829288086970}
@@ -394,6 +395,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5246868, y: 1.6279603, z: 1}
   m_Center: {x: 0.06120205, y: 0.27452695, z: 0}
+--- !u!82 &82097644600668214
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163022253425536}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 97f55d2675b63474082a756dcc1c4944, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 2.39
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1.4301071
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95444878859642400
 Animator:
   serializedVersion: 3
@@ -412,6 +508,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114169271546211826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163022253425536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486d708360003e9438dceb170d7669aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 10
+  DeathEffect: {fileID: 0}
 --- !u!114 &114237109388222294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -426,19 +535,6 @@ MonoBehaviour:
   Health: 5
   DeathEffect: {fileID: 1037525528566446, guid: 3c061c741d9d5ec43a2f63671ae782ef,
     type: 2}
---- !u!114 &114318058168321132
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1163022253425536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d708360003e9438dceb170d7669aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 10
-  DeathEffect: {fileID: 0}
 --- !u!114 &114685193332595126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,6 +550,7 @@ MonoBehaviour:
   Damage: 4
   Health: 10
   Animator: {fileID: 95444878859642400}
+  audioSource: {fileID: 82097644600668214}
 --- !u!195 &195272761961422288
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -10620,46 +10620,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 48
       objectReference: {fileID: 0}
-    - target: {fileID: 1163022253425536, guid: 69c440585003a8c4cac957225b4c476c, type: 2}
-      propertyPath: m_Name
-      value: Wasp
-      objectReference: {fileID: 0}
-    - target: {fileID: 195272761961422288, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: m_BaseOffset
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114685193332595126, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: Health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 54038984538878506, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c440585003a8c4cac957225b4c476c, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1455316337 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1163022253425536, guid: 69c440585003a8c4cac957225b4c476c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1455316336}
---- !u!114 &1455316338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1455316337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d708360003e9438dceb170d7669aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 10
-  DeathEffect: {fileID: 0}
 --- !u!1001 &1505689483
 Prefab:
   m_ObjectHideFlags: 0
@@ -10944,46 +10907,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 1163022253425536, guid: 69c440585003a8c4cac957225b4c476c, type: 2}
-      propertyPath: m_Name
-      value: Wasp
-      objectReference: {fileID: 0}
-    - target: {fileID: 195272761961422288, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: m_BaseOffset
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114685193332595126, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: Health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 54038984538878506, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c440585003a8c4cac957225b4c476c, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1548161175 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1163022253425536, guid: 69c440585003a8c4cac957225b4c476c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1548161174}
---- !u!114 &1548161176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1548161175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d708360003e9438dceb170d7669aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 10
-  DeathEffect: {fileID: 0}
 --- !u!1 &1586930058
 GameObject:
   m_ObjectHideFlags: 0
