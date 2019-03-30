@@ -14037,7 +14037,7 @@ MonoBehaviour:
   m_text: You are in the Cantina.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14150,7 +14150,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18318,7 +18318,7 @@ MonoBehaviour:
   m_text: Ship Map
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18431,7 +18431,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20046,7 +20046,7 @@ MonoBehaviour:
   m_text: 'Error: Large alien biomass located in Bio Sphere. Lab locked.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20159,7 +20159,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20440,7 +20440,7 @@ MonoBehaviour:
   m_text: 'Error: Large alien biomass located in Bio Sphere. Lab locked.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20553,7 +20553,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21473,7 +21473,7 @@ MonoBehaviour:
   m_text: "Side ship generators offline. \n\nLab quarantine in effect."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21586,7 +21586,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21880,7 +21880,7 @@ MonoBehaviour:
   m_text: Ship Map
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21993,7 +21993,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24184,8 +24184,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1083944626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.648, y: -1.094, z: 17.5199}
-  m_LocalScale: {x: 0.09224456, y: 0.29643, z: 0.38847277}
+  m_LocalPosition: {x: -0.648, y: -1.094, z: 17.012}
+  m_LocalScale: {x: 0.09224456, y: 0.29643, z: 0.4902526}
   m_Children: []
   m_Father: {fileID: 1111499697}
   m_RootOrder: 6
@@ -39150,6 +39150,73 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1508119525}
   m_Mesh: {fileID: 4300004, guid: 6247319747170954fbc9882e628842fd, type: 3}
+--- !u!1001 &1519031853
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.7882017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 83.78106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.020383216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.9366565
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.055298448
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.34525537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_RootOrder
+      value: 153
+      objectReference: {fileID: 0}
+    - target: {fileID: 23069539694442466, guid: 5ad90025bd05f8f4a8a00996a1b4e716,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d44ec0eaa629a2439b15149ca087520, type: 2}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -6.7570004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094603144797316, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_Name
+      value: SodaCan_FizzRoy (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -139.53201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572295833302602, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 100.00012
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094603144797316, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ad90025bd05f8f4a8a00996a1b4e716, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1524392094
 Prefab:
   m_ObjectHideFlags: 0
@@ -39557,7 +39624,7 @@ MonoBehaviour:
     Offline'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39670,7 +39737,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44079,7 +44146,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237627364722336, guid: 0b20fa87532862d4093a18684ecdb02f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 86.82341
+      value: 85.90999
       objectReference: {fileID: 0}
     - target: {fileID: 4237627364722336, guid: 0b20fa87532862d4093a18684ecdb02f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -47161,7 +47228,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237627364722336, guid: 0b20fa87532862d4093a18684ecdb02f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 85.47342
+      value: 84.56
       objectReference: {fileID: 0}
     - target: {fileID: 4237627364722336, guid: 0b20fa87532862d4093a18684ecdb02f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -49914,7 +49981,7 @@ MonoBehaviour:
   m_text: You are in the Cantina.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -50027,7 +50094,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
