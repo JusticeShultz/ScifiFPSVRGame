@@ -2823,46 +2823,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 53
       objectReference: {fileID: 0}
-    - target: {fileID: 1163022253425536, guid: 69c440585003a8c4cac957225b4c476c, type: 2}
-      propertyPath: m_Name
-      value: Wasp
-      objectReference: {fileID: 0}
-    - target: {fileID: 195272761961422288, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: m_BaseOffset
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114685193332595126, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: Health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 54038984538878506, guid: 69c440585003a8c4cac957225b4c476c,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c440585003a8c4cac957225b4c476c, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &662189172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1163022253425536, guid: 69c440585003a8c4cac957225b4c476c,
-    type: 2}
-  m_PrefabInternal: {fileID: 662189171}
---- !u!114 &662189173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 662189172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d708360003e9438dceb170d7669aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 10
-  DeathEffect: {fileID: 0}
 --- !u!1001 &677811489
 Prefab:
   m_ObjectHideFlags: 0
