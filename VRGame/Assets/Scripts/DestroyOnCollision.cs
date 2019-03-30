@@ -18,6 +18,8 @@ public class DestroyOnCollision : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        // add explosion here 
+
         if(timer > 0.5f || other.name == "Terrain") { Destroy(gameObject); }        
     }
 }

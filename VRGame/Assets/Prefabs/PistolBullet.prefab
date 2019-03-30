@@ -333,6 +333,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 35
   IsEnemyShot: 0
+  enemyHitExplosion: {fileID: 1770481417399130, guid: c3025e842bf36a84887853453bf2f8e3,
+    type: 2}
+  otherHitExplosion: {fileID: 1732805326386856, guid: 8300f90b4d935b9478035c015b2d4d65,
+    type: 2}
 --- !u!135 &135792062040601996
 SphereCollider:
   m_ObjectHideFlags: 1
