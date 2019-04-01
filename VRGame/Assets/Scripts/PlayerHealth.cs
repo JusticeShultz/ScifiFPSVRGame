@@ -30,16 +30,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        // if (Input.GetMouseButtonDown(0)) { TakeDamage(); }
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, CurrentHealth / MaxHealth, 0.1f);
 
         if (CurrentHealth <= 0)
         {
-            // print("I'm dead :O");
-            // SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-            // gameObject.transform.parent.transform.position = Vector3.zero;
             CurrentHealth = MaxHealth;
-            // SceneManager.LoadSceneAsync("Lose");
             GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<LoadSceneAsync>().Do("Lose");
         }
     }

@@ -7192,6 +7192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eda662763b9e8a40b81c122501d54e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsAIButton: 1
 --- !u!1 &546244596
 GameObject:
   m_ObjectHideFlags: 0

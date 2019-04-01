@@ -6,6 +6,7 @@ public class SuccessfulLoadin : MonoBehaviour
 {
 	void Start ()
     {
-        GameObject.Find("Fade").SetActive(false);	
+        GameObject fade = GameObject.Find("Fade");
+        if (null != fade) { fade.SetActive(false); }
 	}
 }

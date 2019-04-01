@@ -290,6 +290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 55
   IsEnemyShot: 1
+  enemyHitExplosion: {fileID: 0}
+  otherHitExplosion: {fileID: 0}
 --- !u!114 &114425663021684820
 MonoBehaviour:
   m_ObjectHideFlags: 1
