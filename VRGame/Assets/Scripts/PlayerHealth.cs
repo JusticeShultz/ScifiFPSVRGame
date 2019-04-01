@@ -39,7 +39,8 @@ public class PlayerHealth : MonoBehaviour
             // SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             // gameObject.transform.parent.transform.position = Vector3.zero;
             CurrentHealth = MaxHealth;
-            SceneManager.LoadSceneAsync("Lose");
+            // SceneManager.LoadSceneAsync("Lose");
+            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<LoadSceneAsync>().Do("Lose");
         }
     }
 

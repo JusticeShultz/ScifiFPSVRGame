@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// resets player values at death
+// resets player values at death, found in lose scene
 public class PlayerDeath : MonoBehaviour {
 
     [Tooltip("Clip counts after player has died")]
     public int clips;
-    [Tooltip("WHere to display death statistics")]
+    [Tooltip("Where to display death statistics")]
     public UnityEngine.UI.Text statsText;
 
     GameObject player;
