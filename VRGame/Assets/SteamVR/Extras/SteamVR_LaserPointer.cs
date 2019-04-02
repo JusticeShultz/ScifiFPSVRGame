@@ -23,6 +23,9 @@ namespace Valve.VR.Extras
         public event PointerEventHandler PointerIn;
         public event PointerEventHandler PointerOut;
         public event PointerEventHandler PointerClick;
+        public PointerEventArgs data;
+        public GameObject hitObject = null;
+        public Vector3 hitPoint;
 
         Transform previousContact = null;
 
@@ -73,35 +76,52 @@ namespace Valve.VR.Extras
         public virtual void OnPointerIn(PointerEventArgs e)
         {
             if (PointerIn != null)
+            {
+                data = e;
                 PointerIn(this, e);
+            }
         }
 
         public virtual void OnPointerClick(PointerEventArgs e)
         {
             if (PointerClick != null)
+            {
+                data = e;
                 PointerClick(this, e);
+            }
         }
 
         public virtual void OnPointerOut(PointerEventArgs e)
         {
             if (PointerOut != null)
+            {
+                data = e;
                 PointerOut(this, e);
+            }
         }
 
         
         private void Update()
         {
+            float dist = 100f;
+
+            Ray raycast = new Ray(transform.position, transform.forward);
+            RaycastHit hit = new RaycastHit();
+            bool bHit = Physics.Raycast(raycast, out hit);
+
+
+            if (hit.collider != null)
+            {
+                hitPoint = hit.point;
+                hitObject = hit.collider.gameObject;
+            }
+            else hitObject = null;
+
             if (!isActive)
             {
                 isActive = true;
                 this.transform.GetChild(0).gameObject.SetActive(true);
             }
-
-            float dist = 100f;
-
-            Ray raycast = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
-            bool bHit = Physics.Raycast(raycast, out hit);
 
             if (previousContact && previousContact != hit.transform)
             {

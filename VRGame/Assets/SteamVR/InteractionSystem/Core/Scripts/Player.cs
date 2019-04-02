@@ -296,7 +296,7 @@ namespace Valve.VR.InteractionSystem
                 }
             }
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9999999, 9999999), -0.3f, Mathf.Clamp(transform.position.z, -9999999, 9999999));
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9999999, 9999999), PlayerPrefs.GetFloat("Height", 0) / 4, Mathf.Clamp(transform.position.z, -9999999, 9999999));
         }
 
 		//-------------------------------------------------
