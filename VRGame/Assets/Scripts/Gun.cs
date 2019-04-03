@@ -327,6 +327,7 @@ public class Gun : MonoBehaviour
     public void OnPickup()
     {
         if (GrabPinchAction.GetState(HandType)) { return; }
+        if (!GrabGripAction.GetStateDown(HandType)) { return; }
 
         if (!activeGun)
         {
@@ -340,9 +341,11 @@ public class Gun : MonoBehaviour
     // throwable.onDetach
     public void OnDetach()
     {
-        if (GrabPinchAction.GetState(HandType)) { return; }
+        // if (GrabPinchAction.GetState(HandType)) { return; }
+        if (GrabPinchAction.GetStateUp(HandType)) { return; }
+        if (!GrabGripAction.GetStateUp(HandType)) { return; }
 
-        print("up");
+        print("hit");
 
         if (canDrop)
         {
