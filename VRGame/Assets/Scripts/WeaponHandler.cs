@@ -80,15 +80,14 @@ public class WeaponHandler : MonoBehaviour {
             if (null == rightWeapon) { PickupWeapon(rightHand, weapon); }
             else { DropWeapon(rightHand); }
         }
-        // if left
-        if (currentHandObj == leftHand)
+        else if (currentHandObj == leftHand) // if left
         {
             if(null == leftWeapon) { PickupWeapon(leftHand, weapon); }
             else { DropWeapon(leftHand); }
         }
+        else { return; } // should hit at least one
 
-        SetClipGun();
-        
+        SetClipGun();       
     }
 
     // called by interactable on grip up

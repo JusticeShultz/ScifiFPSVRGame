@@ -15,7 +15,6 @@ public class StartMenu : MonoBehaviour {
     GameObject mainMenu;
     GameObject settingsMenu;
     GameObject levelMenu;
-    GameObject calibWall;
 
     Vector3 newScale;
 
@@ -26,16 +25,17 @@ public class StartMenu : MonoBehaviour {
         mainMenu = transform.GetChild(0).gameObject;
         settingsMenu = transform.GetChild(1).gameObject;
         levelMenu = transform.GetChild(2).gameObject;
-        calibWall = GameObject.Find("CalibrationWall");
+        // calibWall = GameObject.Find("CalibrationWall");
 
         newScale = player.transform.localScale;
 
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
-        calibWall.SetActive(false);
+        // calibWall.SetActive(false);
         levelMenu.SetActive(false);
 
         sceneLoader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<LoadSceneAsync>();
+        GameObject.Find("TeleportPoint").SetActive(false); // so it doesn't show up after load in
     }
 
     // starts with tutorial
@@ -53,7 +53,7 @@ public class StartMenu : MonoBehaviour {
     {
         mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
-        calibWall.SetActive(true);
+        // calibWall.SetActive(true);
     }
 
     public void LevelSelect()
@@ -84,7 +84,7 @@ public class StartMenu : MonoBehaviour {
     public void BackSettings()
     {
         settingsMenu.SetActive(false);
-        calibWall.SetActive(false);
+        // calibWall.SetActive(false);
         mainMenu.SetActive(true);
     }
 
