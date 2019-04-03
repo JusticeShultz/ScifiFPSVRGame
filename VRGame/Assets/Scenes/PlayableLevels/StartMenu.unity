@@ -7742,6 +7742,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114128360698560850, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: pauseAction.actionPath
+      value: /actions/default/in/PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551220566046914, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: pauseAction.actionPath
+      value: /actions/default/in/PauseGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
   m_IsPrefabAsset: 0
