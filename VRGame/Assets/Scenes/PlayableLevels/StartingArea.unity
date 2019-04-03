@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.22917409, g: 0.4716981, b: 0.25796857, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.12
+  m_FogDensity: 0.07
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
@@ -24758,34 +24758,6 @@ Prefab:
     - target: {fileID: 4048097684287938, guid: 86cc106195a73424aa7a5c4b9df310d8, type: 2}
       propertyPath: m_RootOrder
       value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048097684287938, guid: 86cc106195a73424aa7a5c4b9df310d8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 195453546352654742, guid: 86cc106195a73424aa7a5c4b9df310d8,
-        type: 2}
-      propertyPath: m_Acceleration
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 195453546352654742, guid: 86cc106195a73424aa7a5c4b9df310d8,
-        type: 2}
-      propertyPath: m_AngularSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 195453546352654742, guid: 86cc106195a73424aa7a5c4b9df310d8,
-        type: 2}
-      propertyPath: m_Speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 195453546352654742, guid: 86cc106195a73424aa7a5c4b9df310d8,
-        type: 2}
-      propertyPath: m_Radius
-      value: 1.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463680139493758, guid: 86cc106195a73424aa7a5c4b9df310d8, type: 2}
-      propertyPath: m_Name
-      value: Leech
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86cc106195a73424aa7a5c4b9df310d8, type: 2}

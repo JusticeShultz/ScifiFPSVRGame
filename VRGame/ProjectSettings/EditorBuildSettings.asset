@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/BossFightOriginal.unity
     guid: cb08e574382799845b40203793fb0b1b
   - enabled: 1
+    path: Assets/Scenes/PlayableLevels/StartMenu.unity
+    guid: 1cb33e57bafb86b48bc46e6221f09595
+  - enabled: 1
     path: Assets/Scenes/PlayableLevels/Tutorial/Tutorial.unity
     guid: 44d48f01b34662c498b3416493b7136e
+  - enabled: 1
+    path: Assets/Scenes/PlayableLevels/Lose.unity
+    guid: 7fc03f869217c8a4ab3697c872a11475
+  - enabled: 1
+    path: Assets/Scenes/PlayableLevels/HeightCalibration.unity
+    guid: c7f70f52d11448a4ead2256a763b8ccc
   - enabled: 1
     path: Assets/Scenes/PlayableLevels/StartingArea.unity
     guid: 99c9720ab356a0642a771bea13969a05
@@ -18,17 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayableLevels/Cantina.unity
     guid: 44393a585c0fc3f4c92e0e484b203ad4
   - enabled: 1
-    path: Assets/Scenes/PlayableLevels/Lab.unity
-    guid: b8d4f9776b49fb1469d9493208d22472
-  - enabled: 1
     path: Assets/Scenes/PlayableLevels/BossFight.unity
     guid: eeddbc833b3007d47a2bccbdbcb8e083
   - enabled: 1
     path: Assets/Scenes/PlayableLevels/CantinaAfterBoss.unity
     guid: 6660a34fd292a2c4dad1c8d30619e041
   - enabled: 1
-    path: Assets/Scenes/PlayableLevels/Lose.unity
-    guid: 7fc03f869217c8a4ab3697c872a11475
+    path: Assets/Scenes/PlayableLevels/Lab.unity
+    guid: b8d4f9776b49fb1469d9493208d22472
   - enabled: 1
     path: Assets/Scenes/PlayableLevels/Bridge.unity
     guid: f93af1e8230931a4e9ed08346b7d5679
