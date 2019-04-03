@@ -44,6 +44,8 @@ public class WeaponHandler : MonoBehaviour {
 
         Hand.AttachedObject ao = ((Hand.AttachedObject)hand.GetComponent<Hand>().currentAttachedObjectInfo);
         ao.attachedRigidbodyWasKinematic = false;
+
+        weapon.GetComponent<Gun>().KeepParent(hand == leftHand);
     }
 
     // drop weapon
@@ -86,6 +88,7 @@ public class WeaponHandler : MonoBehaviour {
         }
 
         SetClipGun();
+        
     }
 
     // called by interactable on grip up

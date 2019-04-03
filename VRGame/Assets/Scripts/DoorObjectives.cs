@@ -30,7 +30,12 @@ public class DoorObjectives : MonoBehaviour
 
         if(killedBoss && Objective == Types.Boss) { complete = true; }
 
-        TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().locked = !complete;
-        TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().UpdateVisuals();
+        try
+        {
+            TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().locked = !complete;
+            TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().UpdateVisuals();
+        }
+        catch { print("teleportpoint == null"); }
+        
     }
 }

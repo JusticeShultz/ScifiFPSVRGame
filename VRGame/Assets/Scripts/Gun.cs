@@ -64,6 +64,7 @@ public class Gun : MonoBehaviour
     Rigidbody rb;
     Interactable interA;
     BoxCollider bc;
+    Throwable th;
 
     GameObject clip; // shows clip in gun
     Vector3 clipPos; // current clip position (for loading anim)
@@ -79,10 +80,17 @@ public class Gun : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         interA = GetComponent<Interactable>();
         bc = GetComponent<BoxCollider>();
+        th = GetComponent<Throwable>();
         clip = transform.Find("ClipHolder").gameObject;
         clip.SetActive(false);
         clipPos = clip.transform.localPosition;
         clipGoal = transform.Find("ClipGoal").localPosition;
+
+        // initialize pickup event
+        // this needs to be dynamically set because a new player os loading in to each scene
+        th.onPickUp.AddListener(delegate { weaponHandler.OnPickup(this.gameObject); } );
+        th.onDetachFromHand.AddListener(weaponHandler.OnDetach);
+
 
         // if player is holding this
         if (transform.parent != null && transform.parent.name == "HoverPoint")
@@ -145,10 +153,10 @@ public class Gun : MonoBehaviour
         } // if not being held
 
         // helpful debugging
-        //if (GrabPinchAction.GetStateDown(HandType))
-        //    print("fire");
-        //if (GrabGripAction.GetStateDown(HandType))
-        //    print("grip");
+        if (GrabPinchAction.GetStateDown(HandType))
+            print("fire");
+        if (GrabGripAction.GetStateDown(HandType))
+            print("grip");
 
         // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
 
