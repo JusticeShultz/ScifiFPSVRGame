@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 114021859738612616}
   - component: {fileID: 114666190406711526}
   - component: {fileID: 114132648285241224}
+  - component: {fileID: 114551220566046914}
   m_Layer: 15
   m_Name: RightHand
   m_TagString: Untagged
@@ -977,6 +978,7 @@ GameObject:
   - component: {fileID: 114035019390646564}
   - component: {fileID: 114408622110553634}
   - component: {fileID: 114212825454538310}
+  - component: {fileID: 114128360698560850}
   m_Layer: 15
   m_Name: LeftHand
   m_TagString: Untagged
@@ -2862,7 +2864,7 @@ MonoBehaviour:
   uiInteractAction:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0
-  useHoverSphere: 0
+  useHoverSphere: 1
   hoverSphereTransform: {fileID: 4459978761601296}
   hoverSphereRadius: 0.075
   hoverLayerMask:
@@ -3139,6 +3141,21 @@ MonoBehaviour:
   speed: 4
   shiftSpeed: 16
   showInstructions: 1
+--- !u!114 &114128360698560850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973310628078006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517daa8c84f60b24a887f8e60e17d491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseAction:
+    actionPath: 
+    needsReinit: 0
+  hand: {fileID: 0}
 --- !u!114 &114130829481454314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3796,6 +3813,21 @@ MonoBehaviour:
     actionPath: /actions/default/out/Haptic
     needsReinit: 0
   debugHints: 0
+--- !u!114 &114551220566046914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168395147248242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517daa8c84f60b24a887f8e60e17d491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseAction:
+    actionPath: 
+    needsReinit: 0
+  hand: {fileID: 0}
 --- !u!114 &114572569208906454
 MonoBehaviour:
   m_ObjectHideFlags: 1
