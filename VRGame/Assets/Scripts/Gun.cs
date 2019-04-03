@@ -55,6 +55,8 @@ public class Gun : MonoBehaviour
     public  bool activeGun;
     // can drop gun, resets on grip up after grabbing gun
     private bool canDrop;
+
+
     // hand object this script is attached to
     // private GameObject hand;
     private bool shotdelta = false;
@@ -88,8 +90,10 @@ public class Gun : MonoBehaviour
 
         // initialize pickup event
         // this needs to be dynamically set because a new player os loading in to each scene
-        th.onPickUp.AddListener(delegate { weaponHandler.OnPickup(this.gameObject); } );
-        th.onDetachFromHand.AddListener(weaponHandler.OnDetach);
+        // th.onPickUp.AddListener(delegate { weaponHandler.OnPickup(this.gameObject); } );
+        // th.onDetachFromHand.AddListener(weaponHandler.OnDetach);
+        th.onPickUp.AddListener(OnPickup);
+        th.onDetachFromHand.AddListener(OnDetach);
 
 
         // if player is holding this
@@ -118,9 +122,9 @@ public class Gun : MonoBehaviour
 
         // add input listener to rifle
         WeaponHandler wh = GameObject.Find("Player").GetComponent<WeaponHandler>();
-        GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
+        //GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
 
-        GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
+        //GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
     }
 
     // set fields for gun being held
@@ -161,11 +165,11 @@ public class Gun : MonoBehaviour
         // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
 
         // drop weapon
-        if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
-        {
-            weaponHandler.OnPickup(gameObject);
-            return;
-        }
+        //if (activeGun && canDrop && GrabGripAction.GetStateDown(HandType))
+        //{
+        //    weaponHandler.OnPickup(gameObject);
+        //    return;
+        //}
 
         if (!GrabGripAction.GetStateDown(HandType))
             weaponHandler.GrabDelta = false;
@@ -260,6 +264,8 @@ public class Gun : MonoBehaviour
         // parent object reference
         parentObj = parent;
 
+        KeepParent(parentObj);
+
         // GetComponent<Throwable>().enabled = false;
     }
 
@@ -303,8 +309,6 @@ public class Gun : MonoBehaviour
     {
         if (!activeGun) { return; }
 
-        canDrop = true;
-
         transform.SetParent(parentObj);
         rb.isKinematic = true; // not this
         
@@ -318,4 +322,37 @@ public class Gun : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(rotOffset);
     }
+
+    // throwable.onPickup
+    public void OnPickup()
+    {
+        if (GrabPinchAction.GetState(HandType)) { return; }
+
+        if (!activeGun)
+        {
+            canDrop = false;
+            PickupGun(transform.parent);
+            weaponHandler.PickupWeapon(transform.parent.gameObject, this.gameObject);
+        }
+        else { canDrop = true; }
+    }
+
+    // throwable.onDetach
+    public void OnDetach()
+    {
+        if (GrabPinchAction.GetState(HandType)) { return; }
+
+        print("up");
+
+        if (canDrop)
+        {
+            canDrop = false;
+            DropGun();
+            weaponHandler.DropWeapon(transform.parent.gameObject);
+        }
+        else { KeepParent(parentObj); }
+
+        canDrop = true;
+    }
+
 }
