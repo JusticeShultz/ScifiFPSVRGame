@@ -22,10 +22,13 @@ public class Globule : MonoBehaviour {
     Vector3 startPos;
     Vector3 origPos;
 
+    BossAI bossAI;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         thr = GetComponent<Throwable>();
+        bossAI = GetComponentInParent<BossAI>();
         parent = transform.parent;
 
         thr.onPickUp.AddListener(OnGlobulePickup);
@@ -96,7 +99,7 @@ public class Globule : MonoBehaviour {
     // exploding animation
     IEnumerator Explode()
     {
-        BossAI.GlobuleCount--;
+        bossAI.currentGlobuleCount--;
         Instantiate(explosion, transform.position, Quaternion.Euler(Vector3.zero));
         Destroy(this.gameObject);
         yield return null;
