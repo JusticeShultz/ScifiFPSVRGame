@@ -77,7 +77,7 @@ public class LeechAI : MonoBehaviour
 
                 if (Vector3.Distance(Player.transform.position, transform.position) < 2 && AttackCD <= 0)
                 {
-                    PlayerHealth.CurrentHealth -= Mathf.Clamp(Damage - PlayerHealth.Armor, 1, float.MaxValue);
+                    PlayerHealth.TakeDamage(Mathf.Clamp(Damage - PlayerHealth.armor, 1, float.MaxValue));
                     AttackCD = AttackRate * 60;
 
                     if (audioSource != null) audioSource.Play();
