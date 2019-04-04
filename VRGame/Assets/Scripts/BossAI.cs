@@ -81,11 +81,18 @@ public class BossAI : MonoBehaviour
     int StunTime = 0;
 
     //How long until I can do these abilities again?
+    float TurnCD = 0;
     float ArtillaryCD = 0;
     float JumpCD = 0;
     float SpitCD = 0;
     float StompCD = 0;
     float CloakCD = 0;
+
+    float TurnTime = 2;
+    float ArtillaryTime = 2;
+    float JumpTime = 2;
+    float SpitTime = 2;
+    float StompTime = 2;
 
     //How long does our cloak ability have left?
     int CloakTime = 0;
@@ -135,14 +142,15 @@ public class BossAI : MonoBehaviour
         {
             idleTimeCounter = 0;
 
-
+            TurnCD += Time.deltaTime;
             ArtillaryCD += Time.deltaTime;
             JumpCD += Time.deltaTime;
             SpitCD += Time.deltaTime;
             StompCD += Time.deltaTime;
             CloakCD += Time.deltaTime;
 
-            if(ArtillaryCD >= ArtilleryTime) { IsUsingArtillary = false; }
+            if(TurnCD >= TurnTime) { IsTurning = false; }
+            if(ArtillaryCD >= ArtillaryTime) { IsUsingArtillary = false; }
             if(JumpCD >= JumpTime) { IsJumping = false; }
             if(SpitCD >= SpitTime) { IsSpitting = false; }
             if(StompCD >= StompTime) { IsStomping = false; }
@@ -394,8 +402,8 @@ public class BossAI : MonoBehaviour
         IsUsingArtillary = false;
         IsJumping = true;
         IsStompCyl = false;
-        StunTime = 400; // 900
-        JumpCD = 2000; // 3500
+        //StunTime = 400; // 900
+        //JumpCD = 2000; // 3500
         // ThrowPlayer();
 
         Renderer.material = Normal;
@@ -409,8 +417,8 @@ public class BossAI : MonoBehaviour
         IsUsingArtillary = true;
         IsJumping = false;
         IsStompCyl = false;
-        StunTime = 125;
-        ArtillaryCD = 1450;
+        //StunTime = 125;
+        //ArtillaryCD = 1450;
         Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 6), SpitPoint.transform.rotation);
         Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 8), SpitPoint.transform.rotation);
         Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 10), SpitPoint.transform.rotation);
@@ -442,7 +450,7 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = false;
-        StompCD = 370;
+        //StompCD = 370;
         IsStompCyl = true;
         stompAnimTime = 2;
 
