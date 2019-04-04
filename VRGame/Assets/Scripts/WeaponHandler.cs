@@ -9,7 +9,8 @@ using Valve.VR.InteractionSystem;
 // controls holding of weapons
 // 3 weapons - right, left, holster
 
-public class WeaponHandler : MonoBehaviour {
+public class WeaponHandler : MonoBehaviour
+{
 
     [Tooltip("Weapon in left hand")]
     public GameObject leftWeapon;
@@ -21,11 +22,11 @@ public class WeaponHandler : MonoBehaviour {
     public bool GrabDelta = false;
 
     GameObject leftHand;
-    GameObject rightHand;   
+    GameObject rightHand;
 
     ClipLogic clipLogic; // controls whether player is holding clip
 
-	void Start ()
+    void Start()
     {
         leftHand = GameObject.Find("LeftHand");
         rightHand = GameObject.Find("RightHand");
@@ -44,8 +45,6 @@ public class WeaponHandler : MonoBehaviour {
 
         Hand.AttachedObject ao = ((Hand.AttachedObject)hand.GetComponent<Hand>().currentAttachedObjectInfo);
         ao.attachedRigidbodyWasKinematic = false;
-
-        weapon.GetComponent<Gun>().KeepParent(hand == leftHand);
     }
 
     // drop weapon
@@ -80,14 +79,14 @@ public class WeaponHandler : MonoBehaviour {
             if (null == rightWeapon) { PickupWeapon(rightHand, weapon); }
             else { DropWeapon(rightHand); }
         }
-        else if (currentHandObj == leftHand) // if left
+        // if left
+        if (currentHandObj == leftHand)
         {
-            if(null == leftWeapon) { PickupWeapon(leftHand, weapon); }
+            if (null == leftWeapon) { PickupWeapon(leftHand, weapon); }
             else { DropWeapon(leftHand); }
         }
-        else { return; } // should hit at least one
 
-        SetClipGun();       
+        SetClipGun();
     }
 
     // called by interactable on grip up
@@ -111,13 +110,13 @@ public class WeaponHandler : MonoBehaviour {
     // set clip logic so that gun hand cannot pick up ammo
     void SetClipGun()
     {
-        if(null != leftWeapon && null != rightWeapon) { clipLogic.gunObject = null; }
-        if(null != leftWeapon)
+        if (null != leftWeapon && null != rightWeapon) { clipLogic.gunObject = null; }
+        if (null != leftWeapon)
         {
             clipLogic.gunObject = leftWeapon;
             clipLogic.gunScript = leftWeapon.GetComponent<Gun>();
         }
-        if(null != rightWeapon)
+        if (null != rightWeapon)
         {
             clipLogic.gunObject = rightWeapon;
             clipLogic.gunScript = rightWeapon.GetComponent<Gun>();
