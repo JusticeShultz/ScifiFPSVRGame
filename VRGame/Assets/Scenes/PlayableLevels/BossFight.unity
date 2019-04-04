@@ -22409,8 +22409,14 @@ MonoBehaviour:
   noDamageExplosion: {fileID: 1898380974152832, guid: be40403d9064891429601b7ec3e66300,
     type: 2}
   stompDamage: 30
-  idleTime: 5
-  state: 0
+  IdleTime: 5
+  TurnTime: 2
+  ArtillaryTime: 2
+  JumpTime: 2
+  SpitTime: 2
+  StompTime: 2
+  StunTime: 2
+  CloakTime: 2
 --- !u!65 &2056674443
 BoxCollider:
   m_ObjectHideFlags: 0

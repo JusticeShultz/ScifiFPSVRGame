@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    public enum States { turn, spit, jump, artillery, stomp, stun, cloak };
+    public enum States { turn, spit, jump, artillery, stomp, stun, cloak, idle };
 
     [Tooltip("What animator are we going to play our states on?")]
     public Animator animator;
@@ -46,9 +46,19 @@ public class BossAI : MonoBehaviour
     [Tooltip("How much damage stomping does")]
     public int stompDamage = 30;
     [Tooltip("Time to idle between animations")]
-    public float idleTime = 5;
+    public float IdleTime = 5;
+    public float TurnTime = 2;
+    public float ArtillaryTime = 2;
+    public float JumpTime = 2;
+    public float SpitTime = 2;
+    public float StompTime = 2;
+    //How long are we disabled for?
+    public float StunTime = 2;
+    //How long does our cloak ability have left?
+    public float CloakTime = 2;
 
-    public States state = States.turn;
+    // current animation state
+    States state;
 
     int Health;
 
@@ -77,25 +87,16 @@ public class BossAI : MonoBehaviour
     // stomp animator
     Animator stompAnimator;
 
-    //How long are we disabled for?
-    int StunTime = 0;
-
     //How long until I can do these abilities again?
+    float IdleCD = 0;
     float TurnCD = 0;
     float ArtillaryCD = 0;
     float JumpCD = 0;
     float SpitCD = 0;
     float StompCD = 0;
+    float StunCD = 0;
     float CloakCD = 0;
-
-    float TurnTime = 2;
-    float ArtillaryTime = 2;
-    float JumpTime = 2;
-    float SpitTime = 2;
-    float StompTime = 2;
-
-    //How long does our cloak ability have left?
-    int CloakTime = 0;
+   
     float stompAnimTime = 0;
 
     // how many globules are on
@@ -104,13 +105,11 @@ public class BossAI : MonoBehaviour
     // globules on boss
     Globule[] Globules;
     // teleport points on back
-    Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
-
-    // idle time counter
-    float idleTimeCounter;
+    Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;   
 
     void Start ()
     {
+        state = States.idle;
         Health = MaxHealth;
         
         myCollider = GetComponent<Collider>();
@@ -126,7 +125,7 @@ public class BossAI : MonoBehaviour
         GlobuleCount = Globules.Length;
         stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
 
-        idleTimeCounter = 0;
+        IdleCD = 0;
     }
 	
 	void Update ()
@@ -138,34 +137,52 @@ public class BossAI : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
 
         // check if in active state
-        if (! animator.GetCurrentAnimatorStateInfo(0).IsName("Thresher_Idle"))
+        //if (! animator.GetCurrentAnimatorStateInfo(0).IsName("Thresher_Idle"))
+        //{
+        //    idleCD = 0;
+
+
+        //    // if(CloakCD >= CloakTime) 
+
+        //    SetAnimatorBools();
+
+        //    return;
+        //}
+
+        IdleCD += Time.deltaTime;
+        TurnCD += Time.deltaTime;
+        ArtillaryCD += Time.deltaTime;
+        JumpCD += Time.deltaTime;
+        SpitCD += Time.deltaTime;
+        StompCD += Time.deltaTime;
+        CloakCD += Time.deltaTime;
+
+        if (TurnCD >= TurnTime) { IsTurning = false; }
+        if (ArtillaryCD >= ArtillaryTime) { IsUsingArtillary = false; }
+        if (JumpCD >= JumpTime) { IsJumping = false; }
+        if (SpitCD >= SpitTime) { IsSpitting = false; }
+        if (StompCD >= StompTime) { IsStomping = false; }
+
+        if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }
+
+        SetAnimatorBools();
+
+        if (state == States.idle && IdleCD >= IdleTime)
         {
-            idleTimeCounter = 0;
+            // reset values
+            IdleCD = 0;
+            TurnCD = 0;
+            ArtillaryCD = 0;
+            JumpCD = 0;
+            SpitCD = 0;
+            StompCD = 0;
+            CloakCD = 0;
 
-            TurnCD += Time.deltaTime;
-            ArtillaryCD += Time.deltaTime;
-            JumpCD += Time.deltaTime;
-            SpitCD += Time.deltaTime;
-            StompCD += Time.deltaTime;
-            CloakCD += Time.deltaTime;
-
-            if(TurnCD >= TurnTime) { IsTurning = false; }
-            if(ArtillaryCD >= ArtillaryTime) { IsUsingArtillary = false; }
-            if(JumpCD >= JumpTime) { IsJumping = false; }
-            if(SpitCD >= SpitTime) { IsSpitting = false; }
-            if(StompCD >= StompTime) { IsStomping = false; }
-            // if(CloakCD >= CloakTime) 
-
-            return;
+            SetAnimatorBools();
+            state = GetNextState();
+            RunStateActions();
         }
-
-        if (idleTimeCounter < idleTime)
-        {
-            idleTimeCounter += Time.deltaTime;
-            return;
-        }
-
-        print(idleTimeCounter < idleTime);
+        
 
 
 
@@ -175,10 +192,7 @@ public class BossAI : MonoBehaviour
 
         
 
-        // reset values
-        SetAnimatorBools();
-        state = GetNextState();
-        RunStateActions();
+       
        
         /*
         if(stompAnimTime > 0)
