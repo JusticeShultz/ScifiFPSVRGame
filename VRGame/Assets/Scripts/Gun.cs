@@ -101,8 +101,6 @@ public class Gun : MonoBehaviour
             GetComponent<BoxCollider>().isTrigger = true;
             interA.enabled = false;
             interA.highlightOnHover = false;
-
-            canDrop = true;
         }
         // gun not held
         else
@@ -112,8 +110,7 @@ public class Gun : MonoBehaviour
             rb.useGravity = true;
             interA.enabled = true;
             interA.highlightOnHover = true;
-            GetComponent<BoxCollider>().isTrigger = false;
-            canDrop = false;
+            GetComponent<BoxCollider>().isTrigger = false;           
         }
 
         // add input listener to rifle
@@ -121,6 +118,8 @@ public class Gun : MonoBehaviour
         GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
 
         GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
+
+        canDrop = false;
     }
 
     // set fields for gun being held
@@ -164,6 +163,12 @@ public class Gun : MonoBehaviour
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
         {
             weaponHandler.OnPickup(gameObject);
+            return;
+        }
+
+        if (GrabGripAction.GetStateUp(HandType) && activeGun && canDrop)
+        {
+            ReallyDrop();
             return;
         }
 
@@ -265,6 +270,11 @@ public class Gun : MonoBehaviour
 
     public void DropGun()
     {
+        canDrop = true;
+    }
+
+    void ReallyDrop()
+    {
         print("drop");
 
         interA.enabled = true;
@@ -272,7 +282,6 @@ public class Gun : MonoBehaviour
         bc.isTrigger = false;
         rb.useGravity = true;
         rb.isKinematic = false;
-        print("ik = f");
         // activeGun = false;
         Deactivate();
 
