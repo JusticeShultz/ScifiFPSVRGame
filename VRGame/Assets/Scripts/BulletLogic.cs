@@ -65,8 +65,7 @@ public class BulletLogic : MonoBehaviour
             {
                 //Do damage to it
                 PlayerHealth ph = col.gameObject.GetComponent<PlayerHealth>();
-                ph.CurrentHealth -= Mathf.Clamp((Damage - col.gameObject.GetComponent<PlayerHealth>().Armor), 1.0f, 10000.0f);
-                ph.TakeDamage();
+                ph.TakeDamage(Mathf.Clamp((Damage - col.gameObject.GetComponent<PlayerHealth>().armor), 1.0f, 10000.0f));
                 Destroy(gameObject);
             }
             else Destroy(gameObject);

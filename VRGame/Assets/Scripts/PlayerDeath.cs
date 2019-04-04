@@ -31,8 +31,8 @@ public class PlayerDeath : MonoBehaviour {
         Gun.BulletClips = clips;
                
         statsString = dc == 1 ? "You have died " + dc + " time" : "You have died " + dc + " times";
-        statsString += "\nHealth: " + ph.CurrentHealth + " / " + ph.MaxHealth;
-        statsString += "\nArmor: " + ph.Armor;
+        statsString += "\nHealth: " + ph.CurrentHealth + " / " + ph.maxHealth;
+        statsString += "\nArmor: " + ph.armor;
         statsString += "\nClips: " + Gun.BulletClips;
         statsString += "\nRight Weapon: none";
         statsString += "\nLeft Weapon: none";

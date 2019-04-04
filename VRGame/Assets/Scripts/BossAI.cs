@@ -39,6 +39,8 @@ public class BossAI : MonoBehaviour
     public GameObject damageExplosion;
     [Tooltip("Explosion for when bullet does not do damage")]
     public GameObject noDamageExplosion;
+    [Tooltip("How much damage stomping does")]
+    public int stompDamage = 30;
 
     int Health;
 
@@ -52,6 +54,8 @@ public class BossAI : MonoBehaviour
     bool IsUsingArtillary = false;
     //Are we stomping?
     bool IsStomping = false;
+    // Is stomp cylinder anim playing?
+    bool IsStompCyl = false;
 
     // final stage has been unlocked
     bool ReachedFinalStage;
@@ -60,6 +64,10 @@ public class BossAI : MonoBehaviour
     GameObject Player;    
     //What is my collider?
     Collider myCollider;
+    //boss stomp cylinder
+    GameObject stompAnim;
+    // stomp animator
+    Animator stompAnimator;
 
     //How long are we disabled for?
     int StunTime = 0;
@@ -73,6 +81,7 @@ public class BossAI : MonoBehaviour
 
     //How long does our cloak ability have left?
     int CloakTime = 0;
+    float stompAnimTime = 0;
 
     // how many globules are on
     [System.NonSerialized]
@@ -88,6 +97,7 @@ public class BossAI : MonoBehaviour
         
         myCollider = GetComponent<Collider>();
         Player = GameObject.Find("PlayerCollider");
+        stompAnim = transform.Find("BossStomp").gameObject;
         FinalStage = false;
         ReachedFinalStage = false;
         Globules = GetComponentsInChildren<Globule>();
@@ -96,15 +106,22 @@ public class BossAI : MonoBehaviour
         TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
         for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         GlobuleCount = Globules.Length;
+        stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
     }
 	
 	void Update ()
     {
         // print(Vector3.Distance(Player.transform.position, transform.position));
 
-        if (Input.GetMouseButtonDown(0)) { ThrowPlayer(); }
+        // if (Input.GetMouseButtonDown(0)) { ThrowPlayer(); }
 
-        if (GlobuleCount <= 0) { WinActions(); }            
+        if (GlobuleCount <= 0) { WinActions(); }    
+        
+        if(stompAnimTime > 0)
+        {
+            stompAnimTime -= Time.deltaTime;
+        }
+        else { IsStompCyl = false; }
 
         ++CloakCD;
 
@@ -132,11 +149,22 @@ public class BossAI : MonoBehaviour
         animator.SetBool("IsSpitting", IsSpitting);
         animator.SetBool("IsUsingArtillary", IsUsingArtillary);
         animator.SetBool("IsStomping", IsStomping);
+        stompAnimator.SetBool("IsStompCyl", IsStompCyl);
 
         --JumpCD;
         --ArtillaryCD;
         --SpitCD;
-        --StompCD;       
+        --StompCD;
+
+        // always turn
+        if (Vector3.Distance(Player.transform.position, transform.position) > .1) // 6
+        {
+            IsTurning = true;
+            // IsStomping = false;
+            // IsSpitting = false;
+            SmoothLook.transform.LookAt(Player.transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
+        }
 
         // after jump or artillery atack
         if (StunTime > 0)
@@ -158,6 +186,8 @@ public class BossAI : MonoBehaviour
             IsTurning = false;
             IsSpitting = false;
             StompCD = 370;
+            IsStompCyl = true;
+            stompAnimTime = 2;
 
             Renderer.material = Normal;
         }
@@ -166,7 +196,7 @@ public class BossAI : MonoBehaviour
             Renderer.material = Normal;
 
             // spit
-            if (Vector3.Distance(Player.transform.position, transform.position) > 7 && SpitCD <= 0)
+            if (Vector3.Distance(Player.transform.position, transform.position) > 4 && SpitCD <= 0) // 7
             {
                 IsSpitting = true;
                 IsTurning = false;
@@ -179,7 +209,7 @@ public class BossAI : MonoBehaviour
             // artillery
             else
             {
-                if (Vector3.Distance(Player.transform.position, transform.position) > 15 && ArtillaryCD <= 0)
+                if (Vector3.Distance(Player.transform.position, transform.position) > 8 && ArtillaryCD <= 0) // 15
                 {
                     IsUsingArtillary = true;
                     IsTurning = false;
@@ -209,13 +239,13 @@ public class BossAI : MonoBehaviour
                     else
                     {
                         // turn
-                        if (Vector3.Distance(Player.transform.position, transform.position) > 3) // orig 6
+                        if (Vector3.Distance(Player.transform.position, transform.position) > .1) // 6
                         {
                             IsTurning = true;
                             IsStomping = false;
                             IsSpitting = false;
                             SmoothLook.transform.LookAt(Player.transform.position);
-                            transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.005f);
+                            transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
                         }
                         else
                         {
@@ -252,7 +282,6 @@ public class BossAI : MonoBehaviour
     {
         if (ReachedFinalStage) return; // no bullet damage in final stage
         Health -= Damage;
-        print(Health + " / " + MaxHealth);
     }
 
     // start win things
@@ -278,4 +307,5 @@ public class BossAI : MonoBehaviour
     {
         Player.transform.parent.position = SavePrevPos.playerPrevPos;
     }
+
 }
