@@ -5,7 +5,7 @@ using Valve.VR;
 
 public class DoorObjectives : MonoBehaviour
 {
-    public enum Types { KillAll, Kill, Find, Pickup, Destroy, Boss, etc }
+    public enum Types { KillAll, Kill, Find, Pickup, Destroy, Boss, Debug }
     public Types Objective;
     public GameObject[] Kill;
     public string NameType;
@@ -16,11 +16,14 @@ public class DoorObjectives : MonoBehaviour
     
 	void Update ()
     {
-        if(Objective == Types.KillAll)
+        if (Objective == Types.KillAll)
         {
             int kills = 0;
 
-            for(int i = 0; i < Kill.Length; ++i)
+            if (Kill.Length == 0) return;
+            if (Kill[0] == null) return;
+
+            for (int i = 0; i < Kill.Length; ++i)
             {
                 if (Kill[i].name == NameType + "(Dead)") ++kills;
             }
@@ -28,14 +31,22 @@ public class DoorObjectives : MonoBehaviour
             if (kills == Kill.Length) complete = true;
         }
 
-        if(killedBoss && Objective == Types.Boss) { complete = true; }
+        if(killedBoss && Objective == Types.Boss)
+            complete = true;
 
-        try
+        if (Objective == Types.Debug)
+        {
+            try
+            {
+                TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().locked = !complete;
+                TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().UpdateVisuals();
+            }
+            catch { print("teleportpoint == null"); }
+        }
+        else
         {
             TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().locked = !complete;
             TeleportPoint.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>().UpdateVisuals();
         }
-        catch { print("teleportpoint == null"); }
-        
     }
 }

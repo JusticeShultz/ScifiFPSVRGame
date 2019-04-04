@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LoadSceneAsync : MonoBehaviour
 {
     public GameObject loadscreen;
@@ -29,9 +30,14 @@ public class LoadSceneAsync : MonoBehaviour
 
     IEnumerator LoadScene(string scene)
     {
+        //print("I'm trying to load " + scene);
         GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath = SceneManager.GetActiveScene().name;
         print(GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath);
-        loadscreen.SetActive(true);
+
+        if (loadscreen == null)
+            loadscreen = GameObject.Find("Fade");
+
+        loadscreen.GetComponent<SpriteRenderer>().enabled = true;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
         while (!asyncLoad.isDone)
@@ -39,7 +45,8 @@ public class LoadSceneAsync : MonoBehaviour
             yield return null;
         }
 
-        loadscreen.SetActive(false);
+
+        loadscreen.GetComponent<SpriteRenderer>().enabled = false;
         Destroy(gameObject);
     }
 }

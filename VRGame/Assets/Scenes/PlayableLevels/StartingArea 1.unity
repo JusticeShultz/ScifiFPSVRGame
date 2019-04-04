@@ -7459,11 +7459,21 @@ MonoBehaviour:
     needsReinit: 0
   FiringSpeed: 0
   CurrentBulletCount: 24
+  MaxBulletCount: 24
   BulletsShotAtOnce: 1
   Bullet: {fileID: 0}
   BulletFlySpeed: 20
-  BulletClips: 5
   DisplayText: {fileID: 0}
+  reloadTime: 0
+  posOffset: {x: 0, y: 0, z: 0}
+  rotOffset: {x: 0, y: 0, z: 0}
+  scaleOffset: {x: 0, y: 0, z: 0}
+  IsAutomatic: 1
+  GunBarrel: {fileID: 0}
+  hapticFlash:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+  activeGun: 0
 --- !u!1 &870819561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10901,7 +10911,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: switchToScene
-      value: Canteena
+      value: Cantina
       objectReference: {fileID: 0}
     - target: {fileID: 11479906, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: fade
@@ -10911,6 +10921,18 @@ Prefab:
       propertyPath: loadscreen
       value: 
       objectReference: {fileID: 1297322523}
+    - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
   m_IsPrefabAsset: 0

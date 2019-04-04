@@ -11,7 +11,15 @@ public class BulletLogic : MonoBehaviour
     [Tooltip("Particle effect for hitting anything other than enemy")]
     public GameObject otherHitExplosion;
 
+    private int frameCount = 0;
     bool hittingEnemy = false;
+
+    private void Update()
+    {
+        ++frameCount;
+
+        if (frameCount > 10 * 60) Destroy(gameObject);
+    }
 
     void OnCollisionEnter(Collision col)
     {

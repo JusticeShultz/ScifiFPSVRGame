@@ -10,6 +10,8 @@ public class SpitterAI : MonoBehaviour {
     public GameObject SpitPoint;
     public float SpitRate = 0.80f;
     public int Health;
+    public bool IsDisplay = false;
+
     private UnityEngine.AI.NavMeshAgent Agent;
     private float SpitCD = 0;
 
@@ -29,7 +31,9 @@ public class SpitterAI : MonoBehaviour {
 
         Vector3 position;
         position = Player.transform.position;
-        Agent.destination = position;
+
+        if(!IsDisplay)
+            Agent.destination = position;
 
         Vector3[] corners = Agent.path.corners;
 
@@ -47,6 +51,8 @@ public class SpitterAI : MonoBehaviour {
             gameObject.name = "Spitter(Dead)";
             return;
         }
+
+        if (IsDisplay) return;
 
         if (dist < 20)
         {
