@@ -53,15 +53,19 @@ public class BulletLogic : MonoBehaviour
             {
                 hittingEnemy = false;
 
-                if(col.contacts.Length > 0)
-                    Instantiate(Decal, col.contacts[0].point, Quaternion.FromToRotation(Vector3.up, col.contacts[0].normal));
-
                 if (col.gameObject.GetComponent<DestroyableEntity>() != null)
                 {
                     col.gameObject.GetComponent<DestroyableEntity>().Health -= Damage;
                     StartCoroutine(ScheduleNewDeath());
                 }
-                else StartCoroutine(ScheduleNewDeath());
+                else
+                {
+                    if (col.contacts.Length > 0)
+                        if (col.gameObject.GetComponent<Rigidbody>() == null)
+                            Instantiate(Decal, col.contacts[0].point, Quaternion.FromToRotation(Vector3.up, col.contacts[0].normal));
+
+                    StartCoroutine(ScheduleNewDeath());
+                }
             }
         }
         else
