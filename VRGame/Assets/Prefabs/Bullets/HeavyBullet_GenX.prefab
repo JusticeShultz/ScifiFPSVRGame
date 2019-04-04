@@ -337,6 +337,7 @@ MonoBehaviour:
     type: 2}
   otherHitExplosion: {fileID: 1732805326386856, guid: 8300f90b4d935b9478035c015b2d4d65,
     type: 2}
+  Decal: {fileID: 1150423285742890, guid: 6b0078831a6a58945b97b879c9f9d71d, type: 2}
 --- !u!135 &135314207012974412
 SphereCollider:
   m_ObjectHideFlags: 1

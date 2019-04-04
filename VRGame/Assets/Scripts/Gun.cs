@@ -11,39 +11,39 @@ using UnityEngine.SceneManagement;
 public class Gun : MonoBehaviour
 {
     [Tooltip("Which hand do we fire from?")]
-        public SteamVR_Input_Sources HandType;
+    public SteamVR_Input_Sources HandType;
     [Tooltip("What event makes us shoot?")]
-        public SteamVR_Action_Boolean GrabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
+    public SteamVR_Action_Boolean GrabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
     [Tooltip("What event makes us reload?")]
-        public SteamVR_Action_Boolean GrabGripAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip");
+    public SteamVR_Action_Boolean GrabGripAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip");
     [Tooltip("How fast can we fire?")]
-        public float FiringSpeed;
+    public float FiringSpeed;
     [Tooltip("How many bullets do we have remaining?")]
-        public int CurrentBulletCount = 24;
+    public int CurrentBulletCount = 24;
     [Tooltip("How many bullets can we store at maximum?")]
-        public int MaxBulletCount = 24;
+    public int MaxBulletCount = 24;
     [Tooltip("How many bullets do we shoot at a time?")]
-        public int BulletsShotAtOnce = 1;
+    public int BulletsShotAtOnce = 1;
     [Tooltip("Which bullet prefab should we use?")]
-        public GameObject Bullet;
+    public GameObject Bullet;
     [Tooltip("How fast should our bullet fly?")]
-        public float BulletFlySpeed = 20;
+    public float BulletFlySpeed = 20;
     [Tooltip("How many bullet clips have we picked up?")]
-        public static float BulletClips = 2;
+    public static float BulletClips = 2;
     [Tooltip("Display text that shows your bullets and clip count.")]
-        public GameObject DisplayText;
+    public GameObject DisplayText;
     [Tooltip("Time it takes to put new clip into gun and reload.")]
-        public float reloadTime;
+    public float reloadTime;
     [Tooltip("Offset from hand. Position")]
-        public Vector3 posOffset;
+    public Vector3 posOffset;
     [Tooltip("Offset from hand. Rotation")]
-        public Vector3 rotOffset;
+    public Vector3 rotOffset;
     [Tooltip("Offset from hand. Scale")]
-        public Vector3 scaleOffset;
+    public Vector3 scaleOffset;
     [Tooltip("Is this gun a hair trigger pull? (If we hold the trigger will it keep firing?)")]
-        public bool IsAutomatic = true;
+    public bool IsAutomatic = true;
     [Tooltip("Where does our shot fire from?")]
-        public GameObject GunBarrel;
+    public GameObject GunBarrel;
 
     public SteamVR_Action_Vibration hapticFlash = SteamVR_Input.GetAction<SteamVR_Action_Vibration>("Haptic");
 
@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
     // Shots per second that this weapon may fire.
     private float shotcooldown = 0.1f;
     // if this gun is currently held
-    public  bool activeGun;
+    public bool activeGun;
     // can drop gun, resets on grip up after grabbing gun
     private bool canDrop;
     // hand object this script is attached to
@@ -64,7 +64,6 @@ public class Gun : MonoBehaviour
     Rigidbody rb;
     Interactable interA;
     BoxCollider bc;
-    Throwable th;
 
     GameObject clip; // shows clip in gun
     Vector3 clipPos; // current clip position (for loading anim)
@@ -72,7 +71,7 @@ public class Gun : MonoBehaviour
 
     WeaponHandler weaponHandler; // handles picking up weapons in specific hands
 
-    void Start ()
+    void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
         weaponHandler = GameObject.Find("Player").GetComponent<WeaponHandler>();
@@ -80,17 +79,10 @@ public class Gun : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         interA = GetComponent<Interactable>();
         bc = GetComponent<BoxCollider>();
-        th = GetComponent<Throwable>();
         clip = transform.Find("ClipHolder").gameObject;
         clip.SetActive(false);
         clipPos = clip.transform.localPosition;
         clipGoal = transform.Find("ClipGoal").localPosition;
-
-        // initialize pickup event
-        // this needs to be dynamically set because a new player os loading in to each scene
-        th.onPickUp.AddListener(delegate { weaponHandler.OnPickup(this.gameObject); } );
-        th.onDetachFromHand.AddListener(weaponHandler.OnDetach);
-
 
         // if player is holding this
         if (transform.parent != null && transform.parent.name == "HoverPoint")
@@ -101,6 +93,8 @@ public class Gun : MonoBehaviour
             GetComponent<BoxCollider>().isTrigger = true;
             interA.enabled = false;
             interA.highlightOnHover = false;
+
+            canDrop = true;
         }
         // gun not held
         else
@@ -110,7 +104,8 @@ public class Gun : MonoBehaviour
             rb.useGravity = true;
             interA.enabled = true;
             interA.highlightOnHover = true;
-            GetComponent<BoxCollider>().isTrigger = false;           
+            GetComponent<BoxCollider>().isTrigger = false;
+            canDrop = false;
         }
 
         // add input listener to rifle
@@ -118,8 +113,6 @@ public class Gun : MonoBehaviour
         GetComponent<Throwable>().onPickUp.AddListener(delegate { wh.OnPickup(this.gameObject); });
 
         GetComponent<Throwable>().onDetachFromHand.AddListener(delegate { wh.OnDetach(); });
-
-        canDrop = false;
     }
 
     // set fields for gun being held
@@ -135,7 +128,7 @@ public class Gun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         //if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
         //{
@@ -144,7 +137,7 @@ public class Gun : MonoBehaviour
         //    return;
         //}
 
-        if (!activeGun)
+        if (!activeGun && transform.parent == null)
         {
             rigidbodyComponent.isKinematic = false;
             rigidbodyComponent.useGravity = true;
@@ -152,10 +145,10 @@ public class Gun : MonoBehaviour
         } // if not being held
 
         // helpful debugging
-        if (GrabPinchAction.GetStateDown(HandType))
-            print("fire");
-        if (GrabGripAction.GetStateDown(HandType))
-            print("grip");
+        //if (GrabPinchAction.GetStateDown(HandType))
+        //    print("fire");
+        //if (GrabGripAction.GetStateDown(HandType))
+        //    print("grip");
 
         // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
 
@@ -163,12 +156,6 @@ public class Gun : MonoBehaviour
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
         {
             weaponHandler.OnPickup(gameObject);
-            return;
-        }
-
-        if (GrabGripAction.GetStateUp(HandType) && activeGun && canDrop)
-        {
-            ReallyDrop();
             return;
         }
 
@@ -217,7 +204,7 @@ public class Gun : MonoBehaviour
     {
         print("Object attempted to go in clip: " + collision.gameObject.name);
         // reload
-        if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip ) || collision.name == "AmmoClip") && !clip.activeSelf)
+        if (activeGun && ((collision.name == "AmmoClip(Clone)" && GrabClip.holdingClip) || collision.name == "AmmoClip") && !clip.activeSelf)
         {
             if (CurrentBulletCount >= MaxBulletCount) return;
 
@@ -237,7 +224,7 @@ public class Gun : MonoBehaviour
         // oldClip.GetComponent<BoxCollider>().isTrigger = true;
         // oldClip.AddComponent<DestroyOnCollision>();
 
-        for(float t = 0; t < 1; t += Time.deltaTime * reloadTime)
+        for (float t = 0; t < 1; t += Time.deltaTime * reloadTime)
         {
             clip.transform.localPosition = Vector3.Lerp(clipPos, clipGoal, t);
             yield return null;
@@ -260,7 +247,7 @@ public class Gun : MonoBehaviour
         rb.isKinematic = true; // not this
         // activeGun = true;
         Activate();
-        canDrop = false;     
+        canDrop = false;
 
         // parent object reference
         parentObj = parent;
@@ -270,11 +257,6 @@ public class Gun : MonoBehaviour
 
     public void DropGun()
     {
-        canDrop = true;
-    }
-
-    void ReallyDrop()
-    {
         print("drop");
 
         interA.enabled = true;
@@ -282,6 +264,7 @@ public class Gun : MonoBehaviour
         bc.isTrigger = false;
         rb.useGravity = true;
         rb.isKinematic = false;
+        print("ik = f");
         // activeGun = false;
         Deactivate();
 
@@ -316,7 +299,7 @@ public class Gun : MonoBehaviour
 
         transform.SetParent(parentObj);
         rb.isKinematic = true; // not this
-        
+
         if (leftHanded)
         {
             Vector3 newOffset = posOffset;

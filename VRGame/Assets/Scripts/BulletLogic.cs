@@ -10,6 +10,7 @@ public class BulletLogic : MonoBehaviour
     public GameObject enemyHitExplosion;
     [Tooltip("Particle effect for hitting anything other than enemy")]
     public GameObject otherHitExplosion;
+    public GameObject Decal;
 
     private int frameCount = 0;
     bool hittingEnemy = false;
@@ -51,6 +52,10 @@ public class BulletLogic : MonoBehaviour
             else
             {
                 hittingEnemy = false;
+
+                if(col.contacts.Length > 0)
+                    Instantiate(Decal, col.contacts[0].point, Quaternion.FromToRotation(Vector3.up, col.contacts[0].normal));
+
                 if (col.gameObject.GetComponent<DestroyableEntity>() != null)
                 {
                     col.gameObject.GetComponent<DestroyableEntity>().Health -= Damage;
