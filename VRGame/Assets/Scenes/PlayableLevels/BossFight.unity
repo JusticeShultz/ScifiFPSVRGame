@@ -4454,7 +4454,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4489207200790888, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -36.73
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 4489207200790888, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4495,6 +4495,15 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086275769053108, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786230541315866, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: maxHealth
+      value: 1e+11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
@@ -22370,6 +22379,7 @@ MonoBehaviour:
   Renderer: {fileID: 1878864102}
   Normal: {fileID: 2100000, guid: 1fa1d5d92a25e684da74cb9fd222b8ec, type: 3}
   Stunned: {fileID: 2100000, guid: 907bf93f5cd409840809a32854f83c34, type: 2}
+  ShootingMat: {fileID: 2100000, guid: 1d7a559d97f50be4d8228b1921a545be, type: 2}
   Ghosted: {fileID: 2100000, guid: 8a7955e4366112546b5b241c68eb7a7c, type: 2}
   IsGhosted: 1
   MaxHealth: 50
@@ -22380,6 +22390,8 @@ MonoBehaviour:
   noDamageExplosion: {fileID: 1898380974152832, guid: be40403d9064891429601b7ec3e66300,
     type: 2}
   stompDamage: 30
+  idleTime: 5
+  state: 0
 --- !u!65 &2056674443
 BoxCollider:
   m_ObjectHideFlags: 0

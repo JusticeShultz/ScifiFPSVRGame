@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
+    public enum States { turn, spit, jump, artillery, stomp, stun, cloak };
+
     [Tooltip("What animator are we going to play our states on?")]
     public Animator animator;
     [Tooltip("Which object will do a direct look at for us to lerp to?")]
@@ -20,6 +22,8 @@ public class BossAI : MonoBehaviour
     public Material Normal;
     [Tooltip("What's our stunned material?")]
     public Material Stunned;
+    [Tooltip("What's our shooting material?")]
+    public Material ShootingMat;
     [Tooltip("What's our cloaked material?")]
     public Material Ghosted;
     [Tooltip("Are we cloaked?")]
@@ -41,6 +45,10 @@ public class BossAI : MonoBehaviour
     public GameObject noDamageExplosion;
     [Tooltip("How much damage stomping does")]
     public int stompDamage = 30;
+    [Tooltip("Time to idle between animations")]
+    public float idleTime = 5;
+
+    public States state = States.turn;
 
     int Health;
 
@@ -73,11 +81,11 @@ public class BossAI : MonoBehaviour
     int StunTime = 0;
 
     //How long until I can do these abilities again?
-    int ArtillaryCD = 0;
-    int JumpCD = 0;
-    int SpitCD = 0;
-    int StompCD = 0;
-    int CloakCD = 0;
+    float ArtillaryCD = 0;
+    float JumpCD = 0;
+    float SpitCD = 0;
+    float StompCD = 0;
+    float CloakCD = 0;
 
     //How long does our cloak ability have left?
     int CloakTime = 0;
@@ -90,6 +98,9 @@ public class BossAI : MonoBehaviour
     Globule[] Globules;
     // teleport points on back
     Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
+
+    // idle time counter
+    float idleTimeCounter;
 
     void Start ()
     {
@@ -107,16 +118,61 @@ public class BossAI : MonoBehaviour
         for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         GlobuleCount = Globules.Length;
         stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
+
+        idleTimeCounter = 0;
     }
 	
 	void Update ()
     {
+        // if globs gone
+        // if (GlobuleCount <= 0) { WinActions(); }
+
+        // if out of bounds
+        if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
+
+        // check if in active state
+        if (! animator.GetCurrentAnimatorStateInfo(0).IsName("Thresher_Idle"))
+        {
+            idleTimeCounter = 0;
+
+
+            ArtillaryCD += Time.deltaTime;
+            JumpCD += Time.deltaTime;
+            SpitCD += Time.deltaTime;
+            StompCD += Time.deltaTime;
+            CloakCD += Time.deltaTime;
+
+            if(ArtillaryCD >= ArtilleryTime) { IsUsingArtillary = false; }
+            if(JumpCD >= JumpTime) { IsJumping = false; }
+            if(SpitCD >= SpitTime) { IsSpitting = false; }
+            if(StompCD >= StompTime) { IsStomping = false; }
+            // if(CloakCD >= CloakTime) 
+
+            return;
+        }
+
+        if (idleTimeCounter < idleTime)
+        {
+            idleTimeCounter += Time.deltaTime;
+            return;
+        }
+
+        print(idleTimeCounter < idleTime);
+
+
+
         // print(Vector3.Distance(Player.transform.position, transform.position));
 
         // if (Input.GetMouseButtonDown(0)) { ThrowPlayer(); }
 
-        if (GlobuleCount <= 0) { WinActions(); }    
         
+
+        // reset values
+        SetAnimatorBools();
+        state = GetNextState();
+        RunStateActions();
+       
+        /*
         if(stompAnimTime > 0)
         {
             stompAnimTime -= Time.deltaTime;
@@ -157,7 +213,7 @@ public class BossAI : MonoBehaviour
         --StompCD;
 
         // always turn
-        if (Vector3.Distance(Player.transform.position, transform.position) > .1) // 6
+        if (!IsGhosted && !IsJumping && Vector3.Distance(Player.transform.position, transform.position) > .1) // 6
         {
             IsTurning = true;
             // IsStomping = false;
@@ -182,14 +238,7 @@ public class BossAI : MonoBehaviour
         // stomp
         else if(Vector3.Distance(Player.transform.position, transform.position) < 7 && StompCD <= 0)
         {
-            IsStomping = true;
-            IsTurning = false;
-            IsSpitting = false;
-            StompCD = 370;
-            IsStompCyl = true;
-            stompAnimTime = 2;
-
-            Renderer.material = Normal;
+            Stomp();
         }
         else
         {
@@ -198,54 +247,28 @@ public class BossAI : MonoBehaviour
             // spit
             if (Vector3.Distance(Player.transform.position, transform.position) > 4 && SpitCD <= 0) // 7
             {
-                IsSpitting = true;
-                IsTurning = false;
-                IsStomping = false;
-                IsSpitting = false;
-                SpitCD = 55;
-                GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.right * -10 + (Vector3.up * 2);
+                Spit();
             }
             // artillery
             else
             {
                 if (Vector3.Distance(Player.transform.position, transform.position) > 8 && ArtillaryCD <= 0) // 15
                 {
-                    IsUsingArtillary = true;
-                    IsTurning = false;
-                    IsStomping = false;
-                    IsSpitting = false;
-                    StunTime = 125;
-                    ArtillaryCD = 1450;
-                    Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 6), SpitPoint.transform.rotation);
-                    Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 8), SpitPoint.transform.rotation);
-                    Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 10), SpitPoint.transform.rotation);
-                    Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 12), SpitPoint.transform.rotation);
-                    Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 14), SpitPoint.transform.rotation);
+                    Artillery();
                 }
                 else
                 {
                     // jump
                     if (Vector3.Distance(Player.transform.position, transform.position) < 15 && JumpCD <= 0)
                     {
-                        IsJumping = true;
-                        IsTurning = false;
-                        IsStomping = false;
-                        IsSpitting = false;
-                        StunTime = 900;
-                        JumpCD = 3500;
-                        ThrowPlayer();
+                        Jump();
                     }
                     else
                     {
                         // turn
                         if (Vector3.Distance(Player.transform.position, transform.position) > .1) // 6
                         {
-                            IsTurning = true;
-                            IsStomping = false;
-                            IsSpitting = false;
-                            SmoothLook.transform.LookAt(Player.transform.position);
-                            transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
+                            Turn();
                         }
                         else
                         {
@@ -254,14 +277,24 @@ public class BossAI : MonoBehaviour
                             IsSpitting = false;
                             IsUsingArtillary = false;
                             IsStomping = false;
+
+                            Renderer.material = Normal;
                         }
                     }
                 }
             }
         }
+        */
 
         // enable {globules} if at health val and they have not yet been enabled
         if (Health <= FinalStageUnlockValue && !ReachedFinalStage) { EnableFinalStage(); }       
+    }
+
+    // randomly chooses next state
+    States GetNextState()
+    {
+        if(Random.Range(0, 3) == 0) { return States.turn; }
+        return (States)Random.Range(0, 6);
     }
 
     // change boss values for final fight stage
@@ -302,10 +335,126 @@ public class BossAI : MonoBehaviour
         else { return damageExplosion; }
     }
 
+    // runs functions associated with current state
+    void RunStateActions()
+    {
+        switch (state)
+        {
+            case States.turn:
+                Turn();
+                break;
+            case States.stun:
+                break;
+            case States.stomp:
+                Stomp();
+                break;
+            case States.spit:
+                Spit();
+                break;
+            case States.jump:
+                Jump();
+                break;
+            case States.cloak:
+                break;
+            case States.artillery:
+                Artillery();
+                break;
+            default:
+                // Turn();
+                break;
+        }
+    }
+
     // throws player off back and to last position
     void ThrowPlayer()
     {
         Player.transform.parent.position = SavePrevPos.playerPrevPos;
     }
 
+    void Turn()
+    {
+        IsTurning = true;
+        IsStomping = false;
+        IsSpitting = false;
+        IsUsingArtillary = false;
+        IsJumping = false;
+        IsStompCyl = false;
+
+        SmoothLook.transform.LookAt(Player.transform.position);
+        transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
+
+        Renderer.material = Normal;
+    }
+
+    void Jump()
+    {
+        IsTurning = false;
+        IsStomping = false;
+        IsSpitting = false;
+        IsUsingArtillary = false;
+        IsJumping = true;
+        IsStompCyl = false;
+        StunTime = 400; // 900
+        JumpCD = 2000; // 3500
+        // ThrowPlayer();
+
+        Renderer.material = Normal;
+    }
+
+    void Artillery()
+    {
+        IsTurning = false;
+        IsStomping = false;
+        IsSpitting = false;
+        IsUsingArtillary = true;
+        IsJumping = false;
+        IsStompCyl = false;
+        StunTime = 125;
+        ArtillaryCD = 1450;
+        Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 6), SpitPoint.transform.rotation);
+        Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 8), SpitPoint.transform.rotation);
+        Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 10), SpitPoint.transform.rotation);
+        Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 12), SpitPoint.transform.rotation);
+        Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 14), SpitPoint.transform.rotation);
+
+        Renderer.material = ShootingMat;
+    }
+
+    void Spit()
+    {
+        IsTurning = false;
+        IsStomping = false;
+        IsSpitting = true;
+        IsUsingArtillary = false;
+        IsJumping = false;
+        IsStompCyl = false;
+        SpitCD = 55;
+        GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.right * -10 + (Vector3.up * 2);
+
+        Renderer.material = ShootingMat;
+    }
+
+    void Stomp()
+    {
+        IsTurning = false;
+        IsStomping = true;
+        IsSpitting = false;
+        IsUsingArtillary = false;
+        IsJumping = false;
+        StompCD = 370;
+        IsStompCyl = true;
+        stompAnimTime = 2;
+
+        Renderer.material = Normal;
+    }
+    void SetAnimatorBools()
+    {
+        animator.SetBool("IsTurning", IsTurning);
+        animator.SetBool("IsJumping", IsJumping);
+        animator.SetBool("IsSpitting", IsSpitting);
+        animator.SetBool("IsUsingArtillary", IsUsingArtillary);
+        animator.SetBool("IsStomping", IsStomping);
+        stompAnimator.SetBool("IsStompCyl", IsStompCyl);
+    }
 }
