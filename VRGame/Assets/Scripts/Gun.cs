@@ -87,23 +87,14 @@ public class Gun : MonoBehaviour
         // if player is holding this
         if (transform.parent != null && transform.parent.name == "HoverPoint")
         {
-            // activeGun = true;
-            Activate();
-            rb.useGravity = false;
+            Activate(true);
             GetComponent<BoxCollider>().isTrigger = true;
-            interA.enabled = false;
-            interA.highlightOnHover = false;
-
             canDrop = true;
         }
         // gun not held
         else
         {
-            // activeGun = false;
-            Deactivate();
-            rb.useGravity = true;
-            interA.enabled = true;
-            interA.highlightOnHover = true;
+            Activate(false);
             GetComponent<BoxCollider>().isTrigger = false;
             canDrop = false;
         }
@@ -116,41 +107,26 @@ public class Gun : MonoBehaviour
     }
 
     // set fields for gun being held
-    void Activate()
+    void Activate(bool activating)
     {
         activeGun = true;
-    }
-
-    // set fields for gun not beign held
-    void Deactivate()
-    {
-        activeGun = false;
+        interA.enabled = !activating;
+        interA.highlightOnHover = !activating;
+        bc.isTrigger = activating;
+        rb.useGravity = !activating;
+        rb.isKinematic = activating;
+        canDrop = !activating;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
-        //{
-        //    PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
-        //    // PickupGun(hand.transform.Find("HoverPoint"));
-        //    return;
-        //}
-
         if (!activeGun && transform.parent == null)
         {
             rigidbodyComponent.isKinematic = false;
             rigidbodyComponent.useGravity = true;
             return;
-        } // if not being held
-
-        // helpful debugging
-        //if (GrabPinchAction.GetStateDown(HandType))
-        //    print("fire");
-        //if (GrabGripAction.GetStateDown(HandType))
-        //    print("grip");
-
-        // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
+        } // if not being held     
 
         // drop weapon
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
@@ -218,12 +194,6 @@ public class Gun : MonoBehaviour
     {
         clip.SetActive(true); // show clip
 
-        // drop old clip
-        // GameObject oldClip = Instantiate<GameObject>(clip, clip.transform.position, clip.transform.rotation);
-        // oldClip.GetComponent<Rigidbody>().useGravity = true;
-        // oldClip.GetComponent<BoxCollider>().isTrigger = true;
-        // oldClip.AddComponent<DestroyOnCollision>();
-
         for (float t = 0; t < 1; t += Time.deltaTime * reloadTime)
         {
             clip.transform.localPosition = Vector3.Lerp(clipPos, clipGoal, t);
@@ -231,40 +201,22 @@ public class Gun : MonoBehaviour
         }
         clip.SetActive(false);
         clip.transform.position = clipPos;
-        CurrentBulletCount = MaxBulletCount; // or add bullet count on clip to partially refill
+        CurrentBulletCount = MaxBulletCount; 
     }
 
     // pick up this gun
     // param parent = the object to child this to
     public void PickupGun(Transform parent)
     {
-        interA.enabled = false;
-        interA.highlightOnHover = false;
-        bc.isTrigger = true;
-        rb.useGravity = false;
-        rb.isKinematic = true; // not this
-        // activeGun = true;
-        Activate();
-        canDrop = false;
+        Activate(true);
 
         // parent object reference
         parentObj = parent;
-
-        // GetComponent<Throwable>().enabled = false;
     }
 
     public void DropGun()
     {
-
-        interA.enabled = true;
-        interA.highlightOnHover = true;
-        bc.isTrigger = false;
-        rb.useGravity = true;
-        rb.isKinematic = false;
-        // activeGun = false;
-        Deactivate();
-
-        // reset hand model
+        Activate(false);
 
         parentObj = null;
         transform.SetParent(null);

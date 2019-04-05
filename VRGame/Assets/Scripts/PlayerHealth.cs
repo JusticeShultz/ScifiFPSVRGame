@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public float CurrentHealth { get { return currentHealth; } }
 
     [Tooltip("The health bar image")]
-    public /*UnityEngine.UI.*/Image healthBar;
+    public Image healthBar;
     public Image damageImage;
     public float flashTime;
 
@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
         deathCount = 0;
         damageOrigColor = damageImage.color;
         damageImage.color = Color.clear;
-        damageImage.gameObject.SetActive(true);
+        damageImage.gameObject.SetActive(true); // usually disabled while editing
 
         currentHealth = maxHealth;
     }
@@ -35,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if (Input.GetMouseButtonDown(0)) { currentHealth = 0; }
+
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, 0.1f);
 
         if (currentHealth <= 0)
@@ -47,11 +49,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        // healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, 0.1f);
         StopCoroutine("DamageFlash");
         StartCoroutine("DamageFlash");
     }
 
+    // flashes screen red
     IEnumerator DamageFlash()
     {
         for(float i = 0; i < flashTime; i += Time.deltaTime)

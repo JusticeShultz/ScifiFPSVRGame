@@ -116,16 +116,6 @@ public class BossAI : MonoBehaviour
 
     void Start ()
     {
-        state = States.idle;
-        Health = MaxHealth;
-        FinalStage = false;
-        ReachedFinalStage = false;
-        currentGlobuleCount = maxGlobuleCount;
-        chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
-        allowChange = true;
-        currentCD = 0;
-        currentTime = IdleTime;
-
         myCollider = GetComponent<Collider>();
         Player = GameObject.Find("PlayerCollider");
         stompAnim = transform.Find("BossStomp").gameObject;        
@@ -136,6 +126,17 @@ public class BossAI : MonoBehaviour
         for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
         jumpAnimator = transform.Find("BossJump").GetComponent<Animator>();
+
+        state = States.idle;
+        Health = MaxHealth;
+        FinalStage = false;
+        ReachedFinalStage = false;
+        Mathf.Clamp(maxGlobuleCount, 0, Globules.Length);
+        currentGlobuleCount = maxGlobuleCount;
+        chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
+        allowChange = true;
+        currentCD = 0;
+        currentTime = IdleTime;
 
         initialPlayerY = Player.transform.position.y;
     }
@@ -155,11 +156,6 @@ public class BossAI : MonoBehaviour
 
         if(state == States.idle && allowChange)
         {
-            // change state
-
-            // if player on boss
-
-
             state = GetNextState();            
         }
         else
@@ -172,6 +168,8 @@ public class BossAI : MonoBehaviour
         SetAnimatorBools();
 
         currentCD = 0;
+
+        if(Health <= 0) { EnableFinalStage(); }
     }
 
     // randomly chooses next state
@@ -219,6 +217,8 @@ public class BossAI : MonoBehaviour
     // start win things
     void WinActions()
     {
+        ThrowPlayer();
+
         DoorObjectives.killedBoss = true; // open door
         state = States.idle;
         allowChange = false;

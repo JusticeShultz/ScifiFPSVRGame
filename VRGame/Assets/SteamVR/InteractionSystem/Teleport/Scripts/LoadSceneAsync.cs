@@ -25,6 +25,8 @@ public class LoadSceneAsync : MonoBehaviour
 
     public void GoToLastScene()
     {
+        print("trying last scene");
+
         print(GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath);
         
         StartCoroutine(LoadScene(GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath));

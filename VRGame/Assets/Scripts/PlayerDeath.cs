@@ -38,6 +38,9 @@ public class PlayerDeath : MonoBehaviour {
         statsString += "\nLeft Weapon: none";
 
         statsText.text = statsString;
+
+        // add event handler to button
+
     }
 	
 }
