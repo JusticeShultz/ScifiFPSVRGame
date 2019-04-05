@@ -183,7 +183,7 @@ public class BossAI : MonoBehaviour
             StompCD = 0;
             CloakCD = 0;
 
-            SetAnimatorBools();
+            // SetAnimatorBools();
             state = GetNextState();
             RunStateActions();
         }   
@@ -219,7 +219,7 @@ public class BossAI : MonoBehaviour
         for (int i = 0; i < maxGlobuleCount; i++) { Globules[i].gameObject.SetActive(true); }
 
         // open teleport points
-        // foreach (var i in TeleportPoints) { i.locked = false; }        
+        foreach (var i in TeleportPoints) { i.locked = false; }        
     }
 
     // attempt to damage boss
