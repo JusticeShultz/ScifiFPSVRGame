@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    public enum States { turn, artillery, jump, spit, stomp, cloak, idle };
+    // animation states
+    enum States { turn, artillery, jump, spit, stomp, cloak, idle };
 
     [Tooltip("What animator are we going to play our states on?")]
     public Animator animator;
@@ -33,14 +34,7 @@ public class BossAI : MonoBehaviour
     [Tooltip("Are we cloaked?")]
     public bool IsGhosted = false;
     [Tooltip("Maximum health")]
-    // [Range(10,100)]
     public int MaxHealth;
-    //[Tooltip("Current health - public for testing only")]
-    //public int Health;
-    // public int MaxHealth { get { return _maxHealth; } set { if (value < 0) Debug.LogError("OH NO"); else _maxHealth = value; } }
-    //[Tooltip("Health value where {globules} unlock")]
-    //[Range(10,50)]
-    //public int FinalStageUnlockValue;
     [Tooltip("{globules} are unlocked")]
     public bool FinalStage;
     [Tooltip("Explosion for when bullet does damage")]
@@ -71,7 +65,6 @@ public class BossAI : MonoBehaviour
         public int stompChance;
         public int cloakChance;
         public int stunChance;
-
 
     int chanceTotal; // total of all cnahce numbers
     [System.NonSerialized]
@@ -109,7 +102,7 @@ public class BossAI : MonoBehaviour
     // jump animator
     Animator jumpAnimator;
 
-    //How long until I can do these abilities again?
+    // Ability timers
     float IdleCD = 0;
     float TurnCD = 0;
     float ArtillaryCD = 0;
@@ -117,9 +110,6 @@ public class BossAI : MonoBehaviour
     float SpitCD = 0;
     float StompCD = 0;
     float CloakCD = 0;
-   
-    float stompAnimTime = 0;
-    bool triggeredJumpAnim;
 
     // globules on boss
     Globule[] Globules;
@@ -132,25 +122,23 @@ public class BossAI : MonoBehaviour
     {
         state = States.idle;
         Health = MaxHealth;
-        
-        myCollider = GetComponent<Collider>();
-        Player = GameObject.Find("PlayerCollider");
-        stompAnim = transform.Find("BossStomp").gameObject;
         FinalStage = false;
         ReachedFinalStage = false;
+        IdleCD = 0;
+        currentGlobuleCount = maxGlobuleCount;
+        chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
+        allowChange = true;
+
+        myCollider = GetComponent<Collider>();
+        Player = GameObject.Find("PlayerCollider");
+        stompAnim = transform.Find("BossStomp").gameObject;        
         Globules = GetComponentsInChildren<Globule>();
         foreach (var i in Globules) { i.gameObject.SetActive(false); }          
         Reference[] refs = GetComponentsInChildren<Reference>();
         TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
         for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
-        jumpAnimator = transform.Find("BossJump").GetComponent<Animator>();
-
-        IdleCD = 0;
-        currentGlobuleCount = maxGlobuleCount;  
-
-        chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
-        allowChange = true;
+        jumpAnimator = transform.Find("BossJump").GetComponent<Animator>();       
     }
 	
 	void Update ()
@@ -247,10 +235,13 @@ public class BossAI : MonoBehaviour
     void WinActions()
     {
         DoorObjectives.killedBoss = true; // open door
+        state = States.idle;
+        allowChange = false;
+        SetAnimatorBools();
+        StartCoroutine("BossShrink");
 
         // ultimately at this point the boss would roar and do some
         // kind of dying animation
-        StartCoroutine("BossShrink");
 
         // trigger DeathAnim bool
     }
