@@ -258,7 +258,7 @@ Prefab:
     - target: {fileID: 114191712121101738, guid: 42978fdc72d06e24e9e23a235a2a072a,
         type: 2}
       propertyPath: m_Text
-      value: Back
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 114929925602647754, guid: 42978fdc72d06e24e9e23a235a2a072a,
         type: 2}
@@ -323,7 +323,7 @@ Prefab:
     - target: {fileID: 114929925602647754, guid: 42978fdc72d06e24e9e23a235a2a072a,
         type: 2}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: StartMenu
+      value: Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42978fdc72d06e24e9e23a235a2a072a, type: 2}
