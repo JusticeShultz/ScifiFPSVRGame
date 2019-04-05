@@ -41,7 +41,7 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_Action_Boolean headsetOnHead = SteamVR_Input.GetBooleanAction("HeadsetOnHead");
 
 		public bool allowToggleTo2D = true;
-
+        public float LastTPY = 0.0f;
 
 		//-------------------------------------------------
 		// Singleton instance of the Player. Only one can exist at a time.
@@ -296,7 +296,7 @@ namespace Valve.VR.InteractionSystem
                 }
             }
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9999999, 9999999), PlayerPrefs.GetFloat("Height", 0) / 4, Mathf.Clamp(transform.position.z, -9999999, 9999999));
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9999999, 9999999), (PlayerPrefs.GetFloat("Height", 0) / 4) + LastTPY, Mathf.Clamp(transform.position.z, -9999999, 9999999));
         }
 
 		//-------------------------------------------------
