@@ -8,8 +8,9 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: TeleportAreaVisible
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: RECEIVE_SHADOWS S_SPECULAR_NONE S_UNLIT _ALPHAPREMULTIPLY_ON _EMISSION
-  m_LightmapFlags: 0
+  m_ShaderKeywords: EDGE_ON OPACITYSLIDER_ON SOFTDISSOLVE_OFF SOFTRIM_ON STRETCH_OFF
+    _ALPHAPREMULTIPLY_ON _EMISSION _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -36,8 +37,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EdgeRamp:
+        m_Texture: {fileID: 2800000, guid: fc0e6dc6425c857478d21dca59c39954, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: f33ccd07f9433f44f8c5430938b168ac, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FalloffTex:
@@ -49,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -83,12 +88,13 @@ Material:
     - _Darken: 0.641
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
+    - _EdgeWidth: 1
     - _Emission: 0.01
     - _EmissionScaleUI: 0
     - _FogMultiplier: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1
@@ -96,10 +102,12 @@ Material:
     - _OcclusionStrengthDirectSpecular: 1
     - _OcclusionStrengthIndirectDiffuse: 1
     - _OcclusionStrengthIndirectSpecular: 1
+    - _Opacity: 0.019
     - _Parallax: 0.02
     - _SeeThru: 0.358
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
+    - _SoftRim: 1.5
+    - _SpecularHighlights: 0
     - _SpecularMode: 2
     - _SrcBlend: 1
     - _Stencil: 0
@@ -119,9 +127,11 @@ Material:
     - g_flReflectanceMin: 0
     - g_flReflectanceScale: 1
     m_Colors:
-    - _Color: {r: 0.26374355, g: 0.6344103, b: 0.834, a: 0.19607843}
-    - _EmissionColor: {r: 0, g: 0.32156864, b: 0.5, a: 1}
+    - _Color: {r: 0.12028302, g: 0.4811321, b: 0.4811321, a: 0}
+    - _EdgeColor: {r: 0, g: 0.7698326, b: 1, a: 0.22352941}
+    - _EmissionColor: {r: 0.01764706, g: 0.06666667, b: 0.09411765, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _MainTint: {r: 0, g: 0.8239019, b: 1, a: 0.08235294}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _TintColor: {r: 0.2203319, g: 0.41133338, b: 0.516, a: 0.05490196}
