@@ -149,9 +149,6 @@ public class BossAI : MonoBehaviour
         currentGlobuleCount = maxGlobuleCount;  
 
         chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
-
-        startYVal = transform.position.y;
-        triggeredJumpAnim = false;
     }
 	
 	void Update ()
@@ -159,7 +156,7 @@ public class BossAI : MonoBehaviour
         healthBarImage.fillAmount = Mathf.Lerp(healthBarImage.fillAmount, (float)Health / MaxHealth, 0.1f);
 
         // if globs gone
-        if (maxGlobuleCount <= 0)
+        if (currentGlobuleCount <= 0)
         {
             WinActions();
         }
@@ -167,9 +164,7 @@ public class BossAI : MonoBehaviour
         // if out of bounds
         if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
 
-        if(state == States.turn) { Turn(); }
-
-        if(state == States.jump && transform.position.y < startYVal && !triggeredJumpAnim) { jumpAnimator.SetTrigger("JumpHitAnim"); }
+        if(state == States.turn) { Turn(); } // keep turning
 
         IdleCD += Time.deltaTime;
         TurnCD += Time.deltaTime;
@@ -184,7 +179,7 @@ public class BossAI : MonoBehaviour
         if (JumpCD >= JumpTime) { IsJumping = false; }
         if (SpitCD >= SpitTime) { IsSpitting = false; }
         if (StompCD >= StompTime) { IsStomping = false; }
-        if(CloakCD >= CloakTime) { state = States.idle; }
+        if (CloakCD >= CloakTime) { state = States.idle; }
 
         if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }
 
@@ -381,9 +376,6 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = false;
-        //StompCD = 370;
-        IsStompCyl = true;
-        stompAnimTime = 2;
 
         Renderer.material = Normal;
     }
@@ -402,12 +394,18 @@ public class BossAI : MonoBehaviour
 
     void SetAnimatorBools()
     {
-        animator.SetBool("IsTurning", IsTurning);
-        animator.SetBool("IsJumping", IsJumping);
-        animator.SetBool("IsSpitting", IsSpitting);
-        animator.SetBool("IsUsingArtillary", IsUsingArtillary);
-        animator.SetBool("IsStomping", IsStomping);
-        stompAnimator.SetBool("IsStompCyl", IsStompCyl);
+        //animator.SetBool("IsTurning", IsTurning);
+        //animator.SetBool("IsJumping", IsJumping);
+        //animator.SetBool("IsSpitting", IsSpitting);
+        //animator.SetBool("IsUsingArtillary", IsUsingArtillary);
+        //animator.SetBool("IsStomping", IsStomping);
+        //stompAnimator.SetBool("IsStompCyl", IsStompCyl);
+
+        animator.SetBool("IsTurning", state == States.turn);
+        animator.SetBool("IsJumping", state == States.jump);
+        animator.SetBool("IsSpitting", state == States.spit);
+        animator.SetBool("IsUsingArtillary", state == States.artillery);
+        animator.SetBool("IsStomping", state == States.stomp);
     }
 
     // called if show with a weapon while in final stage
@@ -422,5 +420,15 @@ public class BossAI : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void JumpAnimEvent()
+    {
+        jumpAnimator.SetTrigger("TriggerJumpHit");
+    }
+
+    public void StompAnimEvent()
+    {
+        stompAnimator.SetTrigger("IsStompCyl");
     }
 }

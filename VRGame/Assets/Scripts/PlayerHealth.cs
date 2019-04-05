@@ -52,8 +52,6 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator DamageFlash()
     {
-        print("red flash");
-
         for(float i = 0; i < flashTime; i += Time.deltaTime)
         {
             damageImage.color = Color.Lerp(damageOrigColor, Color.clear, i / flashTime);
