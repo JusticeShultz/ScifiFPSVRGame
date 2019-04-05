@@ -40,6 +40,9 @@ public class LoadSceneAsync : MonoBehaviour
             loadscreen = GameObject.Find("Fade");
 
         loadscreen.GetComponent<SpriteRenderer>().enabled = true;
+
+        yield return new WaitForSeconds(1.5f);
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
         while (!asyncLoad.isDone)
@@ -47,8 +50,8 @@ public class LoadSceneAsync : MonoBehaviour
             yield return null;
         }
 
-
-        loadscreen.GetComponent<SpriteRenderer>().enabled = false;
+        //temp disable for testing
+        //loadscreen.GetComponent<SpriteRenderer>().enabled = false;
         Destroy(gameObject);
     }
 }
