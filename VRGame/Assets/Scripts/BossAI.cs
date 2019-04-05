@@ -197,7 +197,7 @@ public class BossAI : MonoBehaviour
         }  
 
         // enable {globules} if at health val and they have not yet been enabled
-        if (Health <= 0 && !ReachedFinalStage) { EnableFinalStage(); }       
+        // if (Health <= 0 && !ReachedFinalStage) { EnableFinalStage(); }       
     }
 
     // randomly chooses next state
@@ -222,8 +222,8 @@ public class BossAI : MonoBehaviour
         FinalStage = true;
 
         // make jump more likely
-        jumpChance *= 3;
-        chanceTotal += jumpChance * 2;
+        jumpChance += 40;
+        chanceTotal += 40;
         JumpTime *= 2;
 
         // transform.localScale = new Vector3(30, 30, 30);
@@ -239,7 +239,9 @@ public class BossAI : MonoBehaviour
     public void TryTakeBulletDamage(int Damage)
     {
         if (ReachedFinalStage) { AddGlobule(); }
-        else { Health -= Damage; }       
+        else { Health -= Damage; }
+
+        if (Health <= 0) { EnableFinalStage(); }
     }
 
     // start win things
