@@ -103,13 +103,8 @@ public class BossAI : MonoBehaviour
     Animator jumpAnimator;
 
     // Ability timers
-    float IdleCD = 0;
-    float TurnCD = 0;
-    float ArtillaryCD = 0;
-    float JumpCD = 0;
-    float SpitCD = 0;
-    float StompCD = 0;
-    float CloakCD = 0;
+    float currentCD;
+    float currentTime;
 
     // globules on boss
     Globule[] Globules;
@@ -117,6 +112,7 @@ public class BossAI : MonoBehaviour
     Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
 
     bool allowChange; // allow state to change
+    float initialPlayerY;
 
     void Start ()
     {
@@ -124,10 +120,11 @@ public class BossAI : MonoBehaviour
         Health = MaxHealth;
         FinalStage = false;
         ReachedFinalStage = false;
-        IdleCD = 0;
         currentGlobuleCount = maxGlobuleCount;
         chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
         allowChange = true;
+        currentCD = 0;
+        currentTime = IdleTime;
 
         myCollider = GetComponent<Collider>();
         Player = GameObject.Find("PlayerCollider");
@@ -138,7 +135,9 @@ public class BossAI : MonoBehaviour
         TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
         for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
-        jumpAnimator = transform.Find("BossJump").GetComponent<Animator>();       
+        jumpAnimator = transform.Find("BossJump").GetComponent<Animator>();
+
+        initialPlayerY = Player.transform.position.y;
     }
 	
 	void Update ()
@@ -149,44 +148,30 @@ public class BossAI : MonoBehaviour
         if (currentGlobuleCount <= 0) { WinActions(); }
 
         // if out of bounds
-        if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
+        // if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
 
-        if(state == States.turn) { Turn(); } // keep turning
+        currentCD += Time.deltaTime;
+        if(currentCD < currentTime || !allowChange) { return; } // if time in state left
 
-        IdleCD += Time.deltaTime;
-        TurnCD += Time.deltaTime;
-        ArtillaryCD += Time.deltaTime;
-        JumpCD += Time.deltaTime;
-        SpitCD += Time.deltaTime;
-        StompCD += Time.deltaTime;
-        CloakCD += Time.deltaTime;
+        if(state == States.idle && allowChange)
+        {
+            // change state
 
-        if (TurnCD >= TurnTime) { IsTurning = false; }
-        if (ArtillaryCD >= ArtillaryTime) { IsUsingArtillary = false; }
-        if (JumpCD >= JumpTime) { IsJumping = false; }
-        if (SpitCD >= SpitTime) { IsSpitting = false; }
-        if (StompCD >= StompTime) { IsStomping = false; }
-        if (CloakCD >= CloakTime) { state = States.idle; }
+            // if player on boss
 
-        if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }       
 
+            state = GetNextState();            
+        }
+        else
+        {
+            if(state == States.jump) { ThrowPlayer(); }
+            state = States.idle;
+        }
+
+        RunStateActions();
         SetAnimatorBools();
 
-        if (state == States.idle && IdleCD >= IdleTime && allowChange)
-        {
-            // reset values
-            IdleCD = 0;
-            TurnCD = 0;
-            ArtillaryCD = 0;
-            JumpCD = 0;
-            SpitCD = 0;
-            StompCD = 0;
-            CloakCD = 0;
-
-            // SetAnimatorBools();
-            state = GetNextState();
-            RunStateActions();
-        }   
+        currentCD = 0;
     }
 
     // randomly chooses next state
@@ -290,10 +275,10 @@ public class BossAI : MonoBehaviour
                 Artillery();
                 break;
             case States.cloak:
-                Ghost();
+                Cloak();
                 break;
             default:
-                // Turn();
+                Idle();
                 break;
         }
     }
@@ -302,8 +287,25 @@ public class BossAI : MonoBehaviour
     void ThrowPlayer()
     {
         print("throw");
-        Player.transform.parent.position = SavePrevPos.playerPrevPos;
-        Player.GetComponent<Valve.VR.InteractionSystem.Player>().LastTPY = 0;
+        if(Player.transform.position.y > initialPlayerY)
+        {
+            Player.transform.parent.position = SavePrevPos.playerPrevPos;
+            Player.transform.parent.GetComponent<Valve.VR.InteractionSystem.Player>().LastTPY = 0;             
+            print("throw succeeded");
+        }
+    }
+
+    void Idle()
+    {
+        IsTurning = false;
+        IsStomping = false;
+        IsSpitting = false;
+        IsUsingArtillary = false;
+        IsJumping = false;
+
+        currentTime = IdleTime;
+
+        Renderer.material = Normal;
     }
 
     void Turn()
@@ -313,7 +315,8 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = false;
-        IsStompCyl = false;
+
+        currentTime = TurnTime;
 
         SmoothLook.transform.LookAt(Player.transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
@@ -328,10 +331,8 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = true;
-  
-        //StunTime = 400; // 900
-        //JumpCD = 2000; // 3500
-        // ThrowPlayer();
+
+        currentTime = JumpTime;
 
         Renderer.material = Normal;
         allowChange = false;
@@ -345,8 +346,9 @@ public class BossAI : MonoBehaviour
         IsUsingArtillary = true;
         IsJumping = false;
         IsStompCyl = false;
-        //StunTime = 125;
-        //ArtillaryCD = 1450;
+
+        currentTime = ArtillaryTime;
+
         Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 6), SpitPoint.transform.rotation);
         Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 8), SpitPoint.transform.rotation);
         Instantiate(ArtillaryType, SpitPoint.transform.position + (Vector3.up * 10), SpitPoint.transform.rotation);
@@ -363,7 +365,9 @@ public class BossAI : MonoBehaviour
         IsSpitting = true;
         IsUsingArtillary = false;
         IsJumping = false;
-        IsStompCyl = false;
+
+        currentTime = SpitTime;
+
         GameObject bullet = Instantiate(ShotType, SpitPoint.transform.position, SpitPoint.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = SpitPoint.transform.right * -10 + (Vector3.up * 2);
 
@@ -378,17 +382,20 @@ public class BossAI : MonoBehaviour
         IsUsingArtillary = false;
         IsJumping = false;
 
+        currentTime = StompTime;
+
         Renderer.material = Normal;
     }
 
-    void Ghost()
+    void Cloak()
     {
         IsTurning = false;
         IsStomping = false;
         IsSpitting = true;
         IsUsingArtillary = false;
         IsJumping = false;
-        IsStompCyl = false;
+
+        currentTime = CloakTime;
 
         Renderer.material = Ghosted;
     }
@@ -396,18 +403,13 @@ public class BossAI : MonoBehaviour
     // sets animation states with controller bools
     void SetAnimatorBools()
     {
-        //animator.SetBool("IsTurning", IsTurning);
-        //animator.SetBool("IsJumping", IsJumping);
-        //animator.SetBool("IsSpitting", IsSpitting);
-        //animator.SetBool("IsUsingArtillary", IsUsingArtillary);
-        //animator.SetBool("IsStomping", IsStomping);
-        //stompAnimator.SetBool("IsStompCyl", IsStompCyl);
-
         animator.SetBool("IsTurning", state == States.turn);
         animator.SetBool("IsJumping", state == States.jump);
         animator.SetBool("IsSpitting", state == States.spit);
         animator.SetBool("IsUsingArtillary", state == States.artillery);
         animator.SetBool("IsStomping", state == States.stomp);
+
+        // else go back to idle
     }
 
     // called if shot with a weapon while in final stage

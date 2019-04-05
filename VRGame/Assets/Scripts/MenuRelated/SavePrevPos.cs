@@ -26,11 +26,10 @@ public class SavePrevPos : MonoBehaviour {
 
     void Update () {
 
-        currentUp = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport").GetStateUp(leftHand) || SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport").GetStateUp(rightHand);
-        if (!currentUp && wasUp)
+        // on trackpad down
+        if(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport").GetStateDown(leftHand) || SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport").GetStateDown(rightHand))
         {
             playerPrevPos = transform.position;
         }
-        wasUp = currentUp;
 	}
 }

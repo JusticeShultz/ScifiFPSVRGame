@@ -42,11 +42,12 @@ namespace Valve.VR.InteractionSystem
 
 		public bool allowToggleTo2D = true;
         public float LastTPY = 0.0f;
+        // public string LastTPName = "";
 
-		//-------------------------------------------------
-		// Singleton instance of the Player. Only one can exist at a time.
-		//-------------------------------------------------
-		private static Player _instance;
+        //-------------------------------------------------
+        // Singleton instance of the Player. Only one can exist at a time.
+        //-------------------------------------------------
+        private static Player _instance;
 		public static Player instance
 		{
 			get
