@@ -198,6 +198,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1619712617509538, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
+      propertyPath: m_Name
+      value: ScreenFade
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
   m_IsPrefabAsset: 0
