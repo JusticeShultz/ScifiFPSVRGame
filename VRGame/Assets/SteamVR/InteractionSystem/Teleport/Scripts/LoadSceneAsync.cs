@@ -6,14 +6,11 @@ using UnityEngine;
 
 public class LoadSceneAsync : MonoBehaviour
 {
-    public GameObject loadscreen;
+    //public GameObject loadscreen;
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-
-        if (loadscreen == null)
-            loadscreen = GameObject.Find("Fade");
 
         if (SceneManager.GetActiveScene().name == "VeryveryStartForRealsThisTime") Do("StartMenu");
     }
@@ -35,25 +32,26 @@ public class LoadSceneAsync : MonoBehaviour
     IEnumerator LoadScene(string scene)
     {
         //print("I'm trying to load " + scene);
-        GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath = SceneManager.GetActiveScene().name;
-        print(GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath);
 
-        if (loadscreen == null)
-            loadscreen = GameObject.Find("Fade");
+        if (SceneManager.GetActiveScene().name != "Lose")
+        {
+            GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath = SceneManager.GetActiveScene().name;
+            //print(GameObject.Find("PlayerCollider").GetComponent<LastLoadPoint>().sceneBeforeDeath);
+        }
 
-        loadscreen.GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("ScreenFade").GetComponent<SpriteRenderer>().enabled = true;
 
         yield return new WaitForSeconds(1.5f);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
+        //while (!asyncLoad.isDone)
+        //{
+            //yield return null;
+        //}
 
         //temp disable for testing
-        //loadscreen.GetComponent<SpriteRenderer>().enabled = false;
+        //GameObject.Find("ScreenFade").GetComponent<SpriteRenderer>().enabled = false;
         Destroy(gameObject);
     }
 }

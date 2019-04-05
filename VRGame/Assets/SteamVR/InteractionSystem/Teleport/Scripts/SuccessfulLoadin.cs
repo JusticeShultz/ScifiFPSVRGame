@@ -6,7 +6,6 @@ public class SuccessfulLoadin : MonoBehaviour
 {
 	void Start ()
     {
-        GameObject fade = GameObject.Find("Fade");
-        if (null != fade) { fade.GetComponent<SpriteRenderer>().enabled = false; }
+        GameObject.Find("ScreenFade").GetComponent<SpriteRenderer>().enabled = false;
 	}
 }
