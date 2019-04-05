@@ -23,7 +23,9 @@ public class SavePrevPos : MonoBehaviour {
         wasUp = true;
         currentUp = true;
     }
+
     void Update () {
+
         currentUp = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport").GetStateUp(leftHand) || SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport").GetStateUp(rightHand);
         if (!currentUp && wasUp)
         {

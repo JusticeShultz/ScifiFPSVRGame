@@ -28,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
         damageOrigColor = damageImage.color;
         damageImage.color = Color.clear;
         damageImage.gameObject.SetActive(true);
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame

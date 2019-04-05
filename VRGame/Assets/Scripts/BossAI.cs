@@ -16,6 +16,8 @@ public class BossAI : MonoBehaviour
     public GameObject ArtillaryType;
     [Tooltip("Where is our mouth at?")]
     public GameObject SpitPoint;
+    [Tooltip("What happens when we die?")]
+    public GameObject deathExplosion;
     [Tooltip("Health bar image")]
     public UnityEngine.UI.Image healthBarImage;
     [Tooltip("Who is rendering us?")]
@@ -156,10 +158,7 @@ public class BossAI : MonoBehaviour
         healthBarImage.fillAmount = Mathf.Lerp(healthBarImage.fillAmount, (float)Health / MaxHealth, 0.1f);
 
         // if globs gone
-        if (currentGlobuleCount <= 0)
-        {
-            WinActions();
-        }
+        if (currentGlobuleCount <= 0) { WinActions(); }
 
         // if out of bounds
         if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
@@ -199,10 +198,7 @@ public class BossAI : MonoBehaviour
             SetAnimatorBools();
             state = GetNextState();
             RunStateActions();
-        }  
-
-        // enable {globules} if at health val and they have not yet been enabled
-        // if (Health <= 0 && !ReachedFinalStage) { EnableFinalStage(); }       
+        }   
     }
 
     // randomly chooses next state
@@ -231,13 +227,11 @@ public class BossAI : MonoBehaviour
         chanceTotal += 40;
         JumpTime *= 2;
 
-        // transform.localScale = new Vector3(30, 30, 30);
-
         // enable rip-off globules
         for (int i = 0; i < maxGlobuleCount; i++) { Globules[i].gameObject.SetActive(true); }
 
         // open teleport points
-        foreach (var i in TeleportPoints) { i.locked = false; }        
+        // foreach (var i in TeleportPoints) { i.locked = false; }        
     }
 
     // attempt to damage boss
@@ -256,8 +250,25 @@ public class BossAI : MonoBehaviour
 
         // ultimately at this point the boss would roar and do some
         // kind of dying animation
+        StartCoroutine("BossShrink");
 
         // trigger DeathAnim bool
+    }
+
+    // shrinks and explodes boss, death "animation"
+    IEnumerator BossShrink()
+    {
+        for(float i = 0; i < 3; i+= Time.deltaTime)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, i / 3);
+            yield return null;
+        }
+
+        Instantiate(deathExplosion, transform.position, transform.rotation);
+
+        yield return new WaitForSeconds(5);
+
+        Destroy(gameObject);
     }
 
     // returns correct bullet explosion
@@ -296,10 +307,12 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    // throws player off back and to last position
+    // throws player back and to last position
     void ThrowPlayer()
     {
+        print("throw");
         Player.transform.parent.position = SavePrevPos.playerPrevPos;
+        Player.GetComponent<Valve.VR.InteractionSystem.Player>().LastTPY = 0;
     }
 
     void Turn()
@@ -389,6 +402,7 @@ public class BossAI : MonoBehaviour
         Renderer.material = Ghosted;
     }
 
+    // sets animation states with controller bools
     void SetAnimatorBools()
     {
         //animator.SetBool("IsTurning", IsTurning);
@@ -405,7 +419,7 @@ public class BossAI : MonoBehaviour
         animator.SetBool("IsStomping", state == States.stomp);
     }
 
-    // called if show with a weapon while in final stage
+    // called if shot with a weapon while in final stage
     void AddGlobule()
     {
         for(int i = maxGlobuleCount; i < Globules.Length; i++)
@@ -419,16 +433,19 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    // triggers jump damage
     public void JumpAnimEvent()
     {
         jumpAnimator.SetTrigger("TriggerJumpHit");
     }
 
+    // triggers stomp damage
     public void StompAnimEvent()
     {
         stompAnimator.SetTrigger("IsStompCyl");
     }
 
+    // allows state to change
     public void AllowChange()
     {
         allowChange = true;
