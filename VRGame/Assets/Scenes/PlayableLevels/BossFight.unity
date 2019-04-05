@@ -1568,7 +1568,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125956, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: m_Name
-      value: TeleportPoint (19)
+      value: TeleportPointL
       objectReference: {fileID: 0}
     - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: m_LocalScale.x
@@ -23299,7 +23299,7 @@ MonoBehaviour:
   ShootingMat: {fileID: 2100000, guid: 1d7a559d97f50be4d8228b1921a545be, type: 2}
   Ghosted: {fileID: 2100000, guid: 8a7955e4366112546b5b241c68eb7a7c, type: 2}
   IsGhosted: 0
-  MaxHealth: 0
+  MaxHealth: 100
   FinalStage: 0
   damageExplosion: {fileID: 1770481417399130, guid: c3025e842bf36a84887853453bf2f8e3,
     type: 2}
@@ -23307,7 +23307,7 @@ MonoBehaviour:
     type: 2}
   stompDamage: 10
   maxGlobuleCount: 3
-  IdleTime: 2
+  IdleTime: 5
   TurnTime: 2
   ArtillaryTime: 2
   JumpTime: 6
@@ -23754,7 +23754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125956, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: m_Name
-      value: TeleportPoint (20)
+      value: TeleportPointR
       objectReference: {fileID: 0}
     - target: {fileID: 162288, guid: 73ac470d3d909d645a6c89a4664b6849, type: 2}
       propertyPath: m_Layer
