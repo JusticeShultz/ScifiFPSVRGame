@@ -25,6 +25,11 @@ public class CustomHeightSlider : MonoBehaviour
 
     void Start ()
     {
+        if (LeftPointer == null)
+            LeftPointer = GameObject.Find("LeftHand").GetComponent<Valve.VR.Extras.SteamVR_LaserPointer>();
+        if (RightPointer == null)
+            RightPointer = GameObject.Find("RightHand").GetComponent<Valve.VR.Extras.SteamVR_LaserPointer>();
+
         //Unserialize our data, if it never existed just default to 0.
         Amount = PlayerPrefs.GetFloat("Height", 0);
 	}

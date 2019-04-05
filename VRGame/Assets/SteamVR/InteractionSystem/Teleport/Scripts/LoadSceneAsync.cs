@@ -14,6 +14,8 @@ public class LoadSceneAsync : MonoBehaviour
 
         if (loadscreen == null)
             loadscreen = GameObject.Find("Fade");
+
+        if (SceneManager.GetActiveScene().name == "VeryveryStartForRealsThisTime") Do("StartMenu");
     }
 
     public void Do(string switchToScene)

@@ -1,6 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace Valve.VR.Extras
 {
@@ -103,6 +104,13 @@ namespace Valve.VR.Extras
         
         private void Update()
         {
+            if (SceneManager.GetActiveScene().name != "HeightCalibration")
+            {
+                pointer.GetComponent<MeshRenderer>().enabled = false;
+                return;
+            }
+            else pointer.GetComponent<MeshRenderer>().enabled = true;
+
             float dist = 100f;
 
             Ray raycast = new Ray(transform.position, transform.forward);
