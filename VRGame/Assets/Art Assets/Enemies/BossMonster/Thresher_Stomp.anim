@@ -3173,7 +3173,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 1.1166667
+  - time: 0.8333333
     functionName: StompAnimEvent
     data: 
     objectReferenceParameter: {fileID: 0}

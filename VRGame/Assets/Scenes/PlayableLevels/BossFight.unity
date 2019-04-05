@@ -23364,7 +23364,7 @@ MonoBehaviour:
   SpitTime: 2
   StompTime: 2
   StunTime: 2
-  CloakTime: 2
+  CloakTime: 5
   turnChance: 40
   artillaryChance: 5
   jumpChance: 10

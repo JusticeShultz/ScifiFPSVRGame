@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    public enum States { turn, artillery, jump, spit, stomp, cloak, stun, idle };
+    public enum States { turn, artillery, jump, spit, stomp, cloak, idle };
 
     [Tooltip("What animator are we going to play our states on?")]
     public Animator animator;
@@ -114,7 +114,6 @@ public class BossAI : MonoBehaviour
     float JumpCD = 0;
     float SpitCD = 0;
     float StompCD = 0;
-    float StunCD = 0;
     float CloakCD = 0;
    
     float stompAnimTime = 0;
@@ -125,7 +124,7 @@ public class BossAI : MonoBehaviour
     // teleport points on back
     Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
 
-    float startYVal;
+    bool allowChange; // allow state to change
 
     void Start ()
     {
@@ -149,6 +148,7 @@ public class BossAI : MonoBehaviour
         currentGlobuleCount = maxGlobuleCount;  
 
         chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
+        allowChange = true;
     }
 	
 	void Update ()
@@ -181,11 +181,11 @@ public class BossAI : MonoBehaviour
         if (StompCD >= StompTime) { IsStomping = false; }
         if (CloakCD >= CloakTime) { state = States.idle; }
 
-        if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }
+        if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }       
 
         SetAnimatorBools();
 
-        if (state == States.idle && IdleCD >= IdleTime)
+        if (state == States.idle && IdleCD >= IdleTime && allowChange)
         {
             // reset values
             IdleCD = 0;
@@ -212,11 +212,11 @@ public class BossAI : MonoBehaviour
         int total = turnChance;
 
         if(rand < total) { return States.turn; }
-        else if(rand < (total += artillaryChance)) { return States.jump; }
-        else if(rand < (total += jumpChance)) { return States.spit; }
-        else if(rand < (total += spitChance)){ return States.stomp; }
-        else if(rand < (total += stompChance)) { return States.cloak; }
-        else if (rand < (total += cloakChance)) { return States.stun; }
+        else if(rand < (total += artillaryChance)) { return States.artillery; }
+        else if(rand < (total += jumpChance)) { return States.jump; }
+        else if(rand < (total += spitChance)){ return States.spit; }
+        else if(rand < (total += stompChance)) { return States.stomp; }
+        else if (rand < (total += cloakChance)) { return States.cloak; }
         else { return States.idle; }
     }
 
@@ -275,8 +275,6 @@ public class BossAI : MonoBehaviour
             case States.turn:
                 Turn();
                 break;
-            case States.stun:
-                break;
             case States.stomp:
                 Stomp();
                 break;
@@ -326,14 +324,13 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = true;
-        IsStompCyl = false;
-
-        triggeredJumpAnim = false;      
+  
         //StunTime = 400; // 900
         //JumpCD = 2000; // 3500
         // ThrowPlayer();
 
         Renderer.material = Normal;
+        allowChange = false;
     }
 
     void Artillery()
@@ -430,5 +427,10 @@ public class BossAI : MonoBehaviour
     public void StompAnimEvent()
     {
         stompAnimator.SetTrigger("IsStompCyl");
+    }
+
+    public void AllowChange()
+    {
+        allowChange = true;
     }
 }
