@@ -238,8 +238,6 @@ public class Gun : MonoBehaviour
     // param parent = the object to child this to
     public void PickupGun(Transform parent)
     {
-        print("pick up");
-
         interA.enabled = false;
         interA.highlightOnHover = false;
         bc.isTrigger = true;
@@ -257,14 +255,12 @@ public class Gun : MonoBehaviour
 
     public void DropGun()
     {
-        print("drop");
 
         interA.enabled = true;
         interA.highlightOnHover = true;
         bc.isTrigger = false;
         rb.useGravity = true;
         rb.isKinematic = false;
-        print("ik = f");
         // activeGun = false;
         Deactivate();
 
