@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour
 {
-    public enum States { turn, artillery, jump, spit, stomp, cloak, stun, idle };
+    public enum States { turn, artillery, jump, spit, stomp, cloak, idle };
 
     [Tooltip("What animator are we going to play our states on?")]
     public Animator animator;
@@ -114,7 +114,6 @@ public class BossAI : MonoBehaviour
     float JumpCD = 0;
     float SpitCD = 0;
     float StompCD = 0;
-    float StunCD = 0;
     float CloakCD = 0;
    
     float stompAnimTime = 0;
@@ -125,7 +124,7 @@ public class BossAI : MonoBehaviour
     // teleport points on back
     Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
 
-    float startYVal;
+    bool allowChange; // allow state to change
 
     void Start ()
     {
@@ -149,9 +148,7 @@ public class BossAI : MonoBehaviour
         currentGlobuleCount = maxGlobuleCount;  
 
         chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
-
-        startYVal = transform.position.y;
-        triggeredJumpAnim = false;
+        allowChange = true;
     }
 	
 	void Update ()
@@ -159,7 +156,7 @@ public class BossAI : MonoBehaviour
         healthBarImage.fillAmount = Mathf.Lerp(healthBarImage.fillAmount, (float)Health / MaxHealth, 0.1f);
 
         // if globs gone
-        if (maxGlobuleCount <= 0)
+        if (currentGlobuleCount <= 0)
         {
             WinActions();
         }
@@ -167,9 +164,7 @@ public class BossAI : MonoBehaviour
         // if out of bounds
         if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
 
-        if(state == States.turn) { Turn(); }
-
-        if(state == States.jump && transform.position.y < startYVal && !triggeredJumpAnim) { jumpAnimator.SetTrigger("JumpHitAnim"); }
+        if(state == States.turn) { Turn(); } // keep turning
 
         IdleCD += Time.deltaTime;
         TurnCD += Time.deltaTime;
@@ -184,13 +179,13 @@ public class BossAI : MonoBehaviour
         if (JumpCD >= JumpTime) { IsJumping = false; }
         if (SpitCD >= SpitTime) { IsSpitting = false; }
         if (StompCD >= StompTime) { IsStomping = false; }
-        if(CloakCD >= CloakTime) { state = States.idle; }
+        if (CloakCD >= CloakTime) { state = States.idle; }
 
-        if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }
+        if(!IsTurning && !IsUsingArtillary && !IsJumping && !IsSpitting && !IsStomping) { state = States.idle; }       
 
         SetAnimatorBools();
 
-        if (state == States.idle && IdleCD >= IdleTime)
+        if (state == States.idle && IdleCD >= IdleTime && allowChange)
         {
             // reset values
             IdleCD = 0;
@@ -217,11 +212,11 @@ public class BossAI : MonoBehaviour
         int total = turnChance;
 
         if(rand < total) { return States.turn; }
-        else if(rand < (total += artillaryChance)) { return States.jump; }
-        else if(rand < (total += jumpChance)) { return States.spit; }
-        else if(rand < (total += spitChance)){ return States.stomp; }
-        else if(rand < (total += stompChance)) { return States.cloak; }
-        else if (rand < (total += cloakChance)) { return States.stun; }
+        else if(rand < (total += artillaryChance)) { return States.artillery; }
+        else if(rand < (total += jumpChance)) { return States.jump; }
+        else if(rand < (total += spitChance)){ return States.spit; }
+        else if(rand < (total += stompChance)) { return States.stomp; }
+        else if (rand < (total += cloakChance)) { return States.cloak; }
         else { return States.idle; }
     }
 
@@ -280,8 +275,6 @@ public class BossAI : MonoBehaviour
             case States.turn:
                 Turn();
                 break;
-            case States.stun:
-                break;
             case States.stomp:
                 Stomp();
                 break;
@@ -331,14 +324,13 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = true;
-        IsStompCyl = false;
-
-        triggeredJumpAnim = false;      
+  
         //StunTime = 400; // 900
         //JumpCD = 2000; // 3500
         // ThrowPlayer();
 
         Renderer.material = Normal;
+        allowChange = false;
     }
 
     void Artillery()
@@ -381,9 +373,6 @@ public class BossAI : MonoBehaviour
         IsSpitting = false;
         IsUsingArtillary = false;
         IsJumping = false;
-        //StompCD = 370;
-        IsStompCyl = true;
-        stompAnimTime = 2;
 
         Renderer.material = Normal;
     }
@@ -402,12 +391,18 @@ public class BossAI : MonoBehaviour
 
     void SetAnimatorBools()
     {
-        animator.SetBool("IsTurning", IsTurning);
-        animator.SetBool("IsJumping", IsJumping);
-        animator.SetBool("IsSpitting", IsSpitting);
-        animator.SetBool("IsUsingArtillary", IsUsingArtillary);
-        animator.SetBool("IsStomping", IsStomping);
-        stompAnimator.SetBool("IsStompCyl", IsStompCyl);
+        //animator.SetBool("IsTurning", IsTurning);
+        //animator.SetBool("IsJumping", IsJumping);
+        //animator.SetBool("IsSpitting", IsSpitting);
+        //animator.SetBool("IsUsingArtillary", IsUsingArtillary);
+        //animator.SetBool("IsStomping", IsStomping);
+        //stompAnimator.SetBool("IsStompCyl", IsStompCyl);
+
+        animator.SetBool("IsTurning", state == States.turn);
+        animator.SetBool("IsJumping", state == States.jump);
+        animator.SetBool("IsSpitting", state == States.spit);
+        animator.SetBool("IsUsingArtillary", state == States.artillery);
+        animator.SetBool("IsStomping", state == States.stomp);
     }
 
     // called if show with a weapon while in final stage
@@ -422,5 +417,20 @@ public class BossAI : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void JumpAnimEvent()
+    {
+        jumpAnimator.SetTrigger("TriggerJumpHit");
+    }
+
+    public void StompAnimEvent()
+    {
+        stompAnimator.SetTrigger("IsStompCyl");
+    }
+
+    public void AllowChange()
+    {
+        allowChange = true;
     }
 }
