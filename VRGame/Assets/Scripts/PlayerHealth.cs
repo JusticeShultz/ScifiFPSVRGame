@@ -45,7 +45,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, 0.1f);
+        c
+        // healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, 0.1f);
         StopCoroutine("DamageFlash");
         StartCoroutine("DamageFlash");
     }

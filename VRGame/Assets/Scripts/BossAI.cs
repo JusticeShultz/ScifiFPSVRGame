@@ -104,6 +104,8 @@ public class BossAI : MonoBehaviour
     GameObject stompAnim;
     // stomp animator
     Animator stompAnimator;
+    // jump animator
+    Animator jumpAnimator;
 
     //How long until I can do these abilities again?
     float IdleCD = 0;
@@ -116,12 +118,14 @@ public class BossAI : MonoBehaviour
     float CloakCD = 0;
    
     float stompAnimTime = 0;
+    bool triggeredJumpAnim;
 
     // globules on boss
     Globule[] Globules;
     // teleport points on back
     Valve.VR.InteractionSystem.TeleportPoint[] TeleportPoints;
 
+    float startYVal;
 
     void Start ()
     {
@@ -139,11 +143,15 @@ public class BossAI : MonoBehaviour
         TeleportPoints = new Valve.VR.InteractionSystem.TeleportPoint[refs.Length];
         for (int i = 0; i < refs.Length; i++) { TeleportPoints[i] = refs[i].referenceType.GetComponent<Valve.VR.InteractionSystem.TeleportPoint>(); }           
         stompAnimator = transform.Find("BossStomp").GetComponent<Animator>();
+        jumpAnimator = transform.Find("BossJump").GetComponent<Animator>();
 
         IdleCD = 0;
         currentGlobuleCount = maxGlobuleCount;  
 
         chanceTotal = turnChance + artillaryChance + jumpChance + spitChance + stompChance + cloakChance + cloakChance;
+
+        startYVal = transform.position.y;
+        triggeredJumpAnim = false;
     }
 	
 	void Update ()
@@ -160,6 +168,8 @@ public class BossAI : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
 
         if(state == States.turn) { Turn(); }
+
+        if(state == States.jump && transform.position.y < startYVal && !triggeredJumpAnim) { jumpAnimator.SetTrigger("JumpHitAnim"); }
 
         IdleCD += Time.deltaTime;
         TurnCD += Time.deltaTime;
@@ -322,6 +332,8 @@ public class BossAI : MonoBehaviour
         IsUsingArtillary = false;
         IsJumping = true;
         IsStompCyl = false;
+
+        triggeredJumpAnim = false;      
         //StunTime = 400; // 900
         //JumpCD = 2000; // 3500
         // ThrowPlayer();
