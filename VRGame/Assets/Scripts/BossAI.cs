@@ -113,6 +113,7 @@ public class BossAI : MonoBehaviour
 
     bool allowChange; // allow state to change
     float initialPlayerY;
+    bool startedWinActions;
 
     void Start ()
     {
@@ -137,6 +138,7 @@ public class BossAI : MonoBehaviour
         allowChange = true;
         currentCD = 0;
         currentTime = IdleTime;
+        startedWinActions = false;
 
         initialPlayerY = Player.transform.position.y;
     }
@@ -146,7 +148,7 @@ public class BossAI : MonoBehaviour
         healthBarImage.fillAmount = Mathf.Lerp(healthBarImage.fillAmount, (float)Health / MaxHealth, 0.1f);
 
         // if globs gone
-        if (currentGlobuleCount <= 0) { WinActions(); }
+        if (currentGlobuleCount <= 0 && !startedWinActions) { WinActions(); }
 
         // if out of bounds
         // if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
@@ -217,6 +219,8 @@ public class BossAI : MonoBehaviour
     // start win things
     void WinActions()
     {
+        startedWinActions = true;
+
         ThrowPlayer();
 
         DoorObjectives.killedBoss = true; // open door
@@ -244,7 +248,7 @@ public class BossAI : MonoBehaviour
 
         yield return new WaitForSeconds(5);
 
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     // returns correct bullet explosion
