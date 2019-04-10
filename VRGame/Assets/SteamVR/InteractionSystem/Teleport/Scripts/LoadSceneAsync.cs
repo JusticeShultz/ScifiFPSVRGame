@@ -41,7 +41,7 @@ public class LoadSceneAsync : MonoBehaviour
 
         GameObject.Find("ScreenFade").GetComponent<SpriteRenderer>().enabled = true;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(-1);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
