@@ -577,6 +577,11 @@ Prefab:
       propertyPath: IsDisplay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 195974292930356998, guid: a5dedabed3f015d43b44fbce9f20c473,
+        type: 2}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5dedabed3f015d43b44fbce9f20c473, type: 2}
   m_IsPrefabAsset: 0
