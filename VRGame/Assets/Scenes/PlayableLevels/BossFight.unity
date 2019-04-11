@@ -23186,7 +23186,7 @@ MonoBehaviour:
     type: 2}
   stompDamage: 10
   maxGlobuleCount: 2
-  IdleTime: 5
+  IdleTime: 3
   TurnTime: 2
   ArtillaryTime: 2
   JumpTime: 6
