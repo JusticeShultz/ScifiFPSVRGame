@@ -256,7 +256,7 @@ Prefab:
     - target: {fileID: 114786230541315866, guid: d0fe3aa0698f037469e4b048e47e1926,
         type: 2}
       propertyPath: armor
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
