@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec32d6465df86b489b96f604b5f6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadscreen: {fileID: 0}
 --- !u!1001 &1358382872
 Prefab:
   m_ObjectHideFlags: 0
@@ -201,6 +200,24 @@ Prefab:
     - target: {fileID: 1619712617509538, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
       propertyPath: m_Name
       value: ScreenFade
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254005646759860, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332456187258832, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114238278680904190, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: Offset.y
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 114663806289459248, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: Offset.y
+      value: -0.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
