@@ -3,12 +3,13 @@ Aboard
 
 Zip file can be found [here](https://justiceshultz.itch.io/aboard):
 	
-Justice Shultz\n
+Justice Shultz
+
 Alexi Most
 
 ## Cross Platform Development
-### AIE Programming 2020
-### Built April 2019
+#### AIE Programming 2020
+##### Built April 2019
 
 ## Start Instructions
 	Requires SteamVR to installed
