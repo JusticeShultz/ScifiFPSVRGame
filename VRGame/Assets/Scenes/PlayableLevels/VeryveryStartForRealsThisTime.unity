@@ -219,6 +219,16 @@ Prefab:
       propertyPath: Offset.y
       value: -0.55
       objectReference: {fileID: 0}
+    - target: {fileID: 114238278680904190, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: IsClip
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114663806289459248, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: IsClip
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
   m_IsPrefabAsset: 0
