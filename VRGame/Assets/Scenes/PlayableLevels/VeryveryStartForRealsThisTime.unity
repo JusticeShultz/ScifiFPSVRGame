@@ -229,6 +229,30 @@ Prefab:
       propertyPath: IsClip
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114801423910001114, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801423910001114, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801423910001114, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801423910001114, guid: d0fe3aa0698f037469e4b048e47e1926,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086275769053108, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fe3aa0698f037469e4b048e47e1926, type: 2}
   m_IsPrefabAsset: 0
