@@ -307,6 +307,7 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    #region Boss States
     void Idle()
     {
         IsTurning = false;
@@ -411,6 +412,8 @@ public class BossAI : MonoBehaviour
 
         Renderer.material = Ghosted;
     }
+
+    #endregion
 
     // sets animation states with controller bools
     void SetAnimatorBools()
