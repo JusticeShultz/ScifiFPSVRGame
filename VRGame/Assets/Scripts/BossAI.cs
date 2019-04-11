@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// state manager for the thresher boss
 public class BossAI : MonoBehaviour
 {
     // animation states
@@ -152,6 +153,13 @@ public class BossAI : MonoBehaviour
 
         // if out of bounds
         // if (Vector3.Distance(Player.transform.position, transform.position) > 10) { return; }
+
+        // turn towards player
+        if (state == States.turn)
+        {
+            SmoothLook.transform.LookAt(Player.transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
+        }
 
         currentCD += Time.deltaTime;
         if(currentCD < currentTime || !allowChange) { return; } // if time in state left
@@ -322,8 +330,8 @@ public class BossAI : MonoBehaviour
 
         currentTime = TurnTime;
 
-        SmoothLook.transform.LookAt(Player.transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
+        //SmoothLook.transform.LookAt(Player.transform.position);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, SmoothLook.transform.rotation, 0.01f);
 
         Renderer.material = Normal;
     }

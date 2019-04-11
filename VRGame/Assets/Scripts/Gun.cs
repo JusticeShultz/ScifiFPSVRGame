@@ -130,27 +130,12 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (GrabGripAction.GetStateDown(HandType) && !activeGun && GetComponent<Interactable>().enabled && GetComponent<Interactable>().isHovering)
-        //{
-        //    PickupGun(GameObject.Find("RightHand").transform.Find("HoverPoint"));
-        //    // PickupGun(hand.transform.Find("HoverPoint"));
-        //    return;
-        //}
-
         if (!activeGun && transform.parent == null)
         {
             rigidbodyComponent.isKinematic = false;
             rigidbodyComponent.useGravity = true;
             return;
-        } // if not being held
-
-        // helpful debugging
-        //if (GrabPinchAction.GetStateDown(HandType))
-        //    print("fire");
-        //if (GrabGripAction.GetStateDown(HandType))
-        //    print("grip");
-
-        // if (GrabGripAction.GetStateUp(HandType)) { canDrop = true; }       
+        } // if not being held      
 
         // drop weapon
         if (GrabGripAction.GetStateDown(HandType) && activeGun && canDrop)
@@ -218,12 +203,6 @@ public class Gun : MonoBehaviour
     {
         clip.SetActive(true); // show clip
 
-        // drop old clip
-        // GameObject oldClip = Instantiate<GameObject>(clip, clip.transform.position, clip.transform.rotation);
-        // oldClip.GetComponent<Rigidbody>().useGravity = true;
-        // oldClip.GetComponent<BoxCollider>().isTrigger = true;
-        // oldClip.AddComponent<DestroyOnCollision>();
-
         for (float t = 0; t < 1; t += Time.deltaTime * reloadTime)
         {
             clip.transform.localPosition = Vector3.Lerp(clipPos, clipGoal, t);
@@ -242,7 +221,7 @@ public class Gun : MonoBehaviour
         interA.highlightOnHover = false;
         bc.isTrigger = true;
         rb.useGravity = false;
-        rb.isKinematic = true; // not this
+        rb.isKinematic = true; 
         // activeGun = true;
         Activate();
         canDrop = false;
@@ -250,7 +229,6 @@ public class Gun : MonoBehaviour
         // parent object reference
         parentObj = parent;
 
-        // GetComponent<Throwable>().enabled = false;
     }
 
     public void DropGun()
@@ -264,13 +242,9 @@ public class Gun : MonoBehaviour
         // activeGun = false;
         Deactivate();
 
-        // reset hand model
-
         parentObj = null;
         transform.SetParent(null);
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
-
-        // GetComponent<Throwable>().enabled = true;
     }
 
     //public void OnGripDown()
@@ -294,7 +268,7 @@ public class Gun : MonoBehaviour
         canDrop = true;
 
         transform.SetParent(parentObj);
-        rb.isKinematic = true; // not this
+        rb.isKinematic = true; 
 
         if (leftHanded)
         {

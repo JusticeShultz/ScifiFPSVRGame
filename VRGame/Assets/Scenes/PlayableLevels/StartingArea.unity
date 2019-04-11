@@ -5319,7 +5319,7 @@ GameObject:
   - component: {fileID: 493501545}
   m_Layer: 0
   m_Name: LevelLoader
-  m_TagString: Untagged
+  m_TagString: SceneLoader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5369,7 +5369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec32d6465df86b489b96f604b5f6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadscreen: {fileID: 0}
 --- !u!1001 &496262193
 Prefab:
   m_ObjectHideFlags: 0

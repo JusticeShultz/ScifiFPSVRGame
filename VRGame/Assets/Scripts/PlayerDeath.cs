@@ -24,6 +24,8 @@ public class PlayerDeath : MonoBehaviour {
         ph = player.GetComponentInChildren<PlayerHealth>();
         wh = player.GetComponent<WeaponHandler>();
 
+        ph.resetHealth();
+
         ph.deathCount++;
         dc = ph.deathCount;
         wh.leftWeapon = null;
@@ -38,9 +40,5 @@ public class PlayerDeath : MonoBehaviour {
         statsString += "\nLeft Weapon: none";
 
         statsText.text = statsString;
-
-        // add event handler to button
-
-    }
-	
+    }	
 }

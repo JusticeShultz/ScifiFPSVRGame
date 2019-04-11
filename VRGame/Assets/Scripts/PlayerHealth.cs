@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 using UnityEngine.UI;
 
+// controls player health and manages red damage flash
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100;
@@ -35,22 +36,27 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetMouseButtonDown(0)) { currentHealth = 0; }
-
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, 0.1f);
 
-        if (currentHealth <= 0)
-        {
-            currentHealth = maxHealth;
-            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<LoadSceneAsync>().Do("Lose");
-        }
+        //if (currentHealth <= 0)
+        //{
+        //    // currentHealth = maxHealth;
+        //    GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<LoadSceneAsync>().Do("Lose");
+        //}
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            // loads death scene
+            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<LoadSceneAsync>().Do("Lose");
+        }
+        
         StopCoroutine("DamageFlash");
-        StartCoroutine("DamageFlash");
+        StartCoroutine("DamageFlash");       
     }
 
     // flashes screen red
@@ -61,5 +67,10 @@ public class PlayerHealth : MonoBehaviour
             damageImage.color = Color.Lerp(damageOrigColor, Color.clear, i / flashTime);
             yield return null;
         }
+    }
+
+    public void resetHealth()
+    {
+        currentHealth = maxHealth;
     }
 }

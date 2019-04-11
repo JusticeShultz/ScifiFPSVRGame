@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// controls buttlet logic, handles collision damage
 public class BulletLogic : MonoBehaviour
 {
     public int Damage = 25;
@@ -74,7 +75,7 @@ public class BulletLogic : MonoBehaviour
             {
                 //Do damage to it
                 PlayerHealth ph = col.gameObject.GetComponent<PlayerHealth>();
-                ph.TakeDamage(Mathf.Clamp((Damage - col.gameObject.GetComponent<PlayerHealth>().armor), 1.0f, 10000.0f));
+                ph.TakeDamage(Mathf.Clamp((Damage - ph.armor), 1.0f, 10000.0f));
                 Destroy(gameObject);
             }
             else Destroy(gameObject);
