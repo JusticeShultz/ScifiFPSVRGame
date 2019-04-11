@@ -3,7 +3,7 @@ Aboard
 
 Zip file can be found [here](https://justiceshultz.itch.io/aboard):
 	
-Justice Shultz
+Justice Shultz\n
 Alexi Most
 
 ## Cross Platform Development
@@ -16,12 +16,12 @@ Alexi Most
 	Run Aboard
 
 ## Game Controls
-	### Oculus Rift
+	Oculus Rift
 		Teleport -------------- Joystick
 		Shoot ----------------- Trigger
 		Interact with UI ------ Trigger
 		Pick up and grop guns - Grip
-	### HTC Vive
+	HTC Vive
 		Teleport -------------- Trackpad
 		Shoot ----------------- Trigger
 		Interact with UI ------ Trigger
