@@ -246,17 +246,24 @@ public class BossAI : MonoBehaviour
     // shrinks and explodes boss, death "animation"
     IEnumerator BossShrink()
     {
-        for(float i = 0; i < 3; i+= Time.deltaTime)
+        Vector3 startScale = transform.localScale;
+
+        for(float i = 0; i < 3; i += Time.deltaTime)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, i / 3);
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, i / 3);
             yield return null;
         }
 
-        Instantiate(deathExplosion, transform.position, transform.rotation);
+        Vector3 pos = transform.position;
+        pos.y = Player.transform.position.y;
+        Instantiate(deathExplosion, pos, Quaternion.Euler(Vector3.up));
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
+        // this screws up teleporting
         // Destroy(gameObject);
+
+        gameObject.SetActive(false);
     }
 
     // returns correct bullet explosion

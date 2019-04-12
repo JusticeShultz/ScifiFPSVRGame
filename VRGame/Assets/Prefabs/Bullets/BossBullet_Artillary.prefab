@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a4a5a6a58904b96f51a5f6d1a5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 55
+  Damage: 45
   IsEnemyShot: 1
   enemyHitExplosion: {fileID: 0}
   otherHitExplosion: {fileID: 0}
